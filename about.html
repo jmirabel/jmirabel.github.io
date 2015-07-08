@@ -12,24 +12,25 @@
     <script src="/js/script.js"></script>
   </head>
   <body>
-    <header class="header">
-      <div class="content-wrap">
-        <div class="logo">
-          <h1><a href="http://jmirabel.github.io/">Joseph Mirabel</a></h1>
-          <p class="description">Personal blog</p>
-          <p class="social"><a href="https://github.com/jmirabel"><img width="46" src="/img/octocat.png" alt="My Github account"></a>
-            <script>insert_mail_address();</script>
-          </p>
-          <noscript>Sorry, you need Javascript to email me</noscript>
+    <div class="body-wrap">
+      <header class="header">
+        <div class="content-wrap">
+          <div class="logo">
+            <h1><a href="http://jmirabel.github.io/">Joseph Mirabel</a></h1>
+            <p class="description">Personal blog</p>
+            <p class="social"><a href="https://github.com/jmirabel"><img width="46" src="/img/octocat.png" alt="My Github account"></a>
+              <script>insert_mail_address();</script>
+            </p>
+            <noscript>Sorry, you need Javascript to email me</noscript>
+          </div>
         </div>
-      </div>
-    </header>
-    <div class="menu"><a href="/" class="menuitem">Home</a><a href="/about.html" class="menuitem">About</a><a href="/projects.html" class="menuitem">Projects</a></div>
-    <div id="content">
-      <div class="content-wrap">
-        <article class="article">
-          <section class="content"><h1 id="short-bio">Short&nbsp;bio</h1>
-<p><img style="float:left;display:inline; width:auto" alt="Portait" src="img/profile.png"/>
+      </header>
+      <div class="menu"><a href="/" class="menuitem">Home</a><a href="/projects.html" class="menuitem">Projects</a><a href="/about.html" class="menuitem">About</a></div>
+      <div id="content">
+        <div class="content-wrap">
+          <article class="article">
+            <section class="content"><h1 id="short-bio">Short&nbsp;bio</h1>
+<p><img style="float:left;display:inline; width:auto; margin: auto 1em;" alt="Portait" src="img/profile.png"/>
 I’m currently a 2<span class="ord">nd</span> year PhD student at <a href="http://laas.fr" title="Laboratoire d&#39;analyse et d&#39;architecture des systèmes"><span class="caps">LAAS</span>-CNRS</a> in Toulouse, France.
 I’m part of the <a href="http://projects.laas.fr/gepetto/" title="Movement of Anthropomorphic Systems">Gepetto</a> team, working on manipulation planning. Part of my work is 
 devoted to humanoid robots, but most of it applies to the motion planning in collections of
@@ -56,18 +57,18 @@ The “École Polytechnique” is among the leading “Grandes Écoles” in&nbs
 </p>
 
 </section>
-        </article>
+          </article>
+        </div>
       </div>
+      <footer>
+        <div class="content-wrap">
+          <!--section.about//!=contents['about.md'].html
+          -->
+          <section class="copy">
+            <p>&copy; 2015 Joseph Mirabel</p>
+          </section>
+        </div>
+      </footer>
     </div>
-    <footer>
-      <div class="content-wrap">
-        <!--section.about//!=contents['about.md'].html
-        -->
-        <section class="copy">
-          <p>&copy; 2015 Joseph Mirabel &mdash; powered by&nbsp;<a href="https://github.com/jnordberg/wintersmith">Wintersmith</a>
-          </p>
-        </section>
-      </div>
-    </footer>
   </body>
 </html>

@@ -12,18 +12,19 @@
     <script src="/js/script.js"></script>
   </head>
   <body class="article-detail">
-    <header class="header">
-      <div class="content-wrap">
-        <h1>Code and stuff!</h1>
-        <p class="author">Written by <span class="author"><a href="mailto:the@wintersmith.eu">The Wintersmith</a></span>
-        </p>
-      </div>
-    </header>
-    <div class="menu"><a href="/" class="menuitem">Home</a><a href="/about.html" class="menuitem">About</a><a href="/projects.html" class="menuitem">Projects</a></div>
-    <div id="content">
-      <div class="content-wrap">
-        <article class="article">
-          <section class="content"><p>Syntax highlighting with <a href="http://softwaremaniacs.org/soft/highlight/en/">highlight.js</a>.
+    <div class="body-wrap">
+      <header class="header">
+        <div class="content-wrap">
+          <h1>Code and stuff!</h1>
+          <p class="author">Written by <span class="author"><a href="mailto:the@wintersmith.eu">The Wintersmith</a></span>
+          </p>
+        </div>
+      </header>
+      <div class="menu"><a href="/" class="menuitem">Home</a><a href="/projects.html" class="menuitem">Projects</a><a href="/about.html" class="menuitem">About</a></div>
+      <div id="content">
+        <div class="content-wrap">
+          <article class="article">
+            <section class="content"><p>Syntax highlighting with <a href="http://softwaremaniacs.org/soft/highlight/en/">highlight.js</a>.
 The theme used is tomorrow, you can find more themes <a href="http://jmblog.github.io/color-themes-for-highlightjs/">here</a>.</p>
 <p><span class="more"></span></p>
 <h3 id="javascript">JavaScript</h3>
@@ -113,19 +114,19 @@ The theme used is tomorrow, you can find more themes <a href="http://jmblog.gith
 <pre><code class="lang-ruby">puts <span class="string">"Hello world!"</span>
 </code></pre>
 </section>
-        </article>
+          </article>
+        </div>
       </div>
+      <footer>
+        <div class="content-wrap">
+          <div class="nav"><a href="/">« Full blog</a></div>
+          <!--section.about//!=contents['about.md'].html
+          -->
+          <section class="copy">
+            <p>&copy; 2015 Joseph Mirabel</p>
+          </section>
+        </div>
+      </footer>
     </div>
-    <footer>
-      <div class="content-wrap">
-        <div class="nav"><a href="/">« Full blog</a></div>
-        <!--section.about//!=contents['about.md'].html
-        -->
-        <section class="copy">
-          <p>&copy; 2015 Joseph Mirabel &mdash; powered by&nbsp;<a href="https://github.com/jnordberg/wintersmith">Wintersmith</a>
-          </p>
-        </section>
-      </div>
-    </footer>
   </body>
 </html>

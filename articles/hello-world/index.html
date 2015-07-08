@@ -12,18 +12,19 @@
     <script src="/js/script.js"></script>
   </head>
   <body class="article-detail">
-    <header class="header">
-      <div class="content-wrap">
-        <h1>README</h1>
-        <p class="author">Written by <span class="author"><a href="mailto:josephmirabel@gmail.com">Joseph Mirabel</a></span>
-        </p>
-      </div>
-    </header>
-    <div class="menu"><a href="/" class="menuitem">Home</a><a href="/about.html" class="menuitem">About</a><a href="/projects.html" class="menuitem">Projects</a></div>
-    <div id="content">
-      <div class="content-wrap">
-        <article class="article">
-          <section class="content"><p>Welcome to your new blog! This is the default blog template with <span class="caps">RSS</span>, pagination and an archive. There are other templates available — run <code>wintersmith new --help</code> to list&nbsp;them.</p>
+    <div class="body-wrap">
+      <header class="header">
+        <div class="content-wrap">
+          <h1>README</h1>
+          <p class="author">Written by <span class="author"><a href="mailto:josephmirabel@gmail.com">Joseph Mirabel</a></span>
+          </p>
+        </div>
+      </header>
+      <div class="menu"><a href="/" class="menuitem">Home</a><a href="/projects.html" class="menuitem">Projects</a><a href="/about.html" class="menuitem">About</a></div>
+      <div id="content">
+        <div class="content-wrap">
+          <article class="article">
+            <section class="content"><p>Welcome to your new blog! This is the default blog template with <span class="caps">RSS</span>, pagination and an archive. There are other templates available — run <code>wintersmith new --help</code> to list&nbsp;them.</p>
 <h2 id="_repeat-after-me-_-this-is-my-blog-there-are-many-like-it-but-this-one-is-mine-my-blog-is-my-best-friend-it-is-my-life-i-must-master-it-as-i-must-master-my-life-my-blog-without-me-is-useless-without-my-blog-i-am-useless-"><em>Repeat after me:</em> This is my blog. There are many like it, but this one is mine. My blog is my best friend. It is my life. I must master it as I must master my life. My blog, without me, is useless. Without my blog, I am&nbsp;useless.</h2>
 <p>Good, now, the directory structure of your blog is as&nbsp;follows:</p>
 <pre><code>├── config.json               &lt;- site configuration
@@ -84,19 +85,19 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 <hr>
 <p>This is where I leave you to your own devices. Join <strong>#wintersmith</strong> on freenode if you have any&nbsp;questions.</p>
 </section>
-        </article>
+          </article>
+        </div>
       </div>
+      <footer>
+        <div class="content-wrap">
+          <div class="nav"><a href="/">« Full blog</a></div>
+          <!--section.about//!=contents['about.md'].html
+          -->
+          <section class="copy">
+            <p>&copy; 2015 Joseph Mirabel</p>
+          </section>
+        </div>
+      </footer>
     </div>
-    <footer>
-      <div class="content-wrap">
-        <div class="nav"><a href="/">« Full blog</a></div>
-        <!--section.about//!=contents['about.md'].html
-        -->
-        <section class="copy">
-          <p>&copy; 2015 Joseph Mirabel &mdash; powered by&nbsp;<a href="https://github.com/jnordberg/wintersmith">Wintersmith</a>
-          </p>
-        </section>
-      </div>
-    </footer>
   </body>
 </html>

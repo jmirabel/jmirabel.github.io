@@ -1,0 +1,23 @@
+{
+  "locals": {
+    "url": "http://jmirabel.github.io/",
+    "name": "Joseph Mirabel",
+    "owner": "Joseph Mirabel",
+    "description": "Personal blog",
+    "github": "https://github.com/jmirabel"
+  },
+  "require": {
+    "moment": "moment",
+    "_": "underscore",
+    "typogr": "typogr"
+  },
+  "jade": {
+    "pretty": true
+  },
+  "markdown": {
+    "smartLists": true,
+    "smartypants": true
+  },
+  "baseUrl": "",
+  "output": "../"
+}
