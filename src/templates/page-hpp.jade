@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  article.article
+    p(style="text-align: right;")
+      a(href=contents['humanoid-path-planner']['index.md'].url) Table of content
+    section.content!= typogr(page.html).typogrify()

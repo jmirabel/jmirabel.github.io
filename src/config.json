@@ -3,9 +3,12 @@
     "url": "http://jmirabel.github.io/",
     "name": "Joseph Mirabel",
     "owner": "Joseph Mirabel",
-    "description": "Personal blog",
+    "description": "PhD student",
     "github": "https://github.com/jmirabel"
   },
+  "plugins": [
+    "./plugins/paginator.coffee"
+  ],
   "require": {
     "moment": "moment",
     "_": "underscore",
@@ -17,6 +20,9 @@
   "markdown": {
     "smartLists": true,
     "smartypants": true
+  },
+  "paginator": {
+    "perPage": 3
   },
   "baseUrl": "",
   "output": "../"

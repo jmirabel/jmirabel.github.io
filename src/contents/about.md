@@ -12,6 +12,7 @@ submanifold of a high dimensional configuration spaces.
 
 The implementation of my research is integrated in the [Humanoid Path Planner][HPP] library,
 mainly in the package [hpp-manipulation].
+See [this](/humanoid-path-planner/) for additional details.
 I have also been working on an - still - unofficial [graphical user interface][hpp-gui].
 
 [LAAS-CNRS]:http://laas.fr "Laboratoire d'analyse et d'architecture des systèmes"

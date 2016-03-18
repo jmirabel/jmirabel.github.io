@@ -14,6 +14,8 @@ html(lang='en')
       link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300')
       link(rel='stylesheet', href=contents.css['main.css'].url)
       script(src=contents.js['script.js'].url)
+      script(type="text/javascript", async, src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML")
+
   body(class=bodyclass)
     div.body-wrap
       header.header
@@ -31,13 +33,12 @@ html(lang='en')
               noscript Sorry, you need Javascript to email me
       div.menu
         a.menuitem(href=contents['index.md'].url) Home
-        a.menuitem(href=contents['projects.md'].url) Projects
+        <!--a.menuitem(href=contents['projects.md'].url) Projects-->
         a.menuitem(href=contents['about.md'].url) About
 
       div#content
         div.content-wrap
           block content
-            h2 Welcome to zombocom!
       footer
         div.content-wrap
           block footer
@@ -45,3 +46,4 @@ html(lang='en')
               //!=contents['about.md'].html
             section.copy
               p &copy; #{ new Date().getFullYear() } #{ locals.owner }
+    div.whitebottom
