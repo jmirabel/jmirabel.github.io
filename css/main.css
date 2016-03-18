@@ -1,4 +1,8 @@
 
+html {
+  min-height:100%;
+}
+
 h1, h2, h3, h4, h5, h6, p, body, a, img, ul, ol, blockquote, pre {
   margin: 0; padding: 0; border: 0;
 }
@@ -10,8 +14,8 @@ body {
   background-color: #f8f8f8;
   text-rendering: optimizeLegibility;
   margin: 0px auto;
-  max-width: 1080px;
-  min-height: 100%;
+  max-width: 90%;
+  min-height: 90%;
 }
 
 .body-wrap {
@@ -26,7 +30,6 @@ body {
 }
 
 body, a {
-  /*color: #171717;*/
   color: white;
 }
 
@@ -94,14 +97,13 @@ hr {
 /* page header */
 
 .header {
-  padding: 3em 0 3em;
-  /*margin: 0em 0 5em;*/
-  background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)),
-               url(../img/background.jpg);
+  padding: 0em 0 0em;
+  background-color: #f8f8f8;
+  color: black;
 }
 
 .header h1 {
-  font-size: 2.6em;
+  font-size: 2em;
   text-align: center;
   font-weight: 700;
   margin: 0;
@@ -128,6 +130,7 @@ hr {
   text-align: center;
   margin-top: -0.3em;
   margin-bottom: 0;
+  color: #171717;
 }
 
 .header .social {
@@ -150,7 +153,6 @@ body.article-detail > header {
 /* page navigation */
 
 .menu {
-  /*background-color: #080808;*/
   text-align: center;
 }
 
@@ -224,6 +226,12 @@ footer p {
   padding-bottom: 1em;
 }
 
+/* bottom */
+
+.whitebottom {
+  height: 100px;
+}
+
 /* article */
 
 .article {
@@ -255,6 +263,8 @@ footer p {
 .article header .date span {
   background-color: #f8f8f8;
   padding: 0 0.7em;
+  color: black;
+  border-radius: 10px;
 }
 
 .article.intro .content p {

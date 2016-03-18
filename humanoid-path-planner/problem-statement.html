@@ -30,9 +30,32 @@
       <div id="content">
         <div class="content-wrap">
           <article class="article">
-            <section class="content"><h1 id="current-project">Current&nbsp;project</h1>
+            <p style="text-align: right;"><a href="/humanoid-path-planner/">Table of content</a></p>
+            <section class="content"><h2 id="the-humanoid-path-planner">The Humanoid Path&nbsp;Planner</h2>
 <hr>
-<h1 id="old-projects">Old&nbsp;projects</h1>
+<h2 id="problem-statement">Problem&nbsp;statement</h2>
+<p>The Humanoid Path Planner (<span class="caps">HPP</span>) is an open-source library for motion&nbsp;planning.</p>
+<p>As most classic motion planners, it solves problems defined by the following&nbsp;inputs:</p>
+<ul>
+<li>a robot, defining the configuration&nbsp;space,</li>
+<li>an&nbsp;environment,</li>
+<li>an initial and several goal&nbsp;configurations.</li>
+</ul>
+<p>However, as its name suggests it, it is intended to be used on humanoid robots and this formulation is not general enough.
+Indeed, the robot balance implies that motion planning has to be done in a sub-manifold.
+Thus, <span class="caps">HPP</span> extends the motion planning problem to constrained problems. The user can specify <strong>constraints</strong>, such as quasi-static&nbsp;equilibrium.</p>
+<p>Another specificity of <span class="caps">HPP</span> is its manipulation planning framework.
+HPP tackles manipulation problems defined by the following&nbsp;inputs:</p>
+<ul>
+<li>a set of robots and objects - possibly articulated - with handles and grippers attached to specific&nbsp;joints,</li>
+<li>a static environment, with surfaces on which object can be put&nbsp;down,</li>
+<li>a configuration for the&nbsp;robots,</li>
+<li>an initial and goal configuration for each&nbsp;object.</li>
+</ul>
+<p>From the set of robots, objects and surfaces, we define a finite state machine.
+The states are symbolic relationship between those elements, such as <em>handle H is grasped by gripper G</em> or <em>object I is on surface S</em>.
+The transition between states represents possible actions, such <em>put down object O on surface S</em>.
+This finite state machine is called <strong>Constraint&nbsp;graph</strong></p>
 </section>
           </article>
         </div>

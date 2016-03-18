@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title>HPP - Problem statement - Joseph Mirabel
+    </title>
+    <link rel="alternate" href="http://jmirabel.github.io//feed.xml" type="application/rss+xml" title="PhD student">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300">
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="/js/script.js"></script>
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  </head>
+  <body class="article-detail">
+    <div class="body-wrap">
+      <header class="header">
+        <div class="content-wrap">
+          <h1>HPP - Problem statement</h1>
+          <p class="author">Written by <span class="author">Joseph Mirabel</span>
+          </p>
+        </div>
+      </header>
+      <div class="menu"><a href="/" class="menuitem">Home</a><!--a.menuitem(href=contents['projects.md'].url) Projects--><a href="/about.html" class="menuitem">About</a></div>
+      <div id="content">
+        <div class="content-wrap">
+          <article class="article">
+            <section class="content"><p>The Humanoid Path Planner (<span class="caps">HPP</span>) is an open-source library for motion&nbsp;planning.</p>
+<p><span class="more"></span></p>
+<p>As most classic motion planners, it solves problems defined by the following&nbsp;inputs:</p>
+<ul>
+<li>a robot, defining the configuration&nbsp;space,</li>
+<li>an&nbsp;environment,</li>
+<li>an initial and several goal&nbsp;configurations.</li>
+</ul>
+<p>However, as its name suggests it, it is intended to be used on humanoid robots and this formulation is not general enough.
+Indeed, the robot balance implies that motion planning has to be done in a sub-manifold.
+Thus, <span class="caps">HPP</span> extends the motion planning problem to constrained problems. The user can specify <strong>constraints</strong>, such as quasi-static&nbsp;equilibrium.</p>
+<p>Another specificity of <span class="caps">HPP</span> is its manipulation planning framework.
+HPP tackles manipulation problems defined by the following&nbsp;inputs:</p>
+<ul>
+<li>a set of robots and objects - possibly articulated - with handles and grippers attached to specific&nbsp;joints,</li>
+<li>a static environment, with surfaces on which object can be put&nbsp;down,</li>
+<li>a configuration for the&nbsp;robots,</li>
+<li>an initial and goal configuration for each&nbsp;object.</li>
+</ul>
+<p>From the set of robots, objects and surfaces, we define a finite state machine.
+The states are symbolic relationship between those elements, such as <em>handle H is grasped by gripper G</em> or <em>object I is on surface S</em>.
+The transition between states represents possible actions, such <em>put down object O on surface S</em>.
+This finite state machine is called <strong>Constraint&nbsp;graph</strong></p>
+</section>
+          </article>
+        </div>
+      </div>
+      <footer>
+        <div class="content-wrap">
+          <div class="nav"><a href="/">« Full blog</a></div>
+          <!--section.about//!=contents['about.md'].html
+          -->
+          <section class="copy">
+            <p>&copy; 2016 Joseph Mirabel</p>
+          </section>
+        </div>
+      </footer>
+    </div>
+    <div class="whitebottom"></div>
+  </body>
+</html>
