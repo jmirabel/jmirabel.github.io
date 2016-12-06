@@ -1,0 +1,6 @@
+{% if page.youtubeid %}
+{% capture videourl %}https://www.youtube.com/embed/{{ page.youtubeid }}{% endcapture %}
+{% elsif page.video %}
+  {% assign videourl = page.video %}
+{% endif %}
+<iframe width="560" height="315" src="{{ videourl }}" frameborder="0" allowfullscreen></iframe>

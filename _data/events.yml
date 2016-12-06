@@ -1,0 +1,15 @@
+- image: "/img/timeline/gepetto1.png"
+  date: "Mar. 2014 - Today"
+  description: "PhD student <br/>
+    Gepetto Team, LAAS-CNRS <br/>
+    Toulouse, France"
+- image: "/img/timeline/kth.png"
+  date: "Aug. 2012 - Feb. 2014"
+  description: "MSc _System, Control and Robotics_ <br/>
+    __KTH Royal Institute of Technology__ <br/>
+    Stockholm, Sweden"
+- image: "/img/timeline/bicorne.png"
+  date: "Sept. 2009 - July 2012"
+  description: "“Diplôme d’ingénieur” - Electrical engineering <br/>
+    __Ecole Polytechnique__ <br/>
+    Palaiseau, France"

@@ -1,0 +1,24 @@
+<!-- Highlighted Publi Start -->
+
+<section id="{{ page.section-type }}" class="container-fluid content-section text-center">
+    <div class="row">
+      <!--<div class="col-md-10 col-md-offset-1">-->
+      <div class="col-md-12">
+
+        {{ page.content | markdownify }}
+
+        {% assign publipath = "publications/" %}
+
+        {% for publi in site.data.publications %}
+          {% if publi.highlight %}
+            {% include publication-summary.html %}
+          {% endif %}
+        {% endfor %}
+
+        <h4><a href="{{site.baseurl}}/publications/">All publications</a></h4>
+
+      </div>
+    </div>
+</section>
+
+<!-- Highlighted Publi End -->

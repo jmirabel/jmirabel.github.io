@@ -1,0 +1,50 @@
+
+<!-- Publications Layout Start -->
+
+<!DOCTYPE html>
+<html lang="{{ site.lang }}">
+
+  {% include head.html %}
+
+  <body>
+
+    {% include navigation.html %}
+
+    <section id="page" class="container content-section text-center">
+      {{ page.content | markdownify }}
+
+      {% assign first_cat = 1 %}
+      {% for cat in site.pubcat %}
+        {% assign publications = site.data.publications | where: "pubcat",cat[0] | sort: 'date' | reverse %}
+        {% if publications.size == 0 %}
+          {% continue %}
+        {% endif %}
+        {% if first_cat == 0 %}
+          <hr class="featurette-divider">
+        {% endif %}
+        {% assign first_cat = 0 %}
+        <div class="row">
+          <!--<div class="col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1">-->
+          <div class="col-md-12 col-xs-12">
+            <h4>{{ cat[1] }}</h4>
+          </div>
+        </div>
+        {% for publi in publications %}
+          <div class="row">
+            <!--<div class="col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1">-->
+            <div class="col-md-12 col-xs-12">
+              {% include publication-summary.html %}
+            </div>
+          </div>
+        {% endfor %}
+      {% endfor %}
+    </section>
+
+    {% include footer.html %}
+
+    {% include js.html %}
+
+  </body>
+</html>
+
+<!-- Publications Layout End -->

@@ -1,0 +1,54 @@
+<!-- Publication Summary Start -->
+
+<h4> <strong> {{ publi.date | date_to_string }} </strong>
+  <small>.</small>
+    <strong>
+      {% if publi.page %}
+        <a href="{{site.baseurl}}{{publipath}}{{ publi.page }}.html">{{publi.title}}</a>
+      {% elsif publi.halid %}
+        <a href="https://hal.archives-ouvertes.fr/{{ publi.halid }}">{{publi.title}}</a>
+      {% else %}
+        {{ publi.title }}
+      {% endif %}
+    </strong>
+    <small>
+
+  {% if publi.pdf %}
+    <a href="{{ publi.pdf }}" alt="{{ publi.pdf }}" title="PDF">
+      <i class="fa fa-file-pdf-o"></i>
+    </a>
+  {% elsif publi.halid %}
+    <a href="https://hal.archives-ouvertes.fr/{{ publi.halid }}/document" title="HAL" alt="HAL">
+      <i class="fa fa-file-pdf-o"></i>
+    </a>
+  {% endif %}
+
+  {% if publi.halid %}
+    <a href="https://hal.archives-ouvertes.fr/{{ publi.halid }}" title="HAL" alt="HAL">
+      <i class="fa fa-external-link"></i>
+    </a>
+  {% endif %}
+
+  {% if publi.bib %}
+    <a href="{{ publi.bib }}">
+      <img class="emoji" src="{{site.baseurl}}/img/bib.gif" alt="(BIBTEX)" title="BIBTEX"/>
+    </a>
+  {% elsif publi.halid %}
+  <a href="{{ publi.halid }}" title="HAL" alt="HAL">
+    <a href="https://hal.archives-ouvertes.fr/{{ publi.halid }}/bibtex">
+      <img class="emoji" src="{{site.baseurl}}/img/bib.gif" alt="(BIBTEX)" title="BIBTEX"/>
+    </a>
+  {% endif %}
+  <br/>
+
+  {{publi.authors}} <br/>
+
+  <em>{{publi.where}}</em>
+  </small>
+</h4>
+<!--{% if publi.short %}-->
+<!--<p><small>-->
+<!--{{ publi.short | markdownify }}-->
+<!--</small></p>-->
+<!--{% endif %}-->
+<!-- Publication Summary End -->

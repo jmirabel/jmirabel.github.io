@@ -1,0 +1,34 @@
+- page: hpp
+  date: 2016-10-09
+  title: "HPP: A new software for constrained motion planning"
+  authors: Joseph Mirabel, Steve Tonneau, Pierre Fernbach, Anna-Kaarina Seppälä, Mylène Campana, Nicolas Mansard and Florent Lamiraux.
+  where: "IEEE/RSJ Intelligent Robots and Systems 2016"
+  pubcat: ic
+  halid: hal-01290850
+  highlight: true
+
+- date: 2017-01-15
+  title: "Manipulation planning: building paths on constrained manifolds"
+  authors: Joseph Mirabel and Florent Lamiraux
+  where: "Submitted to IEEE International Conference on Robotics and Automation 2017"
+  pubcat: ic
+  halid: hal-01360409
+  highlight: true
+
+- date: 2017-01-15
+  title: "Manipulation planning: addressing the crossed foliation issue"
+  authors: Joseph Mirabel and Florent Lamiraux
+  where: "Submitted to IEEE International Conference on Robotics and Automation 2017"
+  pubcat: ic
+  halid: hal-01358767
+  pdf: "http://hal.archives-ouvertes.fr/hal-01358767/document"
+  highlight: true
+
+- date: 2016-07-10
+  title: "HPP: a new software framework for manipulation planning"
+  authors: Joseph Mirabel and Florent Lamiraux
+  where: "Submitted to IEEE/RSJ Intelligent Robots and Systems 2015"
+  pubcat: misc
+  halid: hal-01138118
+  pdf: "http://hal.archives-ouvertes.fr/hal-01138118/document"
+  highlight: false
