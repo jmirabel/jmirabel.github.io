@@ -15,7 +15,8 @@
   halid: hal-01360409
   highlight: true
 
-- date: 2017-01-15
+- page: foliation
+  date: 2017-01-15
   title: "Manipulation planning: addressing the crossed foliation issue"
   authors: Joseph Mirabel and Florent Lamiraux
   where: "Submitted to IEEE International Conference on Robotics and Automation 2017"
