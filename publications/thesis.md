@@ -2,11 +2,8 @@
 layout: publication
 section-type: post
 id: thesis
-youtubeid: kptp-zZw634
 pdf: http://homepages.laas.fr/jmirabel/jmirabel-thesis.pdf
 ---
-
-<!--{% include video.html %}-->
 
 ## Thesis manuscript
 
@@ -56,6 +53,7 @@ text-align: left;
 - [Manipulation planner]({{ page.pdf }}#page=53)
   - **Constraint Graph**
   - **Crossed foliation issue**
+{% include video.html youtubeid="kptp-zZw634?start=50" %}
   - Generalized reduction property
   - Narrow passages
 - [Affordance]({{ page.pdf }}#page=81)
@@ -64,5 +62,9 @@ text-align: left;
 - [Result]({{ page.pdf }}#page=91)
   <br/><small>See the [HPP website](https://humanoid-path-planner.github.io/hpp-doc/index.html) for an overview of the results.</small>
   - Humanoid Path Planner
+{% include video.html youtubeid="2ELEpuPjGP4" %}
   - Manipulator arms
+{% include video.html youtubeid="kptp-zZw634?end=50" %}
+{% include video.html youtubeid="iRJtmt7RzDM" %}
   - Humanoid robots
+{% include video.html video="http://homepages.laas.fr/jmirabel/raw/videos/hrp2_stairs.mp4" %}

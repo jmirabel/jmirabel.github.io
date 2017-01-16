@@ -1,5 +1,9 @@
-{% if page.youtubeid %}
-{% capture videourl %}https://www.youtube.com/embed/{{ page.youtubeid }}{% endcapture %}
+{% if include.youtubeid %}
+  {% capture videourl %}https://www.youtube.com/embed/{{ include.youtubeid }}{% endcapture %}
+{% elsif include.video %}
+  {% assign videourl = include.video %}
+{% elsif page.youtubeid %}
+  {% capture videourl %}https://www.youtube.com/embed/{{ page.youtubeid }}{% endcapture %}
 {% elsif page.video %}
   {% assign videourl = page.video %}
 {% endif %}
