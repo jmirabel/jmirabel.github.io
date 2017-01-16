@@ -1,5 +1,5 @@
 
-<!-- Blog Layout Start -->
+<!-- Publications Layout Start -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,8 +17,8 @@
   <meta name="description" content="Blog and website of John Smith, blogging mainly for tech. Opinions expressed are mine.">
   <meta name="author" content="Joseph Mirabel">
   <meta name="keywords" content="">
-  <link rel="canonical" href="/blog/page2/">
-  <title>Joseph Mirabel | Blog</title>
+  <link rel="canonical" href="/publications/thesis.html">
+  <title>Joseph Mirabel</title>
 
   <!-- Bootstrap Core CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -75,6 +75,12 @@
 
 
   
+
+
+  <!-- Syntax highlight in post pages -->
+
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/monokai_sublime.min.css">
+
 
 
 
@@ -147,144 +153,130 @@
     <section id="page" class="container content-section text-center">
 
       <div class="row">
-        <div class="col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1">
-
+        <!--<div class="col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1">-->
+        <div class="col-md-12 col-xs-12">
         
-<!-- Swipe Instructions Start -->
+          
+            <!-- Publication Summary Start -->
 
-<div id="swipe-instruction">
-  <div>
-    <p><br><br><br></p>
-    <i id="hand-swipe" class="fa fa-hand-o-up"></i>
-    <p><strong>
-    
-      Did you know that you can navigate the archive pages by swiping left and right?
-    
-    </strong></p>
-    <button type="button" class="btn btn-default ok-btn close-swipe-instruction">
+<h4> <strong> 21 Feb 2017 </strong>
+  <small>.</small>
+    <strong>
       
-        Got it!
+        <a href="thesis.html">Manipulation planning for documented objects</a>
       
-    </button>
-  </div>
-</div>
+    </strong>
+    <small>
 
-<!-- Swipe Instructions End -->
-
-
-        <h2 id="blog">Blog</h2>
-
-
-        <div>
-          
-            
-<!-- Post List Start -->
-
-<h4 align="left">
-  <strong>19 Jun 2015</strong>
-  <small>.
-    <a class="category" href="/categories/tech.html">
-      tech
+  
+    <a href="http://homepages.laas.fr/jmirabel/jmirabel-thesis.pdf" alt="http://homepages.laas.fr/jmirabel/jmirabel-thesis.pdf" title="PDF">
+      <i class="fa fa-file-pdf-o"></i>
     </a>
-  .</small>
-  <br class="visible-xs-block">
-  <a href="/tech/2015/06/19/writing-posts.html">
-    <strong>Writing posts</strong>
-  </a>
-  <br class="visible-xs-block">
-  <small><a href="/tech/2015/06/19/writing-posts.html#disqus_thread">Comments</a></small>
+  
+
+  
+
+  
+  <br/>
+
+  Joseph Mirabel <br/>
+
+  <em>Manuscript under review</em>
+  </small>
 </h4>
+<!---->
+<!-- Publication Summary End -->
 
-<!-- Post List End -->
 
-          
+            <!--
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kptp-zZw634" frameborder="0" allowfullscreen></iframe>
+-->
+
+<h2 id="thesis-manuscript">Thesis manuscript</h2>
+
+<h4 id="abstract">Abstract</h4>
+
+<p>This thesis tackles the manipulation planning for documented objects.
+The difficulty of the problem is the coupling of a symbolic and a geometrical problem.
+Classical approaches combine task and motion planning.
+They are hard to implement and time consuming.
+This approach is different on three aspects.</p>
+
+<p>The first aspect is a theoretical framework to model admissible motions of the robot and objects.
+This model uses constraints to link symbolic task and motions achieving such task.
+A graph of constraint models the manipulation rules.
+A planning algorithm using this graph is proposed.</p>
+
+<p>The second aspect is the handling of constrained motion.
+In manipulation planning, an abstract definition of numerical constraint is necessary.
+A continuity criterion for Newton-Raphson methods is proposed to ensure the continuity of trajectories in sub-manifolds.</p>
+
+<p>The last aspect is object documentation.
+Some information, easy to define for human beings, greatly speeds up the search.
+This documentation, specific to each object and end-effector, is used to generate a graph of constraint, easing the problem specification and resolution.</p>
+
+<h6 id="key-words">Key words</h6>
+<p>Manipulation planning, Constrained planning, Continuous trajectory generation, Affordance, Documented objects</p>
+
+<style>
+ul {
+text-align: left;
+}
+li {
+text-align: left;
+}
+</style>
+
+<h4 id="chapters">Chapters</h4>
+
+<ul>
+  <li><a href="http://homepages.laas.fr/jmirabel/jmirabel-thesis.pdf#page=17">State of the art</a>
+    <ul>
+      <li>Motion planning</li>
+      <li>Task planning</li>
+      <li>Manipulation planning</li>
+    </ul>
+  </li>
+  <li><a href="http://homepages.laas.fr/jmirabel/jmirabel-thesis.pdf#page=31">Constrained motion planning</a>
+    <ul>
+      <li>Notations and definitions</li>
+      <li><strong>Continuous path on manifolds</strong></li>
+      <li>Static stability</li>
+    </ul>
+  </li>
+  <li><a href="http://homepages.laas.fr/jmirabel/jmirabel-thesis.pdf#page=53">Manipulation planner</a>
+    <ul>
+      <li><strong>Constraint Graph</strong></li>
+      <li><strong>Crossed foliation issue</strong></li>
+      <li>Generalized reduction property</li>
+      <li>Narrow passages</li>
+    </ul>
+  </li>
+  <li><a href="http://homepages.laas.fr/jmirabel/jmirabel-thesis.pdf#page=81">Affordance</a>
+    <ul>
+      <li>Documented objects</li>
+      <li><strong>Constraint graph generation</strong></li>
+    </ul>
+  </li>
+  <li><a href="http://homepages.laas.fr/jmirabel/jmirabel-thesis.pdf#page=91">Result</a>
+<br /><small>See the <a href="https://humanoid-path-planner.github.io/hpp-doc/index.html">HPP website</a> for an overview of the results.</small>
+    <ul>
+      <li>Humanoid Path Planner</li>
+      <li>Manipulator arms</li>
+      <li>Humanoid robots</li>
+    </ul>
+  </li>
+</ul>
+
+
             
-<!-- Post List Start -->
 
-<h4 align="left">
-  <strong>12 Jun 2015</strong>
-  <small>.
-    <a class="category" href="/categories/tech.html">
-      tech
-    </a>
-  .</small>
-  <br class="visible-xs-block">
-  <a href="/tech/2015/06/12/timeline-tutorial.html">
-    <strong>Adding a life event in the Timeline</strong>
-  </a>
-  <br class="visible-xs-block">
-  <small><a href="/tech/2015/06/12/timeline-tutorial.html#disqus_thread">Comments</a></small>
-</h4>
-
-<!-- Post List End -->
-
-          
-            
-<!-- Post List Start -->
-
-<h4 align="left">
-  <strong>11 Jun 2015</strong>
-  <small>.
-    <a class="category" href="/categories/tech.html">
-      tech
-    </a>
-  .</small>
-  <br class="visible-xs-block">
-  <a href="/tech/2015/06/11/social-buttons-tutorial.html">
-    <strong>Modifying the social buttons</strong>
-  </a>
-  <br class="visible-xs-block">
-  <small><a href="/tech/2015/06/11/social-buttons-tutorial.html#disqus_thread">Comments</a></small>
-</h4>
-
-<!-- Post List End -->
-
-          
-            
-<!-- Post List Start -->
-
-<h4 align="left">
-  <strong>10 Jun 2015</strong>
-  <small>.
-    <a class="category" href="/categories/tech.html">
-      tech
-    </a>
-  .</small>
-  <br class="visible-xs-block">
-  <a href="/tech/2015/06/10/contact-tutorial.html">
-    <strong>Modifying the Contact</strong>
-  </a>
-  <br class="visible-xs-block">
-  <small><a href="/tech/2015/06/10/contact-tutorial.html#disqus_thread">Comments</a></small>
-</h4>
-
-<!-- Post List End -->
-
-          
         </div>
-
-        
-<!-- Pagination Links Start -->
-
-<div class="pagination">
-
-  <h4>
-
-  
-    <a href="/blog/" class="previous">Newer Posts</a>
-  
-
-  
-
-  
-
-  </h4>
-
-</div>
-
-<!-- Pagination Links End -->
-
-
+      </div>
+      <hr class="featurette-divider">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1">
+          <h4><a href="/publications/">All publications</a></h4>
         </div>
       </div>
     </section>
@@ -336,9 +328,24 @@ $(window).scroll(toggleNavCollapse);$(function(){$("a.page-scroll").bind("click"
 
 
 
+  <!-- Syntax highlight in post pages-->
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
 
 
 
+
+
+
+
+
+
+  <!-- Share buttons Start -->
+
+  <script src="/js/rrssb.min.js"></script>
+
+  <!-- Share buttons End -->
 
 
 
@@ -347,7 +354,7 @@ $(window).scroll(toggleNavCollapse);$(function(){$("a.page-scroll").bind("click"
 <script>
 function addTohistory() {
   if (!window.location.host.startsWith("127.0.0.1")) {
-    history.pushState({}, 'Blog', 'https://jmirabel.github.io/blog/page2/');
+    history.pushState({}, '', 'https://jmirabel.github.io/publications/thesis.html');
   }
 }
 </script>
@@ -357,52 +364,53 @@ function addTohistory() {
 
   
 
-  
-
-    <!-- Blog Gesture Navigation Start -->
+    <!-- Post Gesture Navigation Start -->
 
     <script type="text/javascript" src="/js/hammer.min.js"></script>
 
     <script>
-      var page = document.getElementById('page');
+      var post = document.getElementById('post');
 
-      new Hammer(page).on('swipeleft', function(event) {
+      new Hammer(post).on('swipeleft', function(event) {
         addTohistory();
         
           document.location.replace("/");
         
       });
-      new Hammer(page).on('swiperight', function(event) {
+
+      new Hammer(post).on('swiperight', function(event) {
         addTohistory();
         
-          document.location.replace("/blog/");
+          document.location.replace("/");
         
       });
     </script>
 
-    <!-- Blog Gesture Navigation Start -->
+    <!-- Post Gesture Navigation Start -->
 
   
 
   
 
-    <!-- Swipe Instructions for Blog Start -->
+  
+
+  
+
+    <!-- Swipe Instructions for Post Start -->
 
     <script>
       $(document).ready(function(){
-        if(!localStorage.getItem('blog-swipeshowed')){
+        if(!localStorage.getItem('post-swipeshowed')){
           $("#swipe-instruction").fadeIn();
           $("#swipe-instruction .close-swipe-instruction").click(function(){
             $("#swipe-instruction").fadeOut();
           });
-          localStorage.setItem('blog-swipeshowed', true);
+          localStorage.setItem('post-swipeshowed', true);
         }
       });
     </script>
 
-    <!-- Swipe Instructions for Blog End -->
-
-  
+    <!-- Swipe Instructions for Post End -->
 
   
 
@@ -416,4 +424,4 @@ function addTohistory() {
   </body>
 </html>
 
-<!-- Blog Layout End -->
+<!-- Publications Layout End -->
