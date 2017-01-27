@@ -75,6 +75,12 @@
 
   
 
+  <!-- Syntax highlight in post pages -->
+
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/monokai_sublime.min.css">
+
+
+
 
 </head>
 
@@ -226,7 +232,256 @@
               </a>
             </h2>
 
-            <p>Not yet</p>
+            <ul id="markdown-toc">
+  <li><a href="#graphe-des-contraintes" id="markdown-toc-graphe-des-contraintes">Graphe des contraintes</a>    <ul>
+      <li><a href="#tats-et-transisions" id="markdown-toc-tats-et-transisions">États et transisions</a></li>
+      <li><a href="#planificateur-de-manipulation" id="markdown-toc-planificateur-de-manipulation">Planificateur de manipulation</a></li>
+    </ul>
+  </li>
+  <li><a href="#problme-des-feuilletages-croiss" id="markdown-toc-problme-des-feuilletages-croiss">Problème des feuilletages croisés</a></li>
+  <li><a href="#proprit-de-rduction-gnralise" id="markdown-toc-proprit-de-rduction-gnralise">Propriété de réduction généralisée</a></li>
+  <li><a href="#passages-troits" id="markdown-toc-passages-troits">Passages étroits</a></li>
+</ul>
+
+<h3 id="graphe-des-contraintes">Graphe des contraintes</h3>
+
+<p>Le graphe des contraintes est une description symbolique des règles de manipulation
+pour un problème donné.</p>
+
+<h4 id="tats-et-transisions">États et transisions</h4>
+
+<dl>
+  <dt>État</dt>
+  <dd>Un état <script type="math/tex">S</script> contient une contrainte de validation <script type="math/tex">S.constraint</script>
+et un ensemble de transitions sortantes <script type="math/tex">S.transitions</script>.</dd>
+  <dt>Transition</dt>
+  <dd>Une transition <script type="math/tex">T</script> contient une fonction de paramétrisation <script type="math/tex">T.f</script>,
+un état d’origine <script type="math/tex">T.origState</script>, un état de destination <script type="math/tex">T.dstState</script>
+et un état <script type="math/tex">T.state</script>.</dd>
+  <dt>Chemin admissible</dt>
+  <dd>Un chemin <script type="math/tex">\cpath \in \pathSpace</script> est <em>admissible pour la transition <script type="math/tex">T</script></em>, ou <em><script type="math/tex">T</script>-admissible</em>,
+si et seulement si les conditions suivantes sont toutes satisfaites:
+
+    <ul>
+      <li><script type="math/tex">\cpath(0) \in T.origState</script>,</li>
+      <li><script type="math/tex">\forall t \in [0,1], \cpath(t) \in T.state</script>,</li>
+      <li><script type="math/tex">\forall t \in [0,1], T.\func (\cpath(t)) = T.\func (\cpath(0))</script>.</li>
+    </ul>
+  </dd>
+</dl>
+
+<figure id="constraint_graph_example" style="width: 40%; float: left; margin-right: 1em;">
+  <img class="img-responsive" src="/img/thesis/constraint_graph_example.jpg" alt="Graph of constraints for a pick-and-place problem" />
+  <figcaption>
+
+Graphe des contraintes pour un problème avec un robot
+possédant une préhenseur et manipulant un objet.
+  </figcaption>
+</figure>
+
+<p>Une configuration <script type="math/tex">\conf</script> est dans <script type="math/tex">S</script>, noté <script type="math/tex">\conf \in S</script>,
+si et seulement si <script type="math/tex">\conf</script> satisfait <script type="math/tex">S.constraint</script>.
+Une transition définit l’ensemble des chemins admissibles depuis un état.
+L’état <script type="math/tex">T.state</script> correspond à l’état contenant toutes les configurations
+le long des chemins générés par cette transition.
+Cet état garantit que, pour un chemin admissible <script type="math/tex">\cpath</script>,
+toute restriction à des intervalles de la forme <script type="math/tex">[0,t]\subset[0,1]</script> est admissible.</p>
+
+<figure id="grasp_and_placement_constraints" style="width: 40%; float: right; margin-left: 1em;">
+  <img class="img-responsive" src="/img/thesis/maniprrt/frames.jpg" alt="Illustration of grasp and placement constraints" />
+  <figcaption>
+
+Illustration des contraintes de saisies et positionnement.
+  </figcaption>
+</figure>
+
+<p>Considèrons un robot et un objet cylindrique comme sur la figure ci-contre.
+Nous autorisons un <abbr title="Degré de liberté">DDL</abbr> en rotation pour la saisie de l’objet par le robot.
+L’objet cylindrique peut être posé sur la table.
+Les paramètres $y_p$, $z_p$ et $\theta_p$ sont contraints par la contrainte de paramétrisation du positionnement.
+Ils paramétrisent le feuilletage de l’espace des positionnements.
+Le paramètre $\theta_g$ est contraint par la contrainte de paramétrisation de saisie.
+Il paramétrise le feuilletage de l’espace des saisies.</p>
+
+<p>L’état <em>grasp</em> contient la contrainte de validation de saisie et <em>placement</em> contient celle relative au positionnement.
+Les transitions <em>transit</em> et <em>grasp object</em> contiennent la contrainte de paramétrisation de positionnement.
+Les transitions <em>transfer</em> et <em>release object</em> contiennent la contrainte de paramétrisation de saisie.</p>
+
+<h4 id="planificateur-de-manipulation">Planificateur de manipulation</h4>
+
+<p>La figure ci-dessous illustre le fonctionne de l’algorithme <em>Manipulation-<abbr title="Randomly exploring Random Trees">RRT</abbr></em>.
+Elle représente l’espace des configurations du robot et de l’objet.
+Les feuilles vertes correspondent à des positionnements contants de l’objet,
+Les jaunes à des saisies contantes de l’objet.</p>
+
+<figure class="img-responsive center-block" id="manipulation_rrt" style="width: 80%;">
+  <img class="img-responsive" src="/img/thesis/maniprrt/maniprrt.jpg" alt="Steps of the Manipulation-RRT algorithm" />
+  <figcaption>
+
+Étapes de l'algorithme *Manipulation-<abbr title="Randomly exploring Random Trees">RRT</abbr>*.
+  </figcaption>
+</figure>
+
+<ul>
+  <li>(a): tirage d’une configuration aléatoire <script type="math/tex">\conf_{rand}</script>.</li>
+  <li>(b): pour chaque composante connexe de l’arbre des configurations,
+recherche de la configuration la plus proche <script type="math/tex">\conf_{near}</script>.</li>
+  <li>choix d’une transition sortant de l’état de la configuration <script type="math/tex">\conf_{near}</script> dans le graphe des contraintes.
+Ce choix est fait aléatoirement.</li>
+  <li>(c-d): extension de <script type="math/tex">\conf_{near}</script> en utilisant la transition précédente, jusqu’à <script type="math/tex">\conf_{new}</script>.<sup id="fnref:extension"><a href="#fn:extension" class="footnote">1</a></sup></li>
+  <li>tentative de connexion les nouvelles configurations ensemble.<sup id="fnref:connexion"><a href="#fn:connexion" class="footnote">2</a></sup></li>
+  <li>(f): l’algorithme termine quand la configuration initiale et une configuration but sont dans la même composante connexe.</li>
+</ul>
+
+<h3 id="problme-des-feuilletages-croiss">Problème des feuilletages croisés</h3>
+
+<p>Ce problème subtil intervient lorsque deux feuilletages se croisent.
+Considérons encore l’exemple du robot avec un objet cylindique.</p>
+
+<figure class="center-block" id="crossed-foliation" style="width: 50%;">
+  <img class="img-responsive" src="/img/thesis/crossed_foliation/connecting-trees.png" alt="The crossed foliation issue" />
+  <figcaption>
+
+Croisement de feuilletage.
+  </figcaption>
+</figure>
+
+<p>Si <em>grasp</em> et <em>placement</em> sont feuilletés,
+les arbres partant des configurations initiale et finales ne se rencontreront jamais.
+En effet, les façons d’attraper l’objet, i.e. les plans bleus ci-dessus, sont choisies aléatoirement.
+La probabilité de choisir le même plan est nulle.
+Afin de palier à ce problème, des transitions de type <em>crossed foliation transition</em>
+mémorisent les feuilles atteintes par chaque composante connexe.
+Cette information est utilisé pour générer des configurations dans les feuilles déjà atteintes.
+Ce type de transitions ne remplace pas le type normal car il ne permette pas d’explorer de nouvelles feuilles.
+Il est complémentaire au précédent.</p>
+
+<p>Le problème est abordé de façon plus formelle dans le manuscrit.</p>
+
+<h3 id="proprit-de-rduction-gnralise">Propriété de réduction généralisée</h3>
+
+<p>L’exemple ci-dessous est un contre-exemple à la propriété de réduction telle qu’énoncé originellement.<sup id="fnref:reduction"><a href="#fn:reduction" class="footnote">3</a></sup></p>
+
+<figure class="img-responsive center-block" id="reduction_property_infeasible" style="width: 40%; float: left; margin-right: 1em;">
+  <img class="img-responsive" src="/img/thesis/reduction_property/infeasible.jpg" alt="Counter examples to the reduction property" />
+  <figcaption>
+
+2 contre-exemples à la propriété de réduction.
+  </figcaption>
+</figure>
+
+<p>Dans les 2 cas ci-contre, l’objet se déplace dans le plan.
+La différence entre les positions initiales (a) et (b),
+et les positions finales (c) et (d) est l’orientation de l’objet.
+Chacune de ces configurations est dans <script type="math/tex">\mathcal{CP} \cap \mathcal{CP}</script>.
+Il existe bien un chemin dans cet espace qui connecte les configurations,
+cependant, il n’existe pas de solution à ces deux cas.</p>
+
+<script type="math/tex; mode=display">\newcommand{\motion}[3][]{\ensuremath{\mathcal{M}^{#1}(#2, #3)}\xspace}</script>
+
+<p>Soit $\motion[i]{\conf}{\epsilon}$ l’espace des chemins admissibles depuis <script type="math/tex">\conf</script>
+et inclus dans <script type="math/tex">\ball{\conf}{\epsilon}</script>,
+i.e. <script type="math/tex">\{ \cpath \in \mathcal{C}^i([0,1],\ball{\conf}{\epsilon}) \mid \cpath(0)=\conf \}</script>.</p>
+
+<p>Les robots ci-dessus sont contrôlable en espace petit.
+Cependant, l’objet n’est pas manipulable en espace petit par le robot.
+Il n’existe pas de petit chemin qui permette de changer l’orientation de l’objet en gardant sa position.
+Il est nécessaire de changer d’inverse cinématique.</p>
+
+<dl>
+  <dt>Manipulabilité en espace petit</dt>
+  <dd>Soit <script type="math/tex">R</script> un robot et <script type="math/tex">O</script> un objet.
+Soit <script type="math/tex">e_r : \mathcal{CS}_R \to SE(3)</script>, resp. <script type="math/tex">e_o : \mathcal{CS}_O \to SE(3)</script>
+la fonction continue de cinématique directe qui associe à une configuration du robot, resp. de l’objet,
+une position de la préhenseur, resp. une poignée.
+
+    <p><script type="math/tex">O</script> est <em>manipulable en temps petit par $R$ en
+<script type="math/tex">(\conf_{r}, \conf_{o}) \in \mathcal{CS}_R \times \mathcal{CS}_O</script></em>
+si et seulement si <script type="math/tex">\forall \epsilon_r > 0</script>,
+<script type="math/tex">\exists \epsilon_o > 0, \forall \cpath_o \in \motion[1]{\conf_o}{\epsilon_o},
+\exists \cpath_r \in \motion[1]{\conf_r}{\epsilon_r}</script> such that</p>
+
+    <script type="math/tex; mode=display">e_r(\cpath_r(t))^{-1} e_o(\cpath_o(t)) = e_r(\conf_r)^{-1} e_o(\conf_o)</script>
+  </dd>
+</dl>
+
+<p>Une condition nécéssaire et une condition suffisante, vérifiables en pratique, sont fournies dans le manuscrit.</p>
+
+<div class="theorem " id="generalized_reduction_property">
+  <div class="theorem-heading">
+    <b class="theorem-number"> Théorème : </b>
+    <b class="theorem-title">Propriété de reduction généralisée</b>
+    <!--<br/>-->
+  </div>
+  <div class="theorem-body">
+
+
+Soit $R$ un robot et $O$ un objet.
+Tout chemin $\cpath$ dans $\mathcal{CG} \cap \mathcal{CP}$ satisfaisant les conditions suivantes
+en tout instant peut être approximé par une séquence finie de chemin de <em>transit</em> et de <em>transfert</em> :
+<ul>
+<li>le robot est sans collision avec les objets statiques en $\cpath(t)$,</li>
+<li>$R$ est contrôlable en temps petit,</li>
+<li>$O$ est manipulable en temps petit par $R$ en $\cpath(t)$.</li>
+</ul>
+  </div>
+</div>
+
+<p>L’utilisation des fonctions de cinématique directe permet de couvrir les cas de saisie d’un objet par deux préhenseurs.
+Cela donne le corollaire 3.2, qui étant le théorème précédent à <script type="math/tex">\mathcal{CG}_1 \cap \mathcal{CG}_2</script>.</p>
+
+<h3 id="passages-troits">Passages étroits</h3>
+
+<figure id="waypoint_simplecase" style="width: 60%; float: left; margin-right: 1em;">
+  <img class="img-responsive" src="/img/thesis/waypoints/simple_case.jpg" alt="Narrow passages with a simple example" />
+  <figcaption>
+
+Passages étroits avec des exemples simples.
+  </figcaption>
+</figure>
+
+<p>L’échantillonnage aléatoire résout difficilement les problèmes pour lesquels il est nécessaire de trouver
+un passage étroit.</p>
+
+<p>La planification de mouvement de manipulation est sujette à ce problème puisque l’on souhaite
+que le préhenseur soit proche de l’objet à manipuler et que l’objet soit proche de l’environnement pour y être posé.
+Ces cas sont résumés sur les figures ci-contre.
+Pour aider le planificateur, des points de passages sont ajoutés automatiquement.
+Ils correspondent par exemple aux figures (c) et (d).</p>
+
+<figure id="waypoints_configspace" style="width: 40%; float: right; margin-left: 1em;">
+  <img class="img-responsive" src="/img/thesis/waypoints/configspace.jpg" alt="Way-point transition in the configuration space" />
+  <figcaption>
+
+Point de passage dans l'espace des configurations.
+  </figcaption>
+</figure>
+
+<p>Ces points de passage aident à trouver les passages étroits induit par les règles de manipulations.
+Ils sont encodés dans le graphe des contraintes par un troisième type de
+transition appelée <em>way-point transition</em>.
+Le figure ci-contre montre l’effet des points de passage dans l’espace des configurations.
+Les configurations <script type="math/tex">w_i</script> sont calculées à partir des points de passage.
+Le chemin de <script type="math/tex">\conf_{init} \in \mathcal{C}_{grasp}</script> à <script type="math/tex">\conf_{end} \in \mathcal{C}_{placement}</script>
+est calculé en un coup.</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:extension">
+      <p>voir l’algorithm 3.2. <a href="#fnref:extension" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:connexion">
+      <p>voir l’algorithm 3.3. <a href="#fnref:connexion" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:reduction">
+      <p>Benoit Dacre-Wright, Jean-Paul Laumond, and Rachid Alami.
+          Motion planning for a robot and a movable object amidst polygonal obstacles.
+          In Proceedings of IEEE International Conference on Robotics and Automation, 1992. <a href="#fnref:reduction" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
 
       </div>
       <hr class="featurette-divider">
@@ -328,6 +583,24 @@ $(window).scroll(toggleNavCollapse);$(function(){$("a.page-scroll").bind("click"
 
 
 
+
+  <!-- Syntax highlight in post pages-->
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+  <!-- MathJax in post pages-->
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {inlineMath:  [['$','$'], ['\\(','\\)']]},
+    TeX: { equationNumbers: {autoNumber: "AMS"} } 
+});
+  </script>
+  <script type="text/javascript" async src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
 
 
 
