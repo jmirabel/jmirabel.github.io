@@ -1,5 +1,4 @@
-
-<!-- Publications Layout Start -->
+<!-- Thesis chapter Layout Start -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,8 +16,8 @@
   <meta name="description" content="Blog and website of John Smith, blogging mainly for tech. Opinions expressed are mine.">
   <meta name="author" content="Joseph Mirabel">
   <meta name="keywords" content="">
-  <link rel="canonical" href="/publications/hpp.html">
-  <title>Joseph Mirabel</title>
+  <link rel="canonical" href="/publications/thesis/chap4.html">
+  <title>Joseph Mirabel | Affordance</title>
 
   <!-- Bootstrap Core CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -109,6 +108,12 @@
       <ul class="nav navbar-nav">
         
         
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Table of content<span class="caret"></span></a>
+            <ul id="navbar-toc" class="dropdown-menu">
+            </ul>
+          </li>
+        
       </ul>
     </div>
   </div>
@@ -117,95 +122,136 @@
 <!-- Navigation End -->
 
 
-    <section id="post" class="container content-section text-center">
+    <script type="math/tex">
+\newcommand{\ensuremath}[1]{#1}
+\newcommand{\xspace}{}
+\newcommand{\pd}[2]{\ensuremath{\frac{\partial #1}{\partial #2}}\xspace}
+\newcommand{\der}[2]{\ensuremath{\frac{d #1}{d #2}}\xspace}
+\newcommand{\tder}[1]{\ensuremath{\dot{#1}}\xspace}
+\newcommand{\real}[1]{\ensuremath{\mathbb{R}^{#1}}\xspace}
+\newcommand{\norm}[1]{\ensuremath{|| #1 ||}\xspace}
+\newcommand{\normV}[1]{\ensuremath{|| #1 ||_2}\xspace}
+\newcommand{\normM}[1]{\ensuremath{|||#1|||_F}\xspace}
+\newcommand{\normH}[1]{\ensuremath{||||#1||||_F}\xspace}
+\newcommand{\cross}[1]{\ensuremath{\left[ #1 \right]_{\times}}\xspace}
+\newcommand{\var}[1]{\ensuremath{\emph{#1}}\xspace}
+\newcommand{\sm}{\ensuremath{\mathcal{SM}}\xspace}
+\newcommand{\tree}{\ensuremath{\mathcal{T}}\xspace}
+\newcommand{\funcSpace}{\ensuremath{C^1 \left(\mathcal{CS},\real{n}\right)}\xspace}
+\newcommand{\pathSpace}{\ensuremath{C \left(\left[0,1\right],\mathcal{CS}\right)}\xspace}
+\newcommand{\consSpace}{\ensuremath{\mathcal{C}}\xspace}
+\newcommand{\pseudoInv}[1]{#1^{\dagger}}
+\newcommand{\matrices}[2]{\real{#1 \times #2}}
 
-      <div class="row">
-        <!--<div class="col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1">-->
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Normal mode %%%%%%%%%%%%%%%%%%%%%%%%%
+%\newcommand{\eqRef}[1]{(\ref{#1})\xspace}
+\newcommand{\defRef}[1]{Definition~\ref{#1}\xspace}
+\newcommand{\ie}{\textit{i.e.}\xspace}
+\newcommand{\eg}{\textit{e.g.}\xspace}
+\newcommand{\st}{\textit{s.t.}\xspace}
+
+%%%%%%%%%%%%% Math mode %%%%%%%%%%%%%%%%%%%%%%%%%
+\def\abs{\operatorname{abs}}
+\def\argmax{\operatornamewithlimits{arg\,max}}
+\def\argmin{\operatornamewithlimits{arg\,min}}
+\newcommand{\setmapsto}{\rightarrow}
+% \def\diag{\operatorname{Diag}}
+\newcommand{\conf}{\mathbf{q}}
+\newcommand{\cpath}{\mathbf{p}}
+\newcommand{\straight}{\mathbf{straight}}
+\newcommand{\distance}[3][]{\mathbf{dist}_{#1}\left(#2,#3\right)}
+\newcommand{\func}{\mathbf{f}}
+\newcommand{\rhs}{\mathbf{b}}
+\newcommand{\Jac}{\mathbf{J}}
+\newcommand{\eFunc}{\mathbf{f_e}}
+\newcommand{\iFunc}{\mathbf{f_i}}
+\newcommand{\pFunc}{\mathbf{f_p}}
+\newcommand{\proj}{\ensuremath{P}\xspace}
+\newcommand{\ball}[2]{\mathcal{B} \left( #1, #2 \right)}
+\newcommand{\ballContinuity}{\ball{\conf}{\tfrac{\sigma}{K}}}
+\newcommand{\ballContinuityF}{\ball{\conf}{\tfrac{\sigma(\conf)}{K}}}
+
+%%%%%%%%%%% Notations %%%%%%%%%%%%%%%%%%%
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\conf}{\mathbf{q}}
+\newcommand{\straight}{\mathbf{straight}}
+</script>
+
+
+    <section id="post" class="container content-section">
+
+      <div class="row text-center">
         <div class="col-md-12 col-xs-12">
-        
           
-        
-          
-            <!-- Publication Summary Start -->
+          <!-- Publication Summary Start -->
 
-<h4> <strong> 09 Oct 2016 </strong>
+<h4> <strong> 21 Feb 2017 </strong>
   <small>.</small>
     <strong>
       
-        <a href="hpp.html">HPP: A new software for constrained motion planning</a>
+        <a href="thesis.html">Manipulation planning for documented objects</a>
       
     </strong>
     <small>
 
   
-    <a href="https://hal.archives-ouvertes.fr/hal-01290850/document" title="HAL" alt="HAL">
+    <a href="http://homepages.laas.fr/jmirabel/jmirabel-thesis.pdf" alt="http://homepages.laas.fr/jmirabel/jmirabel-thesis.pdf" title="PDF">
       <i class="fa fa-file-pdf-o"></i>
     </a>
   
 
   
-    <a href="https://hal.archives-ouvertes.fr/hal-01290850" title="HAL" alt="HAL">
-      <i class="fa fa-external-link"></i>
-    </a>
-  
 
-  
-  <a href="hal-01290850" title="HAL" alt="HAL">
-    <a href="https://hal.archives-ouvertes.fr/hal-01290850/bibtex">
-      <img class="emoji" src="/img/bib.gif" alt="(BIBTEX)" title="BIBTEX"/>
-    </a>
   
   <br/>
 
-  Joseph Mirabel, Steve Tonneau, Pierre Fernbach, Anna-Kaarina Seppälä, Mylène Campana, Nicolas Mansard and Florent Lamiraux. <br/>
+  Joseph Mirabel <br/>
 
-  <em>IEEE/RSJ Intelligent Robots and Systems 2016</em>
+  <em>Manuscript under review</em>
   </small>
 </h4>
 <!---->
 <!-- Publication Summary End -->
 
-
-            
-<iframe width="560" height="315" src="https://www.youtube.com/embed/2ELEpuPjGP4" frameborder="0" allowfullscreen=""></iframe>
-
-<h3 id="abstract">Abstract</h3>
-
-<p>We present HPP, a software designed for complex classes of motion planning problems,
-such as navigation among movable objects, manipulation, contact-rich multiped locomotion, or elastic rods in cluttered environments.
-HPP is an open-source answer to the lack of a standard framework for these important issues for robotics and graphics communities.</p>
-
-<p>HPP adopts a clear object oriented architecture,
-which makes it easy to implement parts of an existing planning algorithm,
-or entirely new algorithms.
-Python bindings and a visualization tool allow for fast problem setting and prototyping:
-a new algorithm can be implemented in just a few lines of code.</p>
-
-<p>HPP can be used for classic planning problems such as pick and place for mobile robots,
-but is specifically designed to solve problems where the motion of the robot is constrained.
-Examples of behaviors produced by HPP thanks to a generic constraint formulation include:
-maintaining a relative orientation between bodies,
-enforcing the static equilibrium of the robot,
-or automatically inferring that an object must be moved to allow locomotion.
-Constraints are tied to a custom representation of the kinematic chain,
-compatible with the Unified Robot Description format (URDF).</p>
-
-<p>To illustrate the possibilities of HPP,
-we present several recent scientific contributions implemented with HPP,
-most of which are provided with Python tutorials.
-HPP aims at being seamlessly integrated within a global robot control loop:
-Pinocchio, the fast multi-body dynamics library, is currently being integrated in HPP,
-thus bridging the gap between the planning and control communities.</p>
-
-
-            
-
         </div>
       </div>
+      <div class="row text-justify">
+
+            <h2> <strong> Chapter 4 </strong>
+              <small>.</small>
+              <strong> Affordance </strong>
+              <a href="http://homepages.laas.fr/jmirabel/jmirabel-thesis.pdf#page=81" title="HAL" alt="HAL">
+                <i class="fa fa-file-pdf-o"></i>
+              </a>
+            </h2>
+
+            <p>Not yet</p>
+
+      </div>
       <hr class="featurette-divider">
-      <div class="row">
+      <div class="row text-center">
         <div class="col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1">
-          <h4><a href="/publications/">All publications</a></h4>
+          <nav aria-label="Page navigation">
+            <ul class="pagination">
+              
+                <li>
+                  <a href="/publications/thesis/chap.html" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+              
+              
+              
+                <li>
+                  <a href="/publications/thesis/chap.html" aria-label="Previous">
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+              
+              </li>
+            </ul>
+          </nav>
         </div>
       </div>
     </section>
@@ -248,6 +294,16 @@ thus bridging the gap between the planning and control communities.</p>
 * Code licensed under the Apache License v2.0.
 * For details, see http://www.apache.org/licenses/LICENSE-2.0.-->
 
+
+  <script type="text/javascript">
+    $( moveTOC );
+    function moveTOC() {
+      toc = $('#markdown-toc');
+      toc.addClass("dropdown-menu");
+      $('#markdown-toc li a').addClass("page-scroll");
+      $('#navbar-toc').replaceWith( toc );
+    }
+  </script>
 
 
 <script>

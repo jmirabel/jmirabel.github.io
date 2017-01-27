@@ -77,13 +77,6 @@
   
 
 
-  <!-- Syntax highlight in post pages -->
-
-  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/monokai_sublime.min.css">
-
-
-
-
 </head>
 
 <!-- HEAD End -->
@@ -115,32 +108,6 @@
     <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
       <ul class="nav navbar-nav">
         
-          <!-- Blog, Post, Tag and Error pages -->
-          
-            <li>
-            
-                <a href="/#about"> About </a>
-            
-            </li>
-          
-            <li>
-            
-                <a href="/#highlight-publications"> Publications </a>
-            
-            </li>
-          
-            <li>
-            
-                <a href="/#timeline"> Timeline </a>
-            
-            </li>
-          
-            <li>
-            
-                <a href="/#contact"> Contact </a>
-            
-            </li>
-          
         
       </ul>
     </div>
@@ -150,7 +117,7 @@
 <!-- Navigation End -->
 
 
-    <section id="page" class="container content-section text-center">
+    <section id="post" class="container content-section text-center">
 
       <div class="row">
         <!--<div class="col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1">-->
@@ -225,7 +192,7 @@ text-align: left;
 
 <h4 id="chapters">Chapters</h4>
 
-<ul>
+<ol>
   <li><a href="http://homepages.laas.fr/jmirabel/jmirabel-thesis.pdf#page=17">State of the art</a>
     <ul>
       <li>Motion planning</li>
@@ -233,56 +200,49 @@ text-align: left;
       <li>Manipulation planning</li>
     </ul>
   </li>
-  <li><a href="http://homepages.laas.fr/jmirabel/jmirabel-thesis.pdf#page=31">Constrained motion planning</a>
+  <li><a href="thesis/chap2.html">Constrained motion planning</a>
     <ul>
       <li>Notations and definitions</li>
       <li><strong>Continuous path on manifolds</strong></li>
       <li>Static stability</li>
     </ul>
   </li>
-  <li><a href="http://homepages.laas.fr/jmirabel/jmirabel-thesis.pdf#page=53">Manipulation planner</a>
-    <ul>
-      <li><strong>Constraint Graph</strong></li>
-      <li><strong>Crossed foliation issue</strong></li>
-    </ul>
-  </li>
-</ul>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/kptp-zZw634?start=50" frameborder="0" allowfullscreen=""></iframe>
+  <li><a href="thesis/chap3.html">Manipulation planner</a></li>
+</ol>
 
 <ul>
+  <li><strong>Constraint Graph</strong></li>
+  <li><strong>Crossed foliation issue</strong> <br />
+    <iframe height="315" width="560" src="http://www.youtube.com/embed/kptp-zZw634?start=50&amp;end=1m06" frameborder="0" allowfullscreen=""></iframe>
+  </li>
   <li>Generalized reduction property</li>
   <li>Narrow passages</li>
-  <li><a href="http://homepages.laas.fr/jmirabel/jmirabel-thesis.pdf#page=81">Affordance</a>
+</ul>
+
+<ol>
+  <li><a href="thesis/chap4.html">Affordance</a>
     <ul>
       <li>Documented objects</li>
       <li><strong>Constraint graph generation</strong></li>
     </ul>
   </li>
-  <li><a href="http://homepages.laas.fr/jmirabel/jmirabel-thesis.pdf#page=91">Result</a>
-<br /><small>See the <a href="https://humanoid-path-planner.github.io/hpp-doc/index.html">HPP website</a> for an overview of the results.</small>
-    <ul>
-      <li>Humanoid Path Planner</li>
-    </ul>
+  <li><a href="thesis/chap5.html">Result</a><br />
+  <small>See the <a href="https://humanoid-path-planner.github.io/hpp-doc/index.html">HPP website</a> for an overview of the results.</small></li>
+</ol>
+
+<ul>
+  <li>Humanoid Path Planner <br />
+    <iframe height="315" width="560" src="http://www.youtube.com/embed/2ELEpuPjGP4" frameborder="0" allowfullscreen=""></iframe>
+  </li>
+  <li>Manipulator arms <br />
+    <iframe height="315" width="500" src="http://www.youtube.com/embed/kptp-zZw634?start=4&amp;end=34" frameborder="0" allowfullscreen=""></iframe>
+    <iframe height="315" width="500" src="http://www.youtube.com/embed/iRJtmt7RzDM" frameborder="0" allowfullscreen=""></iframe>
+  </li>
+  <li>Humanoid robots <br />
+    <iframe height="315" width="560" src="http://www.youtube.com/embed/kptp-zZw634?start=34&amp;end=50" frameborder="0" allowfullscreen=""></iframe>
+    <video controls="" width="300px" height="315px" preload="metadata" onclick="(function(el){ if(el.paused) el.play(); else el.pause() })(this)"><source src="http://homepages.laas.fr/jmirabel/raw/videos/hrp2_stairs.mp4" type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" /></video>
   </li>
 </ul>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/2ELEpuPjGP4" frameborder="0" allowfullscreen=""></iframe>
-
-<ul>
-  <li>Manipulator arms</li>
-</ul>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/kptp-zZw634?end=50" frameborder="0" allowfullscreen=""></iframe>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/iRJtmt7RzDM" frameborder="0" allowfullscreen=""></iframe>
-
-<ul>
-  <li>Humanoid robots</li>
-</ul>
-
-<iframe width="560" height="315" src="http://homepages.laas.fr/jmirabel/raw/videos/hrp2_stairs.mp4" frameborder="0" allowfullscreen=""></iframe>
-
 
 
             
@@ -334,6 +294,9 @@ text-align: left;
 <!--* Start Bootstrap - Grayscale Bootstrap Theme (http://startbootstrap.com)
 * Code licensed under the Apache License v2.0.
 * For details, see http://www.apache.org/licenses/LICENSE-2.0.-->
+
+
+
 <script>
 function toggleNavCollapse(){50<$(".navbar").offset().top?$(".navbar-fixed-top").addClass("top-nav-collapse"):$(".navbar-fixed-top").removeClass("top-nav-collapse");}
 $(document).ready(toggleNavCollapse);
@@ -344,93 +307,7 @@ $(window).scroll(toggleNavCollapse);$(function(){$("a.page-scroll").bind("click"
 
 
 
-  <!-- Syntax highlight in post pages-->
 
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-
-
-
-
-
-
-
-
-
-  <!-- Share buttons Start -->
-
-  <script src="/js/rrssb.min.js"></script>
-
-  <!-- Share buttons End -->
-
-
-
-
-
-<script>
-function addTohistory() {
-  if (!window.location.host.startsWith("127.0.0.1")) {
-    history.pushState({}, '', 'https://jmirabel.github.io/publications/thesis.html');
-  }
-}
-</script>
-
-<!-- Gesture Navigation / Swipe Instruction Start -->
-
-
-  
-
-    <!-- Post Gesture Navigation Start -->
-
-    <script type="text/javascript" src="/js/hammer.min.js"></script>
-
-    <script>
-      var post = document.getElementById('post');
-
-      new Hammer(post).on('swipeleft', function(event) {
-        addTohistory();
-        
-          document.location.replace("/");
-        
-      });
-
-      new Hammer(post).on('swiperight', function(event) {
-        addTohistory();
-        
-          document.location.replace("/");
-        
-      });
-    </script>
-
-    <!-- Post Gesture Navigation Start -->
-
-  
-
-  
-
-  
-
-  
-
-    <!-- Swipe Instructions for Post Start -->
-
-    <script>
-      $(document).ready(function(){
-        if(!localStorage.getItem('post-swipeshowed')){
-          $("#swipe-instruction").fadeIn();
-          $("#swipe-instruction .close-swipe-instruction").click(function(){
-            $("#swipe-instruction").fadeOut();
-          });
-          localStorage.setItem('post-swipeshowed', true);
-        }
-      });
-    </script>
-
-    <!-- Swipe Instructions for Post End -->
-
-  
-
-<!-- Gesture Navigation / Swipe Instruction End -->
 
 
 

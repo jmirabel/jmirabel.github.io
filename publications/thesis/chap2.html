@@ -1,0 +1,642 @@
+<!-- Thesis chapter Layout Start -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+  
+<!-- HEAD Start -->
+
+<head>
+  
+
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Blog and website of John Smith, blogging mainly for tech. Opinions expressed are mine.">
+  <meta name="author" content="Joseph Mirabel">
+  <meta name="keywords" content="">
+  <link rel="canonical" href="/publications/thesis/chap2.html">
+  <title>Joseph Mirabel | Constrained motion planning</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  <link href="/css/grayscale.css" rel="stylesheet">
+  
+
+  <!-- Custom Fonts -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/rrssb.css" />
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico">
+  
+
+  
+
+  
+
+
+  <!-- iOS Web App mode -->
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="apple-touch-icon" sizes="36x36" href="/img/web-app/icon-36p.png">
+  <link rel="apple-touch-icon" sizes="48x48" href="/img/web-app/icon-48p.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/img/web-app/icon-72p.png">
+  <link rel="apple-touch-icon" sizes="96x96" href="/img/web-app/icon-96p.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/img/web-app/icon-144p.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/img/web-app/icon-192p.png">
+
+  <!-- Android Web App mode -->
+
+  <link rel="manifest" href="/manifest.json">
+
+
+
+
+  
+<!-- Chrome, Firefox OS and Opera -->
+<meta name="theme-color" content="#000000">
+<!-- Windows Phone -->
+<meta name="msapplication-navbutton-color" content="#000000">
+<!-- iOS Safari -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+  
+
+  <!-- Syntax highlight in post pages -->
+
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/monokai_sublime.min.css">
+
+
+
+
+</head>
+
+<!-- HEAD End -->
+
+
+  <body>
+
+    
+<!-- Navigation Start -->
+
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+        <i class="fa fa-bars"></i>
+      </button>
+      
+        <a class="navbar-brand" href="/">
+      
+          <div>
+            
+              <img src="/img/black-lab-glass.ico" alt="">
+            
+            Joseph Mirabel
+          </div>
+        </a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+      <ul class="nav navbar-nav">
+        
+        
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Table of content<span class="caret"></span></a>
+            <ul id="navbar-toc" class="dropdown-menu">
+            </ul>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Navigation End -->
+
+
+    <script type="math/tex">
+\newcommand{\ensuremath}[1]{#1}
+\newcommand{\xspace}{}
+\newcommand{\pd}[2]{\ensuremath{\frac{\partial #1}{\partial #2}}\xspace}
+\newcommand{\der}[2]{\ensuremath{\frac{d #1}{d #2}}\xspace}
+\newcommand{\tder}[1]{\ensuremath{\dot{#1}}\xspace}
+\newcommand{\real}[1]{\ensuremath{\mathbb{R}^{#1}}\xspace}
+\newcommand{\norm}[1]{\ensuremath{|| #1 ||}\xspace}
+\newcommand{\normV}[1]{\ensuremath{|| #1 ||_2}\xspace}
+\newcommand{\normM}[1]{\ensuremath{|||#1|||_F}\xspace}
+\newcommand{\normH}[1]{\ensuremath{||||#1||||_F}\xspace}
+\newcommand{\cross}[1]{\ensuremath{\left[ #1 \right]_{\times}}\xspace}
+\newcommand{\var}[1]{\ensuremath{\emph{#1}}\xspace}
+\newcommand{\sm}{\ensuremath{\mathcal{SM}}\xspace}
+\newcommand{\tree}{\ensuremath{\mathcal{T}}\xspace}
+\newcommand{\funcSpace}{\ensuremath{C^1 \left(\mathcal{CS},\real{n}\right)}\xspace}
+\newcommand{\pathSpace}{\ensuremath{C \left(\left[0,1\right],\mathcal{CS}\right)}\xspace}
+\newcommand{\consSpace}{\ensuremath{\mathcal{C}}\xspace}
+\newcommand{\pseudoInv}[1]{#1^{\dagger}}
+\newcommand{\matrices}[2]{\real{#1 \times #2}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Normal mode %%%%%%%%%%%%%%%%%%%%%%%%%
+%\newcommand{\eqRef}[1]{(\ref{#1})\xspace}
+\newcommand{\defRef}[1]{Definition~\ref{#1}\xspace}
+\newcommand{\ie}{\textit{i.e.}\xspace}
+\newcommand{\eg}{\textit{e.g.}\xspace}
+\newcommand{\st}{\textit{s.t.}\xspace}
+
+%%%%%%%%%%%%% Math mode %%%%%%%%%%%%%%%%%%%%%%%%%
+\def\abs{\operatorname{abs}}
+\def\argmax{\operatornamewithlimits{arg\,max}}
+\def\argmin{\operatornamewithlimits{arg\,min}}
+\newcommand{\setmapsto}{\rightarrow}
+% \def\diag{\operatorname{Diag}}
+\newcommand{\conf}{\mathbf{q}}
+\newcommand{\cpath}{\mathbf{p}}
+\newcommand{\straight}{\mathbf{straight}}
+\newcommand{\distance}[3][]{\mathbf{dist}_{#1}\left(#2,#3\right)}
+\newcommand{\func}{\mathbf{f}}
+\newcommand{\rhs}{\mathbf{b}}
+\newcommand{\Jac}{\mathbf{J}}
+\newcommand{\eFunc}{\mathbf{f_e}}
+\newcommand{\iFunc}{\mathbf{f_i}}
+\newcommand{\pFunc}{\mathbf{f_p}}
+\newcommand{\proj}{\ensuremath{P}\xspace}
+\newcommand{\ball}[2]{\mathcal{B} \left( #1, #2 \right)}
+\newcommand{\ballContinuity}{\ball{\conf}{\tfrac{\sigma}{K}}}
+\newcommand{\ballContinuityF}{\ball{\conf}{\tfrac{\sigma(\conf)}{K}}}
+
+%%%%%%%%%%% Notations %%%%%%%%%%%%%%%%%%%
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\conf}{\mathbf{q}}
+\newcommand{\straight}{\mathbf{straight}}
+</script>
+
+
+    <section id="post" class="container content-section">
+
+      <div class="row text-center">
+        <div class="col-md-12 col-xs-12">
+          
+          <!-- Publication Summary Start -->
+
+<h4> <strong> 21 Feb 2017 </strong>
+  <small>.</small>
+    <strong>
+      
+        <a href="thesis.html">Manipulation planning for documented objects</a>
+      
+    </strong>
+    <small>
+
+  
+    <a href="http://homepages.laas.fr/jmirabel/jmirabel-thesis.pdf" alt="http://homepages.laas.fr/jmirabel/jmirabel-thesis.pdf" title="PDF">
+      <i class="fa fa-file-pdf-o"></i>
+    </a>
+  
+
+  
+
+  
+  <br/>
+
+  Joseph Mirabel <br/>
+
+  <em>Manuscript under review</em>
+  </small>
+</h4>
+<!---->
+<!-- Publication Summary End -->
+
+        </div>
+      </div>
+      <div class="row text-justify">
+
+            <h2> <strong> Chapter 2 </strong>
+              <small>.</small>
+              <strong> Constrained motion planning </strong>
+              <a href="http://homepages.laas.fr/jmirabel/jmirabel-thesis.pdf#page=31" title="HAL" alt="HAL">
+                <i class="fa fa-file-pdf-o"></i>
+              </a>
+            </h2>
+
+            <ul id="markdown-toc">
+  <li><a href="#notations-et-dfinitions" id="markdown-toc-notations-et-dfinitions">Notations et définitions</a>    <ul>
+      <li><a href="#contraintes" id="markdown-toc-contraintes">Contraintes</a></li>
+      <li><a href="#chemin" id="markdown-toc-chemin">Chemin</a></li>
+    </ul>
+  </li>
+  <li><a href="#chemin-continue-sur-des-varits" id="markdown-toc-chemin-continue-sur-des-varits">Chemin continue sur des variétés</a>    <ul>
+      <li><a href="#continuit-de-lalgorithme-de-newton-raphson" id="markdown-toc-continuit-de-lalgorithme-de-newton-raphson">Continuité de l’algorithme de Newton-Raphson</a></li>
+      <li><a href="#algorithmes" id="markdown-toc-algorithmes">Algorithmes</a>        <ul>
+          <li><a href="#projection-progressive" id="markdown-toc-projection-progressive">Projection progressive</a></li>
+          <li><a href="#projection-globale" id="markdown-toc-projection-globale">Projection globale</a></li>
+        </ul>
+      </li>
+      <li><a href="#planification-de-mouvement-continue" id="markdown-toc-planification-de-mouvement-continue">Planification de mouvement continue</a></li>
+    </ul>
+  </li>
+  <li><a href="#quilibre-quasi-statique" id="markdown-toc-quilibre-quasi-statique">Équilibre quasi-statique</a></li>
+</ul>
+
+<h3 id="notations-et-dfinitions">Notations et définitions</h3>
+
+<p>Ce chapitre rappelle la définition de l’espace des configurations <script type="math/tex">\mathcal{CS}</script>.
+Cet espace est le produit cartésien des ensembles de définition de chacune des articulations.
+Un soin particulier est porté aux espaces qui ne sont pas des espaces vectoriels.
+Les rotations non bornées sont représentées par le groupe spécial orthogonal de 2, <script type="math/tex">SO(2)</script>.
+Les rotations 3D sont représentées par le groupe spécial orthogonal de 3, <script type="math/tex">SO(3)</script>.
+Pour chacun des espaces de configurations mentionnés, l’espace des vitesses correspondants est rappelé.
+Sur ces espaces, sont définies deux opérations:</p>
+
+<figure class="center " id="quaternion_interpolation" style="width: 40%; float: left; margin-right: 2em;">
+  <img class="img-responsive" src="/img/thesis/chapter2/notations/quaternion_interpolation.jpg" alt="Quaternion interpolation" />
+  <figcaption>
+
+Représentation schématique de l'interpolation de quaternion.
+La sphère unité de $\real{3}$ est représentée.
+$q_1$ et $q_2$ sont deux éléments de celle-ci.
+$-q_2$ représente la même rotation que $q_2$.
+Quand $cos(\theta) \ge 0$, le chemin $q_1 \to q_2$ est plus court que $q_1 \to -q_2$.
+Quand $cos(\theta) \lt 0$, le chemin $q_1 \to -q_2$ est plus court.
+  </figcaption>
+</figure>
+
+<ul>
+  <li>L’addition d’une vitesse <script type="math/tex">v</script> à une configuration <script type="math/tex">q</script>,
+qui donne la configuration obtenue après intégration de la vitesse pendant un temps unitaire.</li>
+  <li>La différence entre deux configurations <script type="math/tex">q_1</script> et <script type="math/tex">q_2</script>,
+qui donne la vitesse de plus petite norme pour passer de <script type="math/tex">q_1</script> à <script type="math/tex">q_2</script>.
+Une attention particulière est portée à <script type="math/tex">SO(3)</script> afin d’éviter de faire “le grand tour”.
+Les éléments de <script type="math/tex">SO(3)</script> sont représentés par des quaternions.
+La <a href="#quaternion_interpolation">figure</a> ci-contre illustre le problème à prendre en compte.</li>
+</ul>
+
+<p>Ces deux opérations nous permettent de définir, entre deux configurations <script type="math/tex">\conf_1, \conf_2</script>, une fonction de distance
+<script type="math/tex">\distance[D]{\conf_0}{\conf_1} = (\conf_1 - \conf_0)^T D (\conf_1 - \conf_0)</script>
+et une fonction d’interpolation linéaire</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{equation}
+\label{eqn:straight_interpolation}
+\straight(\conf_0, \conf_1) :
+\begin{array}{cl}
+  [0, 1] & \to \mathcal{CS} \\
+    s    & \mapsto \conf_0 + s \, (\conf_1 - \conf_0)
+\end{array}
+\end{equation} %]]></script>
+
+<h4 id="contraintes">Contraintes</h4>
+
+<p>Les contraintes sont utilisées pour spécifier les règles de manipulations.
+Par exemple, quand un robot manipule un objet,
+l’objet se trouve toujours à une position stable ou dans la main du robot.
+De plus, soit le robot se déplace seul et l’objet est statique, soit le robot déplace l’objet,
+celui-ci étant à une position fixe par rapport à la main du robot.
+Ces règles peuvent êtres encodées par deux types de contraintes sont définies.</p>
+
+<dl>
+  <dt>Contrainte de validation</dt>
+  <dd>Contrainte de la forme <script type="math/tex">\func(\conf) = 0</script> où <script type="math/tex">\func \in \funcSpace</script> et <script type="math/tex">\conf \in \mathcal{CS}</script>.
+<script type="math/tex">n</script> est la <em>dimension</em> de la contrainte.</dd>
+  <dt>Contrainte de paramétrisation</dt>
+  <dd>Contrainte de la forme $ \func (\conf) =  \rhs $
+où $\func \in \funcSpace$, $\conf \in \mathcal{CS}$ et $\rhs \in \real{n}$.
+$\rhs$ est le <em>paramètre</em> et <script type="math/tex">n</script> est la <em>dimension</em>.</dd>
+</dl>
+
+<p>Une <em>contrainte de validation</em> est une <em>contrainte de paramétrisation</em> avec un paramètre $\rhs$ nul.
+Dans l’exemple précédent, les deux contraintes de validation correspondent à l’objet en position stable
+et à l’objet tenu par le robot.
+Les deux contraintes de paramétrisation correspondent à l’objet statique dans un position stable
+et à l’objet statique par rapport à la main du robot.</p>
+
+<h4 id="chemin">Chemin</h4>
+
+<p>Un chemin <script type="math/tex">\cpath \in \pathSpace</script> est une fonction continue de <script type="math/tex">[ 0, 1]</script> vers <script type="math/tex">\mathcal{CS}</script>.
+Il possède un fonction d’interpolation <script type="math/tex">\mathbf{interpolate}</script> et un ensemble de contraintes auquel il est soumis.
+La configuration <script type="math/tex">\cpath (t)</script>, évaluée à l’instant <script type="math/tex">t</script>, correspond à la projection de <script type="math/tex">\mathbf{interpolate}(t)</script>
+sur l’ensemble satisfaisant les contraintes du chemin.
+La méthode d’interpolation utilisé dans le reste de ce manuscrit est une interpolation linéaire par morceaux.
+Il est cependant possible d’utiliser d’autres méthodes.</p>
+
+<p>La méthode d’interpolation permet de garder un représentation continue des chemins.
+L’évaluation des contraintes à posteriori permet d’assurer que toutes les configurations du chemin satisfont les contraintes.
+Cependant, l’étape de projection n’est pas toujours continue. Ce problème est traité dans la section suivante.</p>
+
+<h3 id="chemin-continue-sur-des-varits">Chemin continue sur des variétés</h3>
+
+<p>Cette section traite de la continuité des chemins contraints.
+Deux algorithmes basés sur l’algorithme de Newton-Raphson sont proposés.
+L’image ci-dessous montre un cas où l’algorithme de Newton-Raphson génère un chemin contraint discontinu.</p>
+
+<figure class="center img-responsive center-block" id="projection_polynome" style="width: 90%;">
+  <img class="img-responsive" src="/img/thesis/pathprojection/easy_example.jpg" alt="2D illustration of discontinuous path projection" />
+  <figcaption>
+
+Cet exemple en 2 dimensions, où $(x,y)$ sont les paramètres de configuration, montre le graphe de $\func\left( (x,y) \right) = y^2 - 1$.
+Les 2 lignes horizontales en pointillées sont les solutions de $\func\left( (x,y) \right) = 0$.
+Les 2 points rouges sont 2 configurations satisfaisant $\func(\conf) = 0$.
+À gauche, la ligne bleue est l'interpolation linéaire entre les points rouges.
+À droite, les lignes noires sont sa projection point par point.
+La discontinuité est représentée par les points noirs et la ligne rouge en pointillée.
+  </figcaption>
+</figure>
+
+<h4 id="continuit-de-lalgorithme-de-newton-raphson">Continuité de l’algorithme de Newton-Raphson</h4>
+
+<p>Cet algorithme améliore itérativement la configuration courante afin de diminuer la norme de la valeur de la contrainte <script type="math/tex">\func(\conf)</script>.
+La fonction d’itération <script type="math/tex">P_{\alpha} \in \mathcal{F} \left( \mathcal{CS}, \mathcal{CS} \right)</script>, avec <script type="math/tex">\alpha \gt 0</script> est:</p>
+
+<script type="math/tex; mode=display">\begin{equation}
+  P_{\alpha}(\conf) = \conf - \alpha \, \pseudoInv{\Jac(\conf)} \, \func (\conf)
+  \label{eqn:projection_iteration}
+\end{equation}</script>
+
+<p>où $\pseudoInv{A}$ est l’inverse généralisé de $A$
+et $\Jac(\conf)$ est la matrice Jacobienne de $\func$ en $\conf$.
+$P_\alpha(\conf)$ est la configuration obtenue après une itération, à partir de $\conf$.</p>
+
+<div class="theorem " id="continuity_nr_iteration_function">
+  <div class="theorem-heading">
+    <b class="theorem-number"> Théorème : </b>
+    <b class="theorem-title">Continuité de $P_{\alpha}$</b>
+    <!--<br/>-->
+  </div>
+  <div class="theorem-body">
+
+
+Soit $\func \in \mathcal{C}^1 \left( \mathcal{CS}, \mathbb{R}^m \right)$, $\Jac(\conf)$ sa jacobienne
+et $\sigma(\conf)$ la plus petite valeur singulière non nulle de $\Jac(\conf)$.
+Finalement, soit $r = \max\limits_{\conf \in \mathcal{CS}} \left( rank(\Jac(\conf)) \right)$.
+
+Si $\Jac$ est une fonction $K$-Lipschitzienne alors, $\forall \conf \in \mathcal{CS}$
+
+$$ rank(\Jac(\conf)) = r         \Rightarrow        P_\alpha \text{ est continue sur } \ballContinuityF        $$
+
+  </div>
+</div>
+
+<p>La démonstration se trouve dans le <a href="http://homepages.laas.fr/jmirabel/jmirabel-thesis.pdf#page=26">manuscrit</a>.</p>
+
+<h4 id="algorithmes">Algorithmes</h4>
+
+<p>Le lemme précédent fournit un critère simple.
+Les algorithmes ci-dessous assurent qu’une itération de l’algorithme de Newton Raphson sera continue tout au long du chemin.</p>
+
+<h5 id="projection-progressive">Projection progressive</h5>
+
+<p>Démarrant de la configuration de départ du chemin, l’algorithme génère séquentiellement une série de configuration
+en s’assurant que</p>
+
+<ul>
+  <li>chaque configuration se trouve dans l’intervalle de continuité de la configuration précédente,</li>
+  <li>chaque configuration satisfait les contraintes.</li>
+</ul>
+
+<figure class="center img-responsive center-block" id="pathprojection_progressive" style="width: 80%;">
+  <img class="img-responsive" src="/img/thesis/pathprojection/progressive.png" alt="Progressive path projection algorithm" />
+  <figcaption>
+
+Méthode de projection progressive.
+  </figcaption>
+</figure>
+
+<p>L’image ci-dessus schématise son fonctionnement.
+La surface verte est $\func(\conf) = 0$.
+(a) montre le chemin initial.
+(b) et (c) montrent deux itérations réussies.
+Les deux premiers points d’interpolation sont ajoutés sans raffinement
+car ils sont suffisamment proche du précédent.
+(d) montre un point d’interpolation rejeté
+car il est trop loin du précédent.
+Il est raffiné en divisant la distance à son voisin par 2.
+Cela résulte en (e) et le nouveau point d’interpolation est ajouté.</p>
+
+<h5 id="projection-globale">Projection globale</h5>
+
+<p>L’algorithme fonctionne en itérant sur les deux étapes ci-dessous jusqu’à ce que tous les points d’interpolation
+satisfassent la contrainte et qu’ils soient suffisamment proche.</p>
+
+<ul>
+  <li>Ajout de point d’interpolation au chemin courant quand deux points consécutifs sont trop loin.</li>
+  <li>Diminution de l’erreur à chaque point d’interpolation.</li>
+</ul>
+
+<figure class="center img-responsive center-block" id="pathprojection_global" style="width: 90%;">
+  <img class="img-responsive" src="/img/thesis/pathprojection/global.png" alt="Global path projection algorithm" />
+  <figcaption>
+
+Méthode de projection globale.
+  </figcaption>
+</figure>
+
+<p>L’image ci-dessus schématise son fonctionnement.
+La surface verte est $\func(\conf) = 0$.
+(a) montre le chemin initial.
+(b) et (d) montrent l’étape de ré-interpolation.
+De nouveaux points d’interpolation sont ajoutés quand la distance en séparant deux consécutifs est trop grande.
+(c) et (e) montrent l’étape de réduction de la violation de la contrainte.
+Chaque point d’interpolation est déplacé afin de diminuer l’erreur.</p>
+
+<h4 id="planification-de-mouvement-continue">Planification de mouvement continue</h4>
+
+<p>Les algorithmes précédents peuvent être intégrés à un algorithme de planification de mouvement entre l’étape de création de chemin
+et celle de validation des collisions.
+Par example, on peut simplement modifier la fonction d’extension de l’algorithm Constrained-RRT comme suit.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">constrainedExtend</span><span class="p">(</span><span class="n">conf_near</span><span class="p">,</span> <span class="n">conf_proj</span><span class="p">,</span> <span class="n">tree</span><span class="p">,</span> <span class="n">constraint</span><span class="p">):</span>
+  <span class="n">p_1</span> <span class="o">=</span> <span class="n">interpolate</span><span class="p">(</span><span class="n">conf_near</span><span class="p">,</span> <span class="n">conf_proj</span><span class="p">)</span>
+  <span class="n">pathProj</span> <span class="o">=</span> <span class="n">projector</span><span class="p">(</span><span class="n">constraint</span><span class="p">)</span>
+  <span class="n">p_2</span>  <span class="o">=</span> <span class="n">pathProj</span><span class="o">.</span><span class="nb">apply</span> <span class="p">(</span><span class="n">p_1</span><span class="p">)</span>
+  <span class="n">p_3</span>  <span class="o">=</span> <span class="n">testCollision</span> <span class="p">(</span><span class="n">p_2</span><span class="p">)</span>
+  <span class="n">conf_new</span> <span class="o">=</span> <span class="n">finalConfiguration</span> <span class="p">(</span><span class="n">p_3</span><span class="p">)</span>
+  <span class="n">tree</span><span class="o">.</span><span class="n">insertConfAndPath</span> <span class="p">(</span><span class="n">conf_new</span><span class="p">,</span> <span class="n">p_3</span><span class="p">)</span></code></pre></figure>
+
+<h3 id="quilibre-quasi-statique">Équilibre quasi-statique</h3>
+
+<p>Cette section expose un critère d’équilibre quasi-statique dérivable basé sur de l’optimisation.</p>
+
+<figure class="center img-responsive" id="qp_formulation" style="width: 40%; float: left; margin-right: 1em;">
+  <img class="img-responsive" src="/img/thesis/constraints/qp_formulation.jpg" alt="Non-coplanar friction-less multi-contact criterion" />
+  <figcaption>
+
+Critère de stabilité sans frottements pour des contacts non-coplanaire.
+  </figcaption>
+</figure>
+
+<p>Soit un robot soumis à des efforts externes <script type="math/tex">f_i \, \vec{n}_i</script>
+appliqués en <script type="math/tex">P_i</script>.
+<script type="math/tex">G</script> denote le centre de gravité du robot.
+L’équilibre quasi-statique du robot s’écrit</p>
+
+<script type="math/tex; mode=display">\begin{equation}
+\label{eqn:stability_criteria}
+\exists \mathbf{f} \in [0, +\infty[^n, \phi \mathbf{f} + m \mathbf{G} = 0_{\real{6}}
+\end{equation}</script>
+
+<p>où <script type="math/tex">\mathbf{f} = (f_1, \dots, f_n)^T \in \real{+n}</script>,
+<script type="math/tex">\mathbf{G} = (0, 0, -9.81, 0, 0, 0)^T \in \real{6}</script>
+et 
+<script type="math/tex">% <![CDATA[
+\phi = \left( \begin{array}{ccc}
+        \dots & \vec{n}_i & \dots\\
+        \dots & \vec{P_iG} \times \vec{n}_i & \dots
+        \end{array} \right) \in \matrices{6}{n} %]]></script>.</p>
+
+<p>En notant <script type="math/tex">\mathbf{H} = \phi^T \phi \in \matrices{n}{n}</script>
+et <script type="math/tex">\mathbf{g} = m \phi^T \mathbf{G} \in \real{n}</script>,
+le problème \eqref{eqn:stability_criteria} est équivalent au <em>problème quadratique</em> suivant:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{equation}
+\label{eqn:static_stability_qp}
+\begin{array}{rl}
+\min & C(\mathbf{f}) = \frac{1}{2}\mathbf{f}^T \mathbf{H} \mathbf{f} + \mathbf{f}^T \mathbf{g} \\
+s.t.& \mathbf{f} \ge 0
+\end{array}
+\end{equation} %]]></script>
+
+<p>En notant <script type="math/tex">\mathbf{f}^*</script> l’optimum de \eqref{eqn:static_stability_qp},
+le critère d’équilibre est alors le coût optimal <script type="math/tex">C(\mathbf{f}^*)</script>.
+Ce critère vaut zéro en cas d’équilibre quasi-statique.
+Quand les conditions de relâchement supplémentaires de \eqref{eqn:static_stability_qp} sont strictement vérifiés,
+la dérivé du critère d’équilibre est :</p>
+
+<script type="math/tex; mode=display">\newcommand{\derive}[2][\conf]{\pd{#2}{#1}}
+\begin{equation}
+\label{eqn:derivative_optimal_cost}
+\derive{C(\mathbf{f}^*)} = \frac{1}{2}\mathbf{f}^{*T} \derive{\mathbf{H}} \mathbf{f}^* + \mathbf{f}^{*T} \derive{\mathbf{g}}
+\end{equation}</script>
+
+<p>Ce critère peut être intégré comme une contrainte dans une planificateur de mouvement contraint.</p>
+
+      </div>
+      <hr class="featurette-divider">
+      <div class="row text-center">
+        <div class="col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1">
+          <nav aria-label="Page navigation">
+            <ul class="pagination">
+              
+                <li>
+                  <a href="/publications/thesis/chap.html" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+              
+              
+              
+                <li>
+                  <a href="/publications/thesis/chap.html" aria-label="Previous">
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+              
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Start -->
+
+<footer>
+
+  
+
+  <p><br><br><br><br><br><br><br><br></p>
+
+    <div class="container text-center">
+      <p>
+        Copyright &copy; Joseph Mirabel 2017.
+        <a href="https://github.com/panossakkos/personal-jekyll-theme/"/>Fork this website</a>.
+        Adapted from <a href="https://github.com/panossakkos/personal-jekyll-theme/" target="_blank">{ Personal }</a>
+      </p>
+        
+    </div>
+</footer>
+
+<!-- Footer End -->
+
+
+    
+<!-- Javascript Start -->
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<!--* Start Bootstrap - Grayscale Bootstrap Theme (http://startbootstrap.com)
+* Code licensed under the Apache License v2.0.
+* For details, see http://www.apache.org/licenses/LICENSE-2.0.-->
+
+
+  <script type="text/javascript">
+    $( moveTOC );
+    function moveTOC() {
+      toc = $('#markdown-toc');
+      toc.addClass("dropdown-menu");
+      $('#markdown-toc li a').addClass("page-scroll");
+      $('#navbar-toc').replaceWith( toc );
+    }
+  </script>
+
+
+<script>
+function toggleNavCollapse(){50<$(".navbar").offset().top?$(".navbar-fixed-top").addClass("top-nav-collapse"):$(".navbar-fixed-top").removeClass("top-nav-collapse");}
+$(document).ready(toggleNavCollapse);
+$(window).scroll(toggleNavCollapse);$(function(){$("a.page-scroll").bind("click",function(b){var a=$(this);$("html, body").stop().animate({scrollTop:$(a.attr("href")).offset().top-50},1500,"easeInOutExpo",function(){a.blur()});b.preventDefault()})});$(".navbar-collapse ul li a").click(function(){$(".navbar-toggle:visible").click()});
+</script>
+
+
+
+
+
+  <!-- Syntax highlight in post pages-->
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+  <!-- MathJax in post pages-->
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {inlineMath:  [['$','$'], ['\\(','\\)']]},
+    TeX: { equationNumbers: {autoNumber: "AMS"} } 
+});
+  </script>
+  <script type="text/javascript" async src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
+
+
+
+
+<!-- Javascript End -->
+
+
+  </body>
+</html>
+
+<!-- Publications Layout End -->
