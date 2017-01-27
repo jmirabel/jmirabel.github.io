@@ -52,11 +52,9 @@ text-align: left;
   - Static stability
 
 1. [Manipulation planner](thesis/chap3.html)
-
   - **Constraint Graph**
-  - **Crossed foliation issue** \\
+  - **Crossed foliation issue**
     {% youtube kptp-zZw634?start=50&end=1m06 %}
-
   - Generalized reduction property
   - Narrow passages
 
@@ -64,16 +62,13 @@ text-align: left;
   - Documented objects
   - **Constraint graph generation**
 
-1. [Result](thesis/chap5.html)  
+1. [Result](thesis/chap5.html) \\
   <small>See the [HPP website](https://humanoid-path-planner.github.io/hpp-doc/index.html) for an overview of the results.</small>
-
-  - Humanoid Path Planner \\
+  - Humanoid Path Planner
     {% youtube 2ELEpuPjGP4 %}
-
-  - Manipulator arms \\
+  - Manipulator arms
     {% youtube kptp-zZw634?start=4&end=34 width=500 %}
     {% youtube iRJtmt7RzDM                width=500 %}
-
-  - Humanoid robots \\
+  - Humanoid robots
     {% youtube kptp-zZw634?start=34&end=50 %}
     {% video http://homepages.laas.fr/jmirabel/raw/videos/hrp2_stairs.mp4 300px 315px %}
