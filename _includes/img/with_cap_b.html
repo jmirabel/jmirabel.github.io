@@ -1,4 +1,5 @@
-<figure class="center {{ include.class }}"
+<figure
+  {% if include.class %}class="{{ include.class }}"{% endif %}
   {% if include.id    %}   id="{{ include.id    }}"{% endif %}
   {% if include.style %}style="{{ include.style }}"{% endif %} >
   <img class="img-responsive" src="{{ include.src }}" alt="{{ include.alt }}"/>
