@@ -1,12 +1,10 @@
 ---
 layout: thesis_chapter
-section-type: post
 chapter: 2
 title: Constrained motion planning
 page: 31
 id: thesis
-use-toc: true
-category: thesis-chapter
+options: [ "use-toc", "mathjax", "syntax-highlight" ]
 ---
 
 * Will be replaced with the ToC, excluding the "Contents" header

@@ -4,6 +4,7 @@ chapter: 3
 title: Manipulation planner
 page: 53
 id: thesis
+options: [ "use-toc" ]
 ---
 
 Not yet
