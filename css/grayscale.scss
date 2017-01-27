@@ -16,6 +16,10 @@ body {
     font-family: "Lora","Helvetica Neue",Helvetica,Arial,sans-serif;
     color: $font-color;
     background-color: $primary-color;
+    font-size: 18px;
+    @media(min-width:768px) {
+      font-size: 20px;
+    }
 }
 
 html {
@@ -49,12 +53,45 @@ h4 {
 
 p {
     margin: 0 0 25px;
-    font-size: 18px;
     line-height: 1.5;
     @media(min-width:768px) {
         margin: 0 0 35px;
-        font-size: 20px;
         line-height: 1.6;
+    }
+}
+
+figure {
+    margin: 0 0 5px;
+    font-size: 16px;
+    line-height: 1.1;
+    @media(min-width:768px) {
+        margin: 0 0 10px;
+        font-size: 18px;
+        line-height: 1.2;
+    }
+}
+
+.theorem {
+  background-color: $font-color;
+  color: $primary-color;
+  margin: 1em;
+  border-radius: 0.5em;
+  .theorem-heading {
+    padding: 1em;
+    background-color: rgba($primary-color, 0.3);
+    border-bottom: 1px solid rgba($primary-color, 0.6);
+  }
+  .theorem-body {
+    padding: 0.5em 0.5em 0.5em 2em;
+  }
+}
+
+dl {
+    dd {
+      margin-left: 1em;
+      @media(min-width:768px) {
+        margin-left: 2em;
+      }
     }
 }
 
@@ -79,6 +116,10 @@ a {
 }
 
 .navbar-custom {
+    font-size: 12px;
+    @media(min-width:768px) {
+      font-size: 14px;
+    }
     margin-bottom: 0;
     border-bottom: 1px solid rgba($font-color, 0.3);
     text-transform: uppercase;
@@ -87,7 +128,6 @@ a {
 
     /* Fix height limit and scroll for small screen and many items menu */
     max-height: 100%;
-    overflow-y: auto;
 
     .navbar-toggle {
         padding: 4px 6px;
@@ -137,6 +177,21 @@ a {
                     }
                 }
             }
+        }
+        .dropdown-menu {
+          background-color: $font-color;
+          li {
+            a {
+              color: $navbar-sm-background-color;
+              &:hover {
+                  background-color: rgba($navbar-sm-background-color, 0.3);
+              }
+              &:focus,
+              &:active {
+                  background-color: rgba($navbar-sm-background-color, 0.3);
+              }
+            }
+          }
         }
     }
     @media(min-width:768px) {
@@ -249,11 +304,17 @@ a {
     /* Added in { Personal } */
     ul,
     ol {
-        text-align: center;
+        /* text-align: center; */
         margin: 0 0 25px;
         font-size: 18px;
         line-height: 1.5;
         list-style-position: inside;
+        @media(min-width:768px) {
+            margin: 0 0 35px;
+            font-size: 20px;
+            line-height: 1.6;
+            list-style-position: outside;
+        }
     }
     pre {
       padding: 0;

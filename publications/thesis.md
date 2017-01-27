@@ -2,7 +2,6 @@
 layout: publication
 section-type: post
 id: thesis
-pdf: http://homepages.laas.fr/jmirabel/jmirabel-thesis.pdf
 ---
 
 ## Thesis manuscript
@@ -42,29 +41,39 @@ text-align: left;
 
 #### Chapters
 
-- [State of the art]({{ page.pdf }}#page=17)
+1. [State of the art]({{ site.data.thesis.pdf }}#page=17)
   - Motion planning
   - Task planning
   - Manipulation planning
-- [Constrained motion planning]({{ page.pdf }}#page=31)
+
+1. [Constrained motion planning](thesis/chap2.html)
   - Notations and definitions
   - **Continuous path on manifolds**
   - Static stability
-- [Manipulation planner]({{ page.pdf }}#page=53)
+
+1. [Manipulation planner](thesis/chap3.html)
+
   - **Constraint Graph**
-  - **Crossed foliation issue**
-{% include video.html youtubeid="kptp-zZw634?start=50" %}
+  - **Crossed foliation issue** \\
+    {% youtube kptp-zZw634?start=50&end=1m06 %}
+
   - Generalized reduction property
   - Narrow passages
-- [Affordance]({{ page.pdf }}#page=81)
+
+1. [Affordance](thesis/chap4.html)
   - Documented objects
   - **Constraint graph generation**
-- [Result]({{ page.pdf }}#page=91)
-  <br/><small>See the [HPP website](https://humanoid-path-planner.github.io/hpp-doc/index.html) for an overview of the results.</small>
-  - Humanoid Path Planner
-{% include video.html youtubeid="2ELEpuPjGP4" %}
-  - Manipulator arms
-{% include video.html youtubeid="kptp-zZw634?end=50" %}
-{% include video.html youtubeid="iRJtmt7RzDM" %}
-  - Humanoid robots
-{% include video.html video="http://homepages.laas.fr/jmirabel/raw/videos/hrp2_stairs.mp4" %}
+
+1. [Result](thesis/chap5.html)  
+  <small>See the [HPP website](https://humanoid-path-planner.github.io/hpp-doc/index.html) for an overview of the results.</small>
+
+  - Humanoid Path Planner \\
+    {% youtube 2ELEpuPjGP4 %}
+
+  - Manipulator arms \\
+    {% youtube kptp-zZw634?start=4&end=34 width=500 %}
+    {% youtube iRJtmt7RzDM                width=500 %}
+
+  - Humanoid robots \\
+    {% youtube kptp-zZw634?start=34&end=50 %}
+    {% video http://homepages.laas.fr/jmirabel/raw/videos/hrp2_stairs.mp4 300px 315px %}

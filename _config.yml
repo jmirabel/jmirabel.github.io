@@ -20,6 +20,11 @@ baseurl:
 
 force-https: True
 
+##############
+# Conversion #
+##############
+markdown: kramdown
+
 #############
 # HTML Head #
 #############
@@ -181,6 +186,9 @@ exclude: ["LICENSE", "README.md", "CONTRIBUTING", "CONTRIBUTORS", "scripts"]
 # Pagination path
 
 paginate_path: "blog/page:num/"
+
+kramdown:
+  parse_block_html: false
 
 # Enable minification SASS
 

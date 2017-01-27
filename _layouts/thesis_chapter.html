@@ -1,0 +1,61 @@
+<!-- Thesis chapter Layout Start -->
+
+<!DOCTYPE html>
+<html lang="{{ site.lang }}">
+
+  {% include head.html %}
+
+  <body>
+
+    {% include navigation.html %}
+
+    {% include thesis_mathcommands.md %}
+
+    <section id="post" class="container content-section">
+
+      <div class="row text-center">
+        <!--<div class="col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1">-->
+        <div class="col-md-12 col-xs-12">
+          <!--{% for publi in site.data.publications %}-->
+          <!--{% if publi.page == page.id %}-->
+            {% assign publi = site.data.thesis %}
+            {% include publication-summary.html %}
+
+
+            <!--{% break %}-->
+            <!--{% endif %}-->
+            <!--{% endfor %}-->
+        </div>
+      </div>
+      <div class="row text-justify">
+
+            <h2> <strong> Chapter {{ page.chapter  }} </strong>
+              <small>.</small>
+              <strong> {{ page.title }} </strong>
+              <a href="{{ site.data.thesis.pdf }}#page={{ page.page }}" title="HAL" alt="HAL">
+                <i class="fa fa-file-pdf-o"></i>
+              </a>
+            </h2>
+
+            {{ page.content | markdownify }}
+      </div>
+      <hr class="featurette-divider">
+      <div class="row text-center">
+        <div class="col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1">
+          <h4>
+            <a href="{{site.baseurl}}/publications/thesis.html#chapters">Thesis</a>
+            <small>.</small>
+            <a href="{{site.baseurl}}/publications/">All publications</a>
+          </h4>
+        </div>
+      </div>
+    </section>
+
+    {% include footer.html %}
+
+    {% include js.html %}
+
+  </body>
+</html>
+
+<!-- Publications Layout End -->
