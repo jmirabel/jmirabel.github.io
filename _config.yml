@@ -198,3 +198,11 @@ sass:
 gems:
   - jekyll-paginate
   - jemoji
+
+# Jekyll press (minifier)
+jekyll-press:
+  activate: false
+  exclude: 'atom.xml' # Exclude files from processing - file name, glob pattern or array of file names and glob patterns
+  js_options: {}      # js minifier options
+  css_options: {}     # css minifier options
+  html_options: {}    # html minifier options
