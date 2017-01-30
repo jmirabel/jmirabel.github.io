@@ -173,7 +173,7 @@
 \newcommand{\ballContinuityF}{\ball{\conf}{\tfrac{\sigma(\conf)}{K}}}
 
 %%%%%%%%%%% Notations %%%%%%%%%%%%%%%%%%%
-\renewcommand{\vec}[1]{\mathbf{#1}}
+% \renewcommand{\vec}[1]{\mathbf{#1}}
 \newcommand{\conf}{\mathbf{q}}
 \newcommand{\straight}{\mathbf{straight}}
 </script>
@@ -226,7 +226,137 @@
               </a>
             </h2>
 
-            <p>Not yet</p>
+            <ul id="markdown-toc">
+  <li><a href="#objets-documentes" id="markdown-toc-objets-documentes">Objets documentées</a>    <ul>
+      <li><a href="#contrainte-de-contact" id="markdown-toc-contrainte-de-contact">Contrainte de contact</a></li>
+    </ul>
+  </li>
+  <li><a href="#gnration-du-graphe-des-contraintes" id="markdown-toc-gnration-du-graphe-des-contraintes">Génération du graphe des contraintes</a>    <ul>
+      <li><a href="#gnration-des-tats" id="markdown-toc-gnration-des-tats">Génération des états</a></li>
+      <li><a href="#gnration-des-transitions" id="markdown-toc-gnration-des-transitions">Génération des transitions</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="objets-documentes">Objets documentées</h3>
+
+<figure id="affordance_dor-gripper" style="float: left; margin-right: 1em;">
+  <img class="img-responsive" src="/img/thesis/affordance/gripper.png" alt="Documentation of a gripper" style="height: 200px" />
+  <figcaption>
+
+Préhenseur du robot.
+  </figcaption>
+</figure>
+
+<p>L’affordance est un problème complexe.
+Une documentation basique pour les préhenseurs, poignées et surfaces de contacts
+permet de s’abstraire de ce problème.</p>
+
+<figure id="affordance_dor-handle" style="width: 150px; float: right; margin-left: 1em;">
+  <img class="img-responsive" src="/img/thesis/affordance/handle.png" alt="Documentation of a handle" style="height: 200px" />
+  <figcaption>
+
+Poignée et surface de l'objet.
+  </figcaption>
+</figure>
+
+<p>Sur les trois images ci-contre, les repères représentent les positions de saisies.
+L’axe X, en rouge, est un axe d’approche.
+L’axe Z, en bleu, est un axe possible de rotation.
+Il est utilisé pour les saisies autorisant un ou plusieurs degrés de liberté.
+Une saisie est valide si les deux repères se confondent.</p>
+
+<figure id="affordance_dor-kitchen" style="width: 200px; float: left; margin-right: 1em;">
+  <img class="img-responsive" src="/img/thesis/affordance/kitchen.png" alt="Documentation of an environment" style="height: 200px" />
+  <figcaption>
+
+Surfaces de contact sur l'environnement.
+  </figcaption>
+</figure>
+
+<p>Les surfaces vertes sur l’objet définissent les parties de l’objet pouvant être en contact avec l’environnement.
+Celles sur l’environnement définissent les surfaces sur lesquelles peut être posé un objet.
+Une surface est définie par un polygone convexe et coplanaire.</p>
+
+<h4 id="contrainte-de-contact">Contrainte de contact</h4>
+
+<figure id="dist_between_polygons" style="width: 495px; float: right; margin-left: 1em;">
+  <img class="img-responsive" src="/img/thesis/affordance/dist_between_polygones.jpg" alt="Distance between polygons" style="height: 300px" />
+  <figcaption>
+
+Distance entre deux polygones convexes coplanaires.
+  </figcaption>
+</figure>
+
+<p>Un contact entre deux surfaces <script type="math/tex">M</script>, mobile, et <script type="math/tex">S</script>, support, est considéré valide si le centre
+de la surface mobile est inclu dans la surface support.</p>
+
+<p>Le polygone support, <script type="math/tex">S</script>, est inclu dans le plan <script type="math/tex">\Pi</script>.
+<script type="math/tex">C_M</script> est le barycentre du polygone mobile <script type="math/tex">M</script>.
+<script type="math/tex">Q_{M,S}</script> est la projection de <script type="math/tex">C_M</script> sur <script type="math/tex">\Pi</script>, orthogonalement à <script type="math/tex">\Pi</script>.
+<script type="math/tex">d_{\parallel} (M, S)</script> est la norme de <script type="math/tex">\vec{Q_{M,S}C_S}</script>.
+<!--  correspond à Eq.~\eqref{eqn:distancePolygon_parallel}  -->
+<script type="math/tex">d_{\bot} (M, S)</script> est la norme de <script type="math/tex">\vec{Q_{M,S}C_M}</script>.
+<!--  corresponds to Eq.~\eqref{eqn:distancePolygon_ortho}  --></p>
+
+<p>La contrainte de validation de contact est :
+<script type="math/tex">% <![CDATA[
+\begin{align}
+  \func_{place} (\conf) =
+                            \left\{
+                              \begin{array}{cl}
+                                \left[ v_x, 0  , 0  , \omega_y, \omega_z \right] & \text{if } Q_{M,S} \in S \\
+                                \left[ v_x, v_y, v_z, \omega_y, \omega_z \right] & \text{otherwise}
+                            \end{array}
+                            \right. = 0
+  \label{eqn:place_valid_c}
+\end{align} %]]></script>
+et la fonction de paramétrization est :
+<script type="math/tex">% <![CDATA[
+\begin{align}
+  \bar\func_{place} (\conf) =
+                            \left\{
+                              \begin{array}{cl}
+                                \left[ v_y, v_z, \omega_x \right] & \text{if } Q_{M,S} \in S \\
+                                \left[ 0  , 0  , \omega_x \right] & \text{otherwise}
+                            \end{array}
+                            \right.
+  \label{eqn:place_param_c}
+\end{align} %]]></script>
+où $\vec{v} = (v_x, v_y, v_z) \in \real{3}$ et $\vec{\omega} = (\omega_x, \omega_y, \omega_z) \in \real{3}$
+sont tel que $(\cross{\vec{\omega}}, \vec{v})$ est le logarithme<sup id="fnref:logarithme"><a href="#fn:logarithme" class="footnote">1</a></sup> de la transformation de 
+<script type="math/tex">\mathcal{R}_M</script> par rapport à <script type="math/tex">\mathcal{R}_S</script>.</p>
+
+<h3 id="gnration-du-graphe-des-contraintes">Génération du graphe des contraintes</h3>
+
+<p>À partir de la documentation ci-dessus, il est possible de générer automatiquement un graphe des contraintes.
+Pour limiter la combinatoire, l’utilisateur spécifie des règles indiquant,
+par exemple, quelles sont les associations de préhenseurs et de poignées qui sont
+valides ou interdites.
+Cet algorithme permet notamment de rendre plus accessible un outil de planification de manipulation.
+Bien que cela n’est pas été nécessaire, il serait également possible de spécifier des règles sur les surfaces de contact.</p>
+
+<h4 id="gnration-des-tats">Génération des états</h4>
+
+<p>Les états sont générés simplement en itérant sur toutes les possibilités d’associations de préhenseurs
+et de poignées.</p>
+
+<h4 id="gnration-des-transitions">Génération des transitions</h4>
+
+<p>L’algorithme construit automatiquement des transitions avec points de passage.
+Il détecte également les espaces de saisie et de placement qui sont feuilletés
+et intégre des “crossed foliation transition” si nécessaire.</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:logarithme">
+      <p>Le logarithme est l’inverse de la
+           <a href="https://en.wikipedia.org/wiki/Exponential_map_(Lie_theory)">carte exponentielle</a>
+           de <script type="math/tex">\mathfrak{se}(3)</script> vers <script type="math/tex">SE(3)</script>.
+           Cet inverse est unique si l’on ne s’intéresse qu’à l’inverse de plus petite norme. <a href="#fnref:logarithme" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
 
       </div>
       <hr class="featurette-divider">
@@ -328,6 +458,17 @@ $(window).scroll(toggleNavCollapse);$(function(){$("a.page-scroll").bind("click"
 
 
 
+
+
+
+  <!-- MathJax in post pages-->
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {inlineMath:  [['$','$'], ['\\(','\\)']]},
+    TeX: { equationNumbers: {autoNumber: "AMS"} } 
+});
+  </script>
+  <script type="text/javascript" async src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
 
 
 
