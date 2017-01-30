@@ -2,26 +2,32 @@ class YouTube < Liquid::Tag
   Syntax = /^\s*([^\s]+)(\s+(\d+)\s*)?/
   Width    = /width=(\d+)\s/i
   Height   = /height=(\d+)\s/i
-  Class    = /class=(([^\s]+)|("[^"]+"))\s/i
+  Class    = /class=(([^"\s]+)|"([^"]+)")\s/i
 
   def initialize(tagName, markup, tokens)
     super
 
+    @markup = markup
     id = markup.sub(Width, '').gsub(Height, '').sub(Class, '').strip
     if !id.empty? then
       @id = id
       @w = height
       @h = width
+      @c = _class
     else
       raise "No YouTube ID provided in the \"youtube\" tag #{markup}"
     end
   end
 
-  def class
-    c = @markup.sub(Preload, '').gsub(Videos, '').sub(Poster, '').gsub(Sizes,'').strip
+  def _class
+    c = @markup.scan(Class)
 
     if !c.empty?
-      "class='#{c}'"
+      if c[0][1]
+        "class='#{c[0][1]}'"
+      elsif c[0][2]
+        "class='#{c[0][2]}'"
+      end
     end
   end
 
@@ -46,8 +52,7 @@ class YouTube < Liquid::Tag
   end
 
   def render(context)
-    "<iframe #{@w} #{@h} src=\"http://www.youtube.com/embed/#{@id}\" frameborder=\"0\" allowfullscreen></iframe>"
-    # "<iframe width=\"#{@width}\" height=\"#{@height}\" src=\"http://www.youtube.com/embed/#{@id}?color=white&theme=light\"></iframe>"
+    "<iframe #{@w} #{@h} #{@c} src=\"http://www.youtube.com/embed/#{@id}\" frameborder=\"0\" allowfullscreen></iframe>"
   end
 
   Liquid::Template.register_tag "youtube", self

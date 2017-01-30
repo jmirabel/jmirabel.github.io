@@ -49,7 +49,7 @@
 \newcommand{\ballContinuityF}{\ball{\conf}{\tfrac{\sigma(\conf)}{K}}}
 
 %%%%%%%%%%% Notations %%%%%%%%%%%%%%%%%%%
-\renewcommand{\vec}[1]{\mathbf{#1}}
+% \renewcommand{\vec}[1]{\mathbf{#1}}
 \newcommand{\conf}{\mathbf{q}}
 \newcommand{\straight}{\mathbf{straight}}
 </script>
