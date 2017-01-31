@@ -65,7 +65,7 @@ text-align: left;
 1. [Result](thesis/chap5.html) \\
   <small>See the [HPP website](https://humanoid-path-planner.github.io/hpp-doc/index.html) for an overview of the results.</small>
   - Humanoid Path Planner
-    {% youtube 2ELEpuPjGP4 %}
+    {% youtube 01K_nmax9E0 %}
   - Manipulator arms
     {% youtube kptp-zZw634?start=4&end=34 width=500 %}
     {% youtube iRJtmt7RzDM                width=500 %}
