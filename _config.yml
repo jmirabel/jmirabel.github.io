@@ -51,8 +51,11 @@ type-speed: 10
 start-delay: 200
 delete-delay: 5000
 lines: # You can add HTML Tags in the Text
-  - text: "The lower you fall, the higher you'll fly."
-  - text: "Where’s your will to be weird?"
+  - text: "Il y a deux Histoires : l'Histoire officielle, menteuse qu'on enseigne, l'Histoire &laquo;ad usum delphini &raquo;;
+    ^1000 puis l'Histoire secr\\350te,
+    o\\371 sont les v\\351ritables causes des \\351v\\350nements, une Histoire honteuse.
+    <b>Honor\\351 de Blazac</b>"
+  #- text: "The lower you fall, the higher you'll fly."
 
 me-img: "/img/jetpacktocat.png"
 
@@ -189,4 +192,3 @@ sass:
 
 gems:
   - jekyll-paginate
-  - jemoji
