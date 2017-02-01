@@ -1,3 +1,13 @@
+- page: thesis
+  date: 2017-02-21
+  title: "Manipulation planning for documented objects"
+  authors: Joseph Mirabel
+  where: "Manuscript under review"
+  pubcat: thesis
+  #halid: hal-01358767
+  pdf: "http://homepages.laas.fr/jmirabel/jmirabel-thesis.pdf"
+  highlight: true
+
 - page: hpp
   date: 2016-10-09
   title: "HPP: A new software for constrained motion planning"
@@ -10,16 +20,16 @@
 - date: 2017-01-15
   title: "Manipulation planning: building paths on constrained manifolds"
   authors: Joseph Mirabel and Florent Lamiraux
-  where: "Submitted to IEEE International Conference on Robotics and Automation 2017"
-  pubcat: ic
+  where: ""
+  pubcat: misc
   halid: hal-01360409
-  highlight: true
+  highlight: false
 
 - page: foliation
   date: 2017-01-15
   title: "Manipulation planning: addressing the crossed foliation issue"
   authors: Joseph Mirabel and Florent Lamiraux
-  where: "Submitted to IEEE International Conference on Robotics and Automation 2017"
+  where: "IEEE International Conference on Robotics and Automation 2017"
   pubcat: ic
   halid: hal-01358767
   pdf: "http://hal.archives-ouvertes.fr/hal-01358767/document"
@@ -28,7 +38,7 @@
 - date: 2016-07-10
   title: "HPP: a new software framework for manipulation planning"
   authors: Joseph Mirabel and Florent Lamiraux
-  where: "Submitted to IEEE/RSJ Intelligent Robots and Systems 2015"
+  where: ""
   pubcat: misc
   halid: hal-01138118
   pdf: "http://hal.archives-ouvertes.fr/hal-01138118/document"

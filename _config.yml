@@ -20,6 +20,11 @@ baseurl:
 
 force-https: True
 
+##############
+# Conversion #
+##############
+markdown: kramdown
+
 #############
 # HTML Head #
 #############
@@ -185,6 +190,9 @@ exclude: ["LICENSE", "README.md", "CONTRIBUTING", "CONTRIBUTORS", "scripts"]
 
 paginate_path: "blog/page:num/"
 
+kramdown:
+  parse_block_html: false
+
 # Enable minification SASS
 
 sass:
@@ -192,3 +200,11 @@ sass:
 
 gems:
   - jekyll-paginate
+
+# Jekyll press (minifier)
+jekyll-press:
+  activate: false
+  exclude: 'atom.xml' # Exclude files from processing - file name, glob pattern or array of file names and glob patterns
+  js_options: {}      # js minifier options
+  css_options: {}     # css minifier options
+  html_options: {}    # html minifier options

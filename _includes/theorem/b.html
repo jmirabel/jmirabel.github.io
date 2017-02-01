@@ -1,0 +1,9 @@
+<div class="theorem {{ include.class }}"
+  {% if include.id    %}   id="{{ include.id    }}"{% endif %}
+  {% if include.style %}style="{{ include.style }}"{% endif %} >
+  <div class="theorem-heading">
+    <b class="theorem-number"> {% if include.number %}{{ include.number }}{% else %}Théorème{% endif %} : </b>
+    <b class="theorem-title">{{ include.title }}</b>
+    <!--<br/>-->
+  </div>
+  <div class="theorem-body">

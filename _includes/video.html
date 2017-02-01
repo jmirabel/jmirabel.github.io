@@ -1,6 +1,23 @@
-{% if page.youtubeid %}
-{% capture videourl %}https://www.youtube.com/embed/{{ page.youtubeid }}{% endcapture %}
+{% assign youtube = 1 %}
+{% if include.youtubeid %}
+  {% capture videourl %}https://www.youtube.com/embed/{{ include.youtubeid }}{% endcapture %}
+{% elsif include.video %}
+  {% assign youtube = 0 %}
+  {% assign videourl = include.video %}
+{% elsif page.youtubeid %}
+  {% capture videourl %}https://www.youtube.com/embed/{{ page.youtubeid }}{% endcapture %}
 {% elsif page.video %}
+  {% assign youtube = 0 %}
   {% assign videourl = page.video %}
 {% endif %}
-<iframe width="560" height="315" src="{{ videourl }}" frameborder="0" allowfullscreen></iframe>
+
+{% capture width  %} width="{% if include.width  %}{{ include.width  }}{% else %}560{% endif %}"{% endcapture %}
+{% capture height %}height="{% if include.height %}{{ include.height }}{% else %}315{% endif %}"{% endcapture %}
+
+{% if youtube == 1 %}
+<iframe {{width}} {{height}} src="{{ videourl }}" frameborder="0" allowfullscreen></iframe>
+{% else %}
+  <video {{width}} {{height}} controls>
+    <source src="{{ videourl }}"/>
+  </video>
+{% endif %}
