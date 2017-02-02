@@ -23,11 +23,16 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
       <ul class="nav navbar-nav">
-        {% if page.section-type == "index" %}
+        {% if page.options contains "menu-bar" %}
           <!-- Scroll to section for each page in index -->
-          {% for p in site.pages_list %}
+          {% if page.section-type == "index" %}
+            {% assign url = "" %}
+          {% else %}
+          {% capture url %}{{ site.baseurl }}/{% endcapture %}
+          {% endif %}
+          {% for p in site.menu-bar %}
             <li>
-              <a class="page-scroll" href="#{{ p[1] }}"> {{p[0]}} </a>
+              <a class="page-scroll" href="{{ url }}{{ p[1] }}"> {{p[0]}} </a>
             </li>
           {% endfor %}
         {% endif %}

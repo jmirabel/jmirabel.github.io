@@ -2,6 +2,7 @@
 layout: publication
 section-type: post
 id: thesis
+options: [ "menu-bar" ]
 ---
 
 ## Thesis manuscript

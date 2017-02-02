@@ -171,10 +171,16 @@ keybase-in-footer: False
 
 pages_list:
   About: 'about'
-  #Blog: 'latest-post'
   Publications: 'highlight-publications'
   Timeline: 'timeline'
   Contact: 'contact'
+
+menu-bar:
+  About: '#about'
+  Publications: '#highlight-publications'
+  Thesis: 'publications/thesis.html'
+  Timeline: '#timeline'
+  Contact: '#contact'
 
 pubcat:
   journal: "Journals"
