@@ -42,7 +42,9 @@ text-align: left;
 
 #### Chapters
 
-1. [State of the art]({{ site.data.thesis.pdf }}#page=17)
+A summary of each chapter is available (only in French so far).
+
+1. [State of the art](thesis/chap1.html)
   - Motion planning
   - Task planning
   - Manipulation planning
@@ -55,7 +57,7 @@ text-align: left;
 1. [Manipulation planner](thesis/chap3.html)
   - **Constraint Graph**
   - **Crossed foliation issue**
-    {% youtube kptp-zZw634?start=50&end=1m06 %}
+  <!--{% youtube kptp-zZw634?start=50&end=1m06 %}-->
   - Generalized reduction property
   - Narrow passages
 
@@ -64,12 +66,12 @@ text-align: left;
   - **Constraint graph generation**
 
 1. [Result](thesis/chap5.html) \\
-  <small>See the [HPP website](https://humanoid-path-planner.github.io/hpp-doc/index.html) for an overview of the results.</small>
+    <!--<small>See the [HPP website](https://humanoid-path-planner.github.io/hpp-doc/index.html) for an overview of the results.</small>-->
   - Humanoid Path Planner
-    {% youtube 01K_nmax9E0 %}
+  <!--{% youtube 01K_nmax9E0 %}-->
   - Manipulator arms
-    {% youtube kptp-zZw634?start=4&end=34 width=500 %}
-    {% youtube iRJtmt7RzDM                width=500 %}
+  <!--{% youtube kptp-zZw634?start=4&end=34 width=500 %}-->
+  <!--{% youtube iRJtmt7RzDM                width=500 %}-->
   - Humanoid robots
-    {% youtube kptp-zZw634?start=34&end=50 %}
-    {% video http://homepages.laas.fr/jmirabel/raw/videos/hrp2_stairs.mp4 300px 315px %}
+  <!--{% youtube kptp-zZw634?start=34&end=50 %}-->
+  <!--{% video http://homepages.laas.fr/jmirabel/raw/videos/hrp2_stairs.mp4 300px 315px %}-->
