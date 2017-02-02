@@ -5,7 +5,11 @@ id: hpp
 youtubeid: 01K_nmax9E0
 ---
 
+### Humanoid Path Planner
+
 {% include video.html %}
+
+More details on the [website](https://humanoid-path-planner.github.io/hpp-doc/index.html).
 
 ### Abstract
 
