@@ -389,6 +389,25 @@ ul.social-buttons li a {
     }
 }
 
+.play-button {
+  background-size: 100% 100%;
+  text-align:center;
+  display: table-cell;
+  vertical-align: middle;
+}
+.btn-play {
+  border-radius: 30%;
+  border: none;
+  color: $font-color;
+  background-color: rgba($primary-color, 0.7);
+}
+.btn-play:hover,
+.btn-play:focus {
+  border: none;
+  color: $font-color;
+  background-color: rgba($tertiary-color, 0.95);
+}
+
 footer {
     padding: 50px 0 0 0;
     text-align: center;

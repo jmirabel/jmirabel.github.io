@@ -3,17 +3,19 @@ class YouTube < Liquid::Tag
   Width    = /width=(\d+)\s/i
   Height   = /height=(\d+)\s/i
   Class    = /class=(([^"\s]+)|"([^"]+)")\s/i
+  Poster   = /poster=(([^"\s]+)|"([^"]+)")\s/i
 
   def initialize(tagName, markup, tokens)
     super
 
     @markup = markup
-    id = markup.sub(Width, '').gsub(Height, '').sub(Class, '').strip
+    id = markup.sub(Width, '').gsub(Height, '').sub(Class, '').sub(Poster, '').strip
     if !id.empty? then
       @id = id
       @w = height
       @h = width
       @c = _class
+      @p = poster
     else
       raise "No YouTube ID provided in the \"youtube\" tag #{markup}"
     end
@@ -35,24 +37,56 @@ class YouTube < Liquid::Tag
     h = @markup.scan(Height)
 
     if h.empty? then
+      @h_val=315
       "height=\"315\""
     else
+      @h_val=h[0][0]
       "height=\"#{h[0][0]}\""
     end
   end
+
+  def poster
+    p = @markup.scan(Poster)
+
+    if p.empty? then
+      ""
+    else
+      "#{p[0][0]}"
+    end
+  end
+
 
   def width
     w = @markup.scan(Width)
 
     if w.empty? then
+      @w_val=560
       "width=\"560\""
     else
+      @w_val=w[0][0]
       "width=\"#{w[0][0]}\""
     end
   end
 
   def render(context)
-    "<iframe #{@w} #{@h} #{@c} src=\"http://www.youtube.com/embed/#{@id}\" frameborder=\"0\" allowfullscreen></iframe>"
+    if @p.empty? then
+      "<iframe #{@w} #{@h} #{@c} src=\"http://www.youtube.com/embed/#{@id}\" frameborder=\"0\" allowfullscreen></iframe>"
+    else
+      if @id.include? "?"
+        @id << "&autoplay=1"
+      else
+        @id << "?autoplay=1"
+      end
+      "
+<div #{@c} style=\"display: table;\">
+<div class=\"play-button\" style=\"height: #{@h_val}px; width: #{@w_val}px; background-image: url('#{@p}');\">
+<button type=\"button\" class=\"btn btn-default btn-play btn-lg\" onclick=\"removePosterAndPlayVideo($(this), $(this).parent().children('iframe'), 'http://www.youtube.com/embed/#{@id}');\">
+<span class=\"glyphicon glyphicon-play-circle\" ></span>
+</button>
+<iframe style=\"display:none;\" #{@w} #{@h} src=\"\" frameborder=\"0\" allowfullscreen></iframe>
+</div>
+</div>"
+    end
   end
 
   Liquid::Template.register_tag "youtube", self
