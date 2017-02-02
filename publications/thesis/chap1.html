@@ -17,7 +17,7 @@
   <meta name="author" content="Joseph Mirabel">
   <meta name="keywords" content="">
   <link rel="canonical" href="/publications/thesis/chap1.html">
-  <title>Joseph Mirabel | Manipulation planner</title>
+  <title>Joseph Mirabel | State of the art</title>
 
   <!-- Bootstrap Core CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -184,13 +184,14 @@
       <div class="row text-center">
         <div class="col-md-12 col-xs-12">
           
+          
           <!-- Publication Summary Start -->
 
 <h4> <strong> 21 Feb 2017 </strong>
   <small>.</small>
     <strong>
       
-        <a href="thesis.html">Manipulation planning for documented objects</a>
+        <a href="/publications/thesis.html">Manipulation planning for documented objects</a>
       
     </strong>
     <small>
@@ -220,7 +221,7 @@
 
             <h2> <strong> Chapter 1 </strong>
               <small>.</small>
-              <strong> Manipulation planner </strong>
+              <strong> State of the art </strong>
               <a href="http://homepages.laas.fr/jmirabel/jmirabel-thesis.pdf#page=53" title="HAL" alt="HAL">
                 <i class="fa fa-file-pdf-o"></i>
               </a>
@@ -319,6 +320,13 @@
 function toggleNavCollapse(){50<$(".navbar").offset().top?$(".navbar-fixed-top").addClass("top-nav-collapse"):$(".navbar-fixed-top").removeClass("top-nav-collapse");}
 $(document).ready(toggleNavCollapse);
 $(window).scroll(toggleNavCollapse);$(function(){$("a.page-scroll").bind("click",function(b){var a=$(this);$("html, body").stop().animate({scrollTop:$(a.attr("href")).offset().top-50},1500,"easeInOutExpo",function(){a.blur()});b.preventDefault()})});$(".navbar-collapse ul li a").click(function(){$(".navbar-toggle:visible").click()});
+
+function removePosterAndPlayVideo(button, frame, src) {
+button.hide();
+button.parent().css('background-image', 'none');
+frame.attr('src', src);
+frame.show();
+}
 </script>
 
 

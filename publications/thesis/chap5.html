@@ -184,13 +184,14 @@
       <div class="row text-center">
         <div class="col-md-12 col-xs-12">
           
+          
           <!-- Publication Summary Start -->
 
 <h4> <strong> 21 Feb 2017 </strong>
   <small>.</small>
     <strong>
       
-        <a href="thesis.html">Manipulation planning for documented objects</a>
+        <a href="/publications/thesis.html">Manipulation planning for documented objects</a>
       
     </strong>
     <small>
@@ -227,13 +228,21 @@
             </h2>
 
             <ul id="markdown-toc">
-  <li><a href="#humanoid-path-planner" id="markdown-toc-humanoid-path-planner">Humanoid Path Planner</a></li>
+  <li><a href="#humanoid-path-planner" id="markdown-toc-humanoid-path-planner">Humanoid Path Planner</a>    <ul>
+      <li><a href="#comparison-with-ompl" id="markdown-toc-comparison-with-ompl">Comparison with <abbr title="Open Motion Planning Library">OMPL</abbr></a></li>
+    </ul>
+  </li>
   <li><a href="#bras-manipulateurs" id="markdown-toc-bras-manipulateurs">Bras manipulateurs</a>    <ul>
       <li><a href="#planification-de-rarrangement" id="markdown-toc-planification-de-rarrangement">Planification de réarrangement</a></li>
       <li><a href="#infrence" id="markdown-toc-infrence">Inférence</a></li>
     </ul>
   </li>
-  <li><a href="#robots-humaodes" id="markdown-toc-robots-humaodes">Robots humaoïdes</a></li>
+  <li><a href="#robots-humanodes" id="markdown-toc-robots-humanodes">Robots humanoïdes</a>    <ul>
+      <li><a href="#mouvement-de-marche-quasi-statique" id="markdown-toc-mouvement-de-marche-quasi-statique">Mouvement de marche quasi-statique</a></li>
+      <li><a href="#romeo-tenant-une-bannire" id="markdown-toc-romeo-tenant-une-bannire">Romeo tenant une bannière</a></li>
+      <li><a href="#saisie-derrire-une-porte" id="markdown-toc-saisie-derrire-une-porte">Saisie derrière une porte</a></li>
+    </ul>
+  </li>
 </ul>
 
 <p>Le grand intérêt de cette thèse est l’approche abstraite du problème qui
@@ -271,17 +280,27 @@ La continuité des chemins contraints est vérifiables par les algorithmes déta
   </li>
 </ul>
 
-<p>La vidéo suivante montre les benchmarks utilisés pour la comparaison.</p>
+<h4 id="comparison-with-ompl">Comparison with <abbr title="Open Motion Planning Library">OMPL</abbr></h4>
 
-<iframe height="315" width="560" class="center-block" src="http://www.youtube.com/embed/01K_nmax9E0?start=237" frameborder="0" allowfullscreen=""></iframe>
+<p>Le tableau suivant compare <abbr title="Humanoid Path Planner">HPP</abbr> avec <abbr title="Open Motion Planning Library">OMPL</abbr>, une librairie de planification de mouvement couramment utilisée.
+La vidéo suivante montre les benchmarks utilisés pour la comparaison.</p>
 
-<p>Le tableau suivant compare <abbr title="Humanoid Path Planner">HPP</abbr> avec <abbr title="Open Motion Planning Library">OMPL</abbr>, une librairie de planification de mouvement couramment utilisée.</p>
+<div class="center-block" style="display: table;">
+<div class="play-button" style="height: 315px; width: 560px; background-image: url('/img/thesis/posters/ompl_bench.jpg');">
+<button type="button" class="btn btn-default btn-play btn-lg" onclick="removePosterAndPlayVideo($(this), $(this).parent().children('iframe'), 'http://www.youtube.com/embed/01K_nmax9E0?start=237&amp;autoplay=1');">
+<span class="glyphicon glyphicon-play-circle"></span>
+</button>
+<iframe style="display:none;" height="315" width="560" src="" frameborder="0" allowfullscreen=""></iframe>
+</div>
+</div>
+
+<p><br /></p>
 
 <style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-color:white;border-width:1px;overflow:hidden;word-break:normal;}
-.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-.tg .tg-baqh{text-align:center;vertical-align:top}
+.tg {}
+.tg td{padding:10px 5px;border-style:solid;border-color:white;border-width:1px;overflow:hidden;word-break:normal;}
+.tg th{padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg .tg-baqh{text-align:center;}
 .tg .green{color:green;}
 .tg .red{color:red;}
 </style>
@@ -439,7 +458,14 @@ Ces problèmes ne sont pas monotones, c’est-à-dire qu’il n’existe pas de 
 Cet exemple montre la capacité du planificateur à trouver des positions de boîtes intermédiaires
 ainsi qu’à considérer des manipulations simultanées.</p>
 
-<iframe height="315" width="560" class="center-block" src="http://www.youtube.com/embed/kptp-zZw634?start=4&amp;end=34" frameborder="0" allowfullscreen=""></iframe>
+<div class="center-block" style="display: table;">
+<div class="play-button" style="height: 315px; width: 560px; background-image: url('/img/thesis/posters/baxter_3box.jpg');">
+<button type="button" class="btn btn-default btn-play btn-lg" onclick="removePosterAndPlayVideo($(this), $(this).parent().children('iframe'), 'http://www.youtube.com/embed/kptp-zZw634?start=4&amp;end=34&amp;autoplay=1');">
+<span class="glyphicon glyphicon-play-circle"></span>
+</button>
+<iframe style="display:none;" height="315" width="560" src="" frameborder="0" allowfullscreen=""></iframe>
+</div>
+</div>
 
 <h4 id="infrence">Inférence</h4>
 
@@ -454,13 +480,50 @@ Il est capable de considérer des objets à la même position au début et à la
 
 <iframe height="315" width="560" class="center-block" src="http://www.youtube.com/embed/iRJtmt7RzDM" frameborder="0" allowfullscreen=""></iframe>
 
-<h3 id="robots-humaodes">Robots humaoïdes</h3>
+<h3 id="robots-humanodes">Robots humanoïdes</h3>
 
-<p>TBC</p>
+<h4 id="mouvement-de-marche-quasi-statique">Mouvement de marche quasi-statique</h4>
 
-<iframe height="315" width="560" src="http://www.youtube.com/embed/kptp-zZw634?start=34&amp;end=50" frameborder="0" allowfullscreen=""></iframe>
+<p>Le problème de locomotion peut être modélisé comme un problème de manipulation, comme le montre cet exemple.
+La position des pieds au sol représente un feuilletage.
+Ce problème est donc sujet au problème de feuillates croisés.
+La première vidéo utilise un critère de statibilité simple reposant sur le fait que les pieds sont à hauteur constante.
+La second vidéo utilise le critère de stabilité détaillé <a href="chap2.html#quilibre-quasi-statique">plus tôt</a>.</p>
+
+<video controls="" width="560px" height="315px" preload="metadata" onclick="(function(el){ if(el.paused) el.play(); else el.pause() })(this)"><source src="http://homepages.laas.fr/jmirabel/raw/videos/hrp2_step_over.mp4" type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" /></video>
 
 <video controls="" width="300px" height="315px" preload="metadata" onclick="(function(el){ if(el.paused) el.play(); else el.pause() })(this)"><source src="http://homepages.laas.fr/jmirabel/raw/videos/hrp2_stairs.mp4" type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" /></video>
+
+<h4 id="romeo-tenant-une-bannire">Romeo tenant une bannière</h4>
+
+<p>Cet exemple illustre également un cas avec feuilletages croisés.</p>
+
+<div class="center-block" style="display: table;">
+<div class="play-button" style="height: 315px; width: 560px; background-image: url('/img/thesis/posters/romeo_placard.jpg');">
+<button type="button" class="btn btn-default btn-play btn-lg" onclick="removePosterAndPlayVideo($(this), $(this).parent().children('iframe'), 'http://www.youtube.com/embed/kptp-zZw634?start=53&amp;autoplay=1');">
+<span class="glyphicon glyphicon-play-circle"></span>
+</button>
+<iframe style="display:none;" height="315" width="560" src="" frameborder="0" allowfullscreen=""></iframe>
+</div>
+</div>
+
+<h4 id="saisie-derrire-une-porte">Saisie derrière une porte</h4>
+
+<p>Dans cet exemple, le planificateur infère qu’il doit ouvrir la porte du placard pour attraper l’objet.
+L’équilibre du robot est géré en deux étapes.
+Tout d’abord, on calcule un chemin pour le robot glissant, comme sur la vidéo ci-dessous.
+Ensuite, le chemin peut être transformé en un chemin faisable dynamiquement en utilisant la <a href="https://youtu.be/X5bYGF1slcI">méthode détaillé ici</a>.</p>
+
+<div class="center-block" style="display: table;">
+<div class="play-button" style="height: 315px; width: 560px; background-image: url('/img/thesis/posters/romeo_fridge.jpg');">
+<button type="button" class="btn btn-default btn-play btn-lg" onclick="removePosterAndPlayVideo($(this), $(this).parent().children('iframe'), 'http://www.youtube.com/embed/kptp-zZw634?start=34&amp;end=50&amp;autoplay=1');">
+<span class="glyphicon glyphicon-play-circle"></span>
+</button>
+<iframe style="display:none;" height="315" width="560" src="" frameborder="0" allowfullscreen=""></iframe>
+</div>
+</div>
+
+<hr />
 
 <div class="footnotes">
   <ol>
@@ -562,6 +625,13 @@ Il est capable de considérer des objets à la même position au début et à la
 function toggleNavCollapse(){50<$(".navbar").offset().top?$(".navbar-fixed-top").addClass("top-nav-collapse"):$(".navbar-fixed-top").removeClass("top-nav-collapse");}
 $(document).ready(toggleNavCollapse);
 $(window).scroll(toggleNavCollapse);$(function(){$("a.page-scroll").bind("click",function(b){var a=$(this);$("html, body").stop().animate({scrollTop:$(a.attr("href")).offset().top-50},1500,"easeInOutExpo",function(){a.blur()});b.preventDefault()})});$(".navbar-collapse ul li a").click(function(){$(".navbar-toggle:visible").click()});
+
+function removePosterAndPlayVideo(button, frame, src) {
+button.hide();
+button.parent().css('background-image', 'none');
+frame.attr('src', src);
+frame.show();
+}
 </script>
 
 
