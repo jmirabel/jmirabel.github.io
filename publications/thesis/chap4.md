@@ -125,6 +125,8 @@ L'algorithme construit automatiquement des transitions avec points de passage.
 Il détecte également les espaces de saisie et de placement qui sont feuilletés
 et intégre des "crossed foliation transition" si nécessaire.
 
+---
+
 [^logarithme]: Le logarithme est l'inverse de la
                [carte exponentielle](https://en.wikipedia.org/wiki/Exponential_map_(Lie_theory))
                de $$\mathfrak{se}(3)$$ vers $$SE(3)$$.

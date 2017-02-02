@@ -34,17 +34,20 @@ Les principales caractéristiques sont les suivantes:
   - les contraintes sont appliquées à l'évaluation du chemin à une abscisse curviligne donnée. Cela assure que les contraintes sont satisfaites partout.
     La continuité des chemins contraints est vérifiables par les algorithmes détaillés au [chapitre 2](chap2.html#chemin-continue-sur-des-varits)
 
-La vidéo suivante montre les benchmarks utilisés pour la comparaison.
-
-{% youtube 01K_nmax9E0?start=237 class="center-block" %}
+#### Comparison with OMPL
 
 Le tableau suivant compare HPP avec OMPL, une librairie de planification de mouvement couramment utilisée.
+La vidéo suivante montre les benchmarks utilisés pour la comparaison.
+
+{% youtube 01K_nmax9E0?start=237 class="center-block" poster=/img/thesis/posters/ompl_bench.jpg %}
+
+<br/>
 
 <style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-color:white;border-width:1px;overflow:hidden;word-break:normal;}
-.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-.tg .tg-baqh{text-align:center;vertical-align:top}
+.tg {}
+.tg td{padding:10px 5px;border-style:solid;border-color:white;border-width:1px;overflow:hidden;word-break:normal;}
+.tg th{padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg .tg-baqh{text-align:center;}
 .tg .green{color:green;}
 .tg .red{color:red;}
 </style>
@@ -201,7 +204,7 @@ Ces problèmes ne sont pas monotones, c'est-à-dire qu'il n'existe pas de soluti
 Cet exemple montre la capacité du planificateur à trouver des positions de boîtes intermédiaires
 ainsi qu'à considérer des manipulations simultanées.
 
-{% youtube kptp-zZw634?start=4&end=34 class="center-block" %}
+{% youtube kptp-zZw634?start=4&end=34 class="center-block" poster=/img/thesis/posters/baxter_3box.jpg %}
 
 #### Inférence
 
@@ -216,11 +219,36 @@ Il est capable de considérer des objets à la même position au début et à la
 
 {% youtube iRJtmt7RzDM                class="center-block" %}
 
-### Robots humaoïdes
+### Robots humanoïdes
 
-{% youtube kptp-zZw634?start=34&end=50 %}
+#### Mouvement de marche quasi-statique
+
+Le problème de locomotion peut être modélisé comme un problème de manipulation, comme le montre cet exemple.
+La position des pieds au sol représente un feuilletage.
+Ce problème est donc sujet au problème de feuillates croisés.
+La première vidéo utilise un critère de statibilité simple reposant sur le fait que les pieds sont à hauteur constante.
+La second vidéo utilise le critère de stabilité détaillé [plus tôt](chap2.html#quilibre-quasi-statique).
+
+{% video http://homepages.laas.fr/jmirabel/raw/videos/hrp2_step_over.mp4 560px 315px %}
 
 {% video http://homepages.laas.fr/jmirabel/raw/videos/hrp2_stairs.mp4 300px 315px %}
+
+#### Romeo tenant une bannière
+
+Cet exemple illustre également un cas avec feuilletages croisés.
+
+{% youtube kptp-zZw634?start=53 class="center-block" poster=/img/thesis/posters/romeo_placard.jpg %}
+
+#### Saisie derrière une porte
+
+Dans cet exemple, le planificateur infère qu'il doit ouvrir la porte du placard pour attraper l'objet.
+L'équilibre du robot est géré en deux étapes.
+Tout d'abord, on calcule un chemin pour le robot glissant, comme sur la vidéo ci-dessous.
+Ensuite, le chemin peut être transformé en un chemin faisable dynamiquement en utilisant la [méthode détaillé ici](https://youtu.be/X5bYGF1slcI).
+
+{% youtube kptp-zZw634?start=34&end=50 class="center-block" poster=/img/thesis/posters/romeo_fridge.jpg %}
+
+---
 
 *[HPP]: Humanoid Path Planner
 *[OMPL]: Open Motion Planning Library
