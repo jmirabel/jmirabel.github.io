@@ -7,7 +7,7 @@ youtubeid: 01K_nmax9E0
 
 ### Humanoid Path Planner
 
-{% include video.html %}
+{% youtube 01K_nmax9E0 class="center-block" %}
 
 More details on the [website](https://humanoid-path-planner.github.io/hpp-doc/index.html).
 
