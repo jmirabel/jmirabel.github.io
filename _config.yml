@@ -50,17 +50,22 @@ background-img: "../img/bg.jpg"
 ##############################
 
 dynamic-typing: True
-shuffle: True # Shuffle the lines.
-loop: True
-loop-count: False # Set False for infinite loop, or set any number for finite loop.
-type-speed: 10
-start-delay: 200
-delete-delay: 5000
+typed:
+  typeSpeed: 10
+  startDelay: 200
+  backDelay: 5000
 lines: # You can add HTML Tags in the Text
   - text: "Il y a deux Histoires : l'Histoire officielle, menteuse qu'on enseigne, l'Histoire &laquo;ad usum delphini &raquo;;<br/>
     ^500puis l'Histoire secr\\350te,
     o\\371 sont les v\\351ritables causes des \\351v\\350nements, une Histoire honteuse.<br/>
     ^500<b>Honor\\351 de Blazac</b> <em>(Illusions perdues)</em>"
+  - text: "La science a-t-elle promis le bonheur ?^500 Je ne le crois pas.<br/>
+    Elle a promis la vérité, et la question est de savoir si l'on fera jamais du bonheur avec.<br/>
+    <b>Émile Zola</b>"
+  - text: "Adieu à tous les sentiments qui épanouissent le cœur !
+    Je me suis substitué à la Providence pour récompenser les bons…
+    ^500que le Dieu vengeur me cède sa place pour punir les méchants !<br/>
+    ^500<b>Alexandre Dumas</b> <em>(Le comte de Monte-Cristo)</em>"
   #- text: "The lower you fall, the higher you'll fly."
 
 me-img: "/img/jetpacktocat.png"
@@ -167,6 +172,8 @@ keybase-in-footer: False
 ################################################################################
 
 # NB! Tread carefully if you want to change the variables below this point!
+
+emptyArray: []
 
 # Sections shown in the index page
 
