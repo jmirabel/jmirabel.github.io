@@ -195,6 +195,13 @@ La vidéo suivante montre les benchmarks utilisés pour la comparaison.
   </tr>
 </table>
 
+#### Programmation de robot
+
+Un prototype d'interface de programmation de robot a été développé.
+La vidéo suivante a été réalisée avec HPP en suivant la méthode [détaillé ici](https://humanoid-path-planner.github.io/hpp-doc//2016/10/06/Factory-In-A-Day-usecase.html)
+
+{% video http://projects.laas.fr/gepetto/uploads/Members/fiad-full-sequence.mp4 560px 315px center-block %}
+
 ### Bras manipulateurs
 
 #### Planification de réarrangement
@@ -229,9 +236,12 @@ Ce problème est donc sujet au problème de feuillates croisés.
 La première vidéo utilise un critère de statibilité simple reposant sur le fait que les pieds sont à hauteur constante.
 La second vidéo utilise le critère de stabilité détaillé [plus tôt](chap2.html#quilibre-quasi-statique).
 
-{% video http://homepages.laas.fr/jmirabel/raw/videos/hrp2_step_over.mp4 560px 315px %}
+<div class="text-center">
 
+{% video http://homepages.laas.fr/jmirabel/raw/videos/hrp2_step_over.mp4 560px 315px %}
 {% video http://homepages.laas.fr/jmirabel/raw/videos/hrp2_stairs.mp4 300px 315px %}
+
+</div>
 
 #### Romeo tenant une bannière
 
