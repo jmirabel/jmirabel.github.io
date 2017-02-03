@@ -153,10 +153,12 @@
           <div class="col-md-10 col-md-offset-1">
             <h1 class="brand-heading">&nbsp;</h1>
             <h1 class="brand-heading">&nbsp;</h1>
+            <div class="text-left">
             <span class="intro-text"><!--
 If you want to have a static message in your intro layout, disable the dynamic-typing in the _config.yml and write here your text
 -->
 </span>
+            </div>
             <h5>&nbsp;</h5>
             <a href="#about" class="page-scroll">
               <img class="img-me" src="/img/jetpacktocat.png" alt="">
@@ -728,48 +730,32 @@ frame.show();
 
 
 
-
+  
+  
+  
+  
+  
   <!-- Dynamic Typing Start -->
 
   <script type="text/javascript" src="/js/typed.min.js"></script>
   <script type="text/javascript">
 
-  var myQuotes =  new Array();
-  
+    var myQuotes =  new Array(); 
     myQuotes.push("Il y a deux Histoires : l'Histoire officielle, menteuse qu'on enseigne, l'Histoire &laquo;ad usum delphini &raquo;;<br/> ^500puis l'Histoire secr\350te, o\371 sont les v\351ritables causes des \351v\350nements, une Histoire honteuse.<br/> ^500<b>Honor\351 de Blazac</b> <em>(Illusions perdues)</em>");
-  
-
-  function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex ;
-
-    // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
-
-      // Pick a remaining element...
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-
-      // And swap it with the current element.
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
-    }
-
-    return array;
-  }
-
-  
-    shuffle(myQuotes)
-  
+    myQuotes.push("La science a-t-elle promis le bonheur ?<br/>^500 Je ne le crois pas. Elle a promis la vérité, et la question est de savoir si l'on fera jamais du bonheur avec.<br/> <b>Émile Zola</b>");
+    myQuotes.push("Adieu à tous les sentiments qui épanouissent le cœur ! Je me suis substitué à la Providence pour récompenser les bons… ^500que le Dieu vengeur me cède sa place pour punir les méchants !<br/> ^500<b>Alexandre Dumas</b> <em>(Le comte de Monte-Cristo)</em>");
 
     $(".intro-text").typed({
       strings: myQuotes,
-      typeSpeed: 10,
-      backDelay: 5000,
-      startDelay: 200,
-      loop: true,
-      loopCount: false,
-      cursorChar: "|"
+      shuffle:true,
+      loop:true,
+      loopCount:false,
+      typeSpeed:10,
+      startDelay:200,
+      backSpeed:0,
+      backDelay:5000,
+      backspacing:false,
+      contentType:'html',
     });
   </script>
 

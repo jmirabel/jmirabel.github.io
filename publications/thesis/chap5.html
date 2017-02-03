@@ -230,6 +230,7 @@
             <ul id="markdown-toc">
   <li><a href="#humanoid-path-planner" id="markdown-toc-humanoid-path-planner">Humanoid Path Planner</a>    <ul>
       <li><a href="#comparison-with-ompl" id="markdown-toc-comparison-with-ompl">Comparison with <abbr title="Open Motion Planning Library">OMPL</abbr></a></li>
+      <li><a href="#programmation-de-robot" id="markdown-toc-programmation-de-robot">Programmation de robot</a></li>
     </ul>
   </li>
   <li><a href="#bras-manipulateurs" id="markdown-toc-bras-manipulateurs">Bras manipulateurs</a>    <ul>
@@ -449,6 +450,13 @@ La vidéo suivante montre les benchmarks utilisés pour la comparaison.</p>
   </tr>
 </table>
 
+<h4 id="programmation-de-robot">Programmation de robot</h4>
+
+<p>Un prototype d’interface de programmation de robot a été développé.
+La vidéo suivante a été réalisée avec <abbr title="Humanoid Path Planner">HPP</abbr> en suivant la méthode <a href="https://humanoid-path-planner.github.io/hpp-doc//2016/10/06/Factory-In-A-Day-usecase.html">détaillé ici</a></p>
+
+<video class="center-block" controls="" width="560px" height="315px" preload="metadata" onclick="(function(el){ if(el.paused) el.play(); else el.pause() })(this)"><source src="http://projects.laas.fr/gepetto/uploads/Members/fiad-full-sequence.mp4" type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" /></video>
+
 <h3 id="bras-manipulateurs">Bras manipulateurs</h3>
 
 <h4 id="planification-de-rarrangement">Planification de réarrangement</h4>
@@ -490,9 +498,12 @@ Ce problème est donc sujet au problème de feuillates croisés.
 La première vidéo utilise un critère de statibilité simple reposant sur le fait que les pieds sont à hauteur constante.
 La second vidéo utilise le critère de stabilité détaillé <a href="chap2.html#quilibre-quasi-statique">plus tôt</a>.</p>
 
-<video controls="" width="560px" height="315px" preload="metadata" onclick="(function(el){ if(el.paused) el.play(); else el.pause() })(this)"><source src="http://homepages.laas.fr/jmirabel/raw/videos/hrp2_step_over.mp4" type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" /></video>
+<div class="text-center">
 
+<video controls="" width="560px" height="315px" preload="metadata" onclick="(function(el){ if(el.paused) el.play(); else el.pause() })(this)"><source src="http://homepages.laas.fr/jmirabel/raw/videos/hrp2_step_over.mp4" type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" /></video>
 <video controls="" width="300px" height="315px" preload="metadata" onclick="(function(el){ if(el.paused) el.play(); else el.pause() })(this)"><source src="http://homepages.laas.fr/jmirabel/raw/videos/hrp2_stairs.mp4" type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" /></video>
+
+</div>
 
 <h4 id="romeo-tenant-une-bannire">Romeo tenant une bannière</h4>
 
