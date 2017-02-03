@@ -83,7 +83,7 @@ MathJax.Hub.Config({
   <script type="text/javascript" src="{{site.baseurl}}/js/typed.min.js"></script>
   <script type="text/javascript">
 
-    var myQuotes =  new Array(); {% for line in site.lines %}
+    var myQuotes =  new Array(); {% for line in page.typed-lines %}
     myQuotes.push("{{ line.text }}");{% endfor %}
 
     $(".intro-text").typed({
