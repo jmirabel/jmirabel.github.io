@@ -7,6 +7,12 @@ options: [ "menu-bar" ]
 
 ## Thesis manuscript
 
+[Dissertation](http://homepages.laas.fr/~jmirabel/jmirabel-thesis.pdf)
+|
+[Defense slides (without videos ~ 9M)](http://homepages.laas.fr/~jmirabel/defense/jmirabel-defense-reduced.pdf)
+|
+[Defense slides (full ~ 93M)](http://homepages.laas.fr/~jmirabel/defense/jmirabel-defense.zip)
+
 #### Abstract
 
 This thesis tackles the manipulation planning for documented objects.
