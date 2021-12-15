@@ -234,14 +234,14 @@
     </ul>
   </li>
   <li><a href="#bras-manipulateurs" id="markdown-toc-bras-manipulateurs">Bras manipulateurs</a>    <ul>
-      <li><a href="#planification-de-rarrangement" id="markdown-toc-planification-de-rarrangement">Planification de réarrangement</a></li>
-      <li><a href="#infrence" id="markdown-toc-infrence">Inférence</a></li>
+      <li><a href="#planification-de-réarrangement" id="markdown-toc-planification-de-réarrangement">Planification de réarrangement</a></li>
+      <li><a href="#inférence" id="markdown-toc-inférence">Inférence</a></li>
     </ul>
   </li>
-  <li><a href="#robots-humanodes" id="markdown-toc-robots-humanodes">Robots humanoïdes</a>    <ul>
+  <li><a href="#robots-humanoïdes" id="markdown-toc-robots-humanoïdes">Robots humanoïdes</a>    <ul>
       <li><a href="#mouvement-de-marche-quasi-statique" id="markdown-toc-mouvement-de-marche-quasi-statique">Mouvement de marche quasi-statique</a></li>
-      <li><a href="#romeo-tenant-une-bannire" id="markdown-toc-romeo-tenant-une-bannire">Romeo tenant une bannière</a></li>
-      <li><a href="#saisie-derrire-une-porte" id="markdown-toc-saisie-derrire-une-porte">Saisie derrière une porte</a></li>
+      <li><a href="#romeo-tenant-une-bannière" id="markdown-toc-romeo-tenant-une-bannière">Romeo tenant une bannière</a></li>
+      <li><a href="#saisie-derrière-une-porte" id="markdown-toc-saisie-derrière-une-porte">Saisie derrière une porte</a></li>
     </ul>
   </li>
 </ul>
@@ -262,8 +262,8 @@ Les principales caractéristiques sont les suivantes:</p>
 <ul>
   <li>Espace des configurations :
     <ul>
-      <li>les rotations 3D sont représentées par <script type="math/tex">SO(3)</script>,<sup id="fnref:quaternion"><a href="#fn:quaternion" class="footnote">1</a></sup></li>
-      <li>les rotations non bornées sont représentées par <script type="math/tex">SO(2)</script>,</li>
+      <li>les rotations 3D sont représentées par \(SO(3)\),<sup id="fnref:quaternion" role="doc-noteref"><a href="#fn:quaternion" class="footnote" rel="footnote">1</a></sup></li>
+      <li>les rotations non bornées sont représentées par \(SO(2)\),</li>
     </ul>
   </li>
   <li>Contraintes :
@@ -286,14 +286,7 @@ La continuité des chemins contraints est vérifiables par les algorithmes déta
 <p>Le tableau suivant compare <abbr title="Humanoid Path Planner">HPP</abbr> avec <abbr title="Open Motion Planning Library">OMPL</abbr>, une librairie de planification de mouvement couramment utilisée.
 La vidéo suivante montre les benchmarks utilisés pour la comparaison.</p>
 
-<div class="center-block" style="display: table;">
-<div class="play-button" style="height: 315px; width: 560px; background-image: url('/img/thesis/posters/ompl_bench.jpg');">
-<button type="button" class="btn btn-default btn-play btn-lg" onclick="removePosterAndPlayVideo($(this), $(this).parent().children('iframe'), 'http://www.youtube.com/embed/01K_nmax9E0?start=237&amp;autoplay=1');">
-<span class="glyphicon glyphicon-play-circle"></span>
-</button>
-<iframe style="display:none;" height="315" width="560" src="" frameborder="0" allowfullscreen=""></iframe>
-</div>
-</div>
+<p>{% youtube 01K_nmax9E0?start=237 class=”center-block” poster=/img/thesis/posters/ompl_bench.jpg %}</p>
 
 <p><br /></p>
 
@@ -314,14 +307,14 @@ La vidéo suivante montre les benchmarks utilisés pour la comparaison.</p>
   </tr>
   <tr>
     <td class="tg-baqh"></td>
-    <td class="tg-baqh"><abbr title="HPP with discrete collision detection">HPP-D</abbr></td>
-    <td class="tg-baqh"><abbr title="HPP with continuous collision detection">HPP-C</abbr></td>
-    <td class="tg-baqh"><abbr title="Open Motion Planning Library">OMPL</abbr></td>
-    <td class="tg-baqh"><abbr title="OMPL with &quot;no range&quot;">OMPL-NR</abbr></td>
-    <td class="tg-baqh"><abbr title="HPP with discrete collision detection">HPP-D</abbr></td>
-    <td class="tg-baqh"><abbr title="HPP with continuous collision detection">HPP-C</abbr></td>
-    <td class="tg-baqh"><abbr title="Open Motion Planning Library">OMPL</abbr></td>
-    <td class="tg-baqh"><abbr title="OMPL with &quot;no range&quot;">OMPL-NR</abbr></td>
+    <td class="tg-baqh">HPP-D</td>
+    <td class="tg-baqh">HPP-C</td>
+    <td class="tg-baqh">OMPL</td>
+    <td class="tg-baqh">OMPL-NR</td>
+    <td class="tg-baqh">HPP-D</td>
+    <td class="tg-baqh">HPP-C</td>
+    <td class="tg-baqh">OMPL</td>
+    <td class="tg-baqh">OMPL-NR</td>
   </tr>
   <tr>
     <td class="tg-baqh">Pipedream-Ring</td>
@@ -366,14 +359,14 @@ La vidéo suivante montre les benchmarks utilisés pour la comparaison.</p>
   </tr>
   <tr>
     <td class="tg-baqh"></td>
-    <td class="tg-baqh"><abbr title="HPP with discrete collision detection">HPP-D</abbr></td>
-    <td class="tg-baqh"><abbr title="HPP with continuous collision detection">HPP-C</abbr></td>
-    <td class="tg-baqh"><abbr title="Open Motion Planning Library">OMPL</abbr></td>
-    <td class="tg-baqh"><abbr title="OMPL with &quot;no range&quot;">OMPL-NR</abbr></td>
-    <td class="tg-baqh"><abbr title="HPP with discrete collision detection">HPP-D</abbr></td>
-    <td class="tg-baqh"><abbr title="HPP with continuous collision detection">HPP-C</abbr></td>
-    <td class="tg-baqh"><abbr title="Open Motion Planning Library">OMPL</abbr></td>
-    <td class="tg-baqh"><abbr title="OMPL with &quot;no range&quot;">OMPL-NR</abbr></td>
+    <td class="tg-baqh">HPP-D</td>
+    <td class="tg-baqh">HPP-C</td>
+    <td class="tg-baqh">OMPL</td>
+    <td class="tg-baqh">OMPL-NR</td>
+    <td class="tg-baqh">HPP-D</td>
+    <td class="tg-baqh">HPP-C</td>
+    <td class="tg-baqh">OMPL</td>
+    <td class="tg-baqh">OMPL-NR</td>
   </tr>
   <tr>
     <td class="tg-baqh">Pipedream-Ring</td>
@@ -418,10 +411,10 @@ La vidéo suivante montre les benchmarks utilisés pour la comparaison.</p>
   </tr>
   <tr>
     <td class="tg-baqh"></td>
-    <td class="tg-baqh"><abbr title="HPP with discrete collision detection">HPP-D</abbr></td>
-    <td class="tg-baqh"><abbr title="HPP with continuous collision detection">HPP-C</abbr></td>
-    <td class="tg-baqh"><abbr title="Open Motion Planning Library">OMPL</abbr></td>
-    <td class="tg-baqh"><abbr title="OMPL with &quot;no range&quot;">OMPL-NR</abbr></td>
+    <td class="tg-baqh">HPP-D</td>
+    <td class="tg-baqh">HPP-C</td>
+    <td class="tg-baqh">OMPL</td>
+    <td class="tg-baqh">OMPL-NR</td>
     <td class="tg-baqh"></td>
   </tr>
   <tr>
@@ -455,27 +448,20 @@ La vidéo suivante montre les benchmarks utilisés pour la comparaison.</p>
 <p>Un prototype d’interface de programmation de robot a été développé.
 La vidéo suivante a été réalisée avec <abbr title="Humanoid Path Planner">HPP</abbr> en suivant la méthode <a href="https://humanoid-path-planner.github.io/hpp-doc//2016/10/06/Factory-In-A-Day-usecase.html">détaillé ici</a></p>
 
-<video class="center-block" controls="" width="560px" height="315px" preload="metadata" onclick="(function(el){ if(el.paused) el.play(); else el.pause() })(this)"><source src="http://projects.laas.fr/gepetto/uploads/Members/fiad-full-sequence.mp4" type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" /></video>
+<p>{% video http://projects.laas.fr/gepetto/uploads/Members/fiad-full-sequence.mp4 560px 315px center-block %}</p>
 
 <h3 id="bras-manipulateurs">Bras manipulateurs</h3>
 
-<h4 id="planification-de-rarrangement">Planification de réarrangement</h4>
+<h4 id="planification-de-réarrangement">Planification de réarrangement</h4>
 
 <p>Le robot Baxter intervertit la position de boîtes, avec un puis deux bras.
 Ces problèmes ne sont pas monotones, c’est-à-dire qu’il n’existe pas de solution où chaque objet est manipulé au plus une fois, les uns après les autres.
 Cet exemple montre la capacité du planificateur à trouver des positions de boîtes intermédiaires
 ainsi qu’à considérer des manipulations simultanées.</p>
 
-<div class="center-block" style="display: table;">
-<div class="play-button" style="height: 315px; width: 560px; background-image: url('/img/thesis/posters/baxter_3box.jpg');">
-<button type="button" class="btn btn-default btn-play btn-lg" onclick="removePosterAndPlayVideo($(this), $(this).parent().children('iframe'), 'http://www.youtube.com/embed/kptp-zZw634?start=4&amp;end=34&amp;autoplay=1');">
-<span class="glyphicon glyphicon-play-circle"></span>
-</button>
-<iframe style="display:none;" height="315" width="560" src="" frameborder="0" allowfullscreen=""></iframe>
-</div>
-</div>
+<p>{% youtube kptp-zZw634?start=4&amp;end=34 class=”center-block” poster=/img/thesis/posters/baxter_3box.jpg %}</p>
 
-<h4 id="infrence">Inférence</h4>
+<h4 id="inférence">Inférence</h4>
 
 <p>Le robot PR2 doit prendre un objet à l’intérieur d’un tiroir.
 La contrainte de stabilité assure que l’objet se déplace quand le tiroir est déplacé.
@@ -486,9 +472,9 @@ Le planificateur découvre une solution où le robot ouvre le tiroir.
 Cet exemple montre la capacité d’exploration du planificateur.
 Il est capable de considérer des objets à la même position au début et à la fin.</p>
 
-<iframe height="315" width="560" class="center-block" src="http://www.youtube.com/embed/iRJtmt7RzDM" frameborder="0" allowfullscreen=""></iframe>
+<p>{% youtube iRJtmt7RzDM                class=”center-block” %}</p>
 
-<h3 id="robots-humanodes">Robots humanoïdes</h3>
+<h3 id="robots-humanoïdes">Robots humanoïdes</h3>
 
 <h4 id="mouvement-de-marche-quasi-statique">Mouvement de marche quasi-statique</h4>
 
@@ -500,47 +486,33 @@ La second vidéo utilise le critère de stabilité détaillé <a href="chap2.htm
 
 <div class="text-center">
 
-<video controls="" width="560px" height="315px" preload="metadata" onclick="(function(el){ if(el.paused) el.play(); else el.pause() })(this)"><source src="http://homepages.laas.fr/jmirabel/raw/videos/hrp2_step_over.mp4" type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" /></video>
-<video controls="" width="300px" height="315px" preload="metadata" onclick="(function(el){ if(el.paused) el.play(); else el.pause() })(this)"><source src="http://homepages.laas.fr/jmirabel/raw/videos/hrp2_stairs.mp4" type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" /></video>
+{% video http://homepages.laas.fr/jmirabel/raw/videos/hrp2_step_over.mp4 560px 315px %}
+{% video http://homepages.laas.fr/jmirabel/raw/videos/hrp2_stairs.mp4 300px 315px %}
 
 </div>
 
-<h4 id="romeo-tenant-une-bannire">Romeo tenant une bannière</h4>
+<h4 id="romeo-tenant-une-bannière">Romeo tenant une bannière</h4>
 
 <p>Cet exemple illustre également un cas avec feuilletages croisés.</p>
 
-<div class="center-block" style="display: table;">
-<div class="play-button" style="height: 315px; width: 560px; background-image: url('/img/thesis/posters/romeo_placard.jpg');">
-<button type="button" class="btn btn-default btn-play btn-lg" onclick="removePosterAndPlayVideo($(this), $(this).parent().children('iframe'), 'http://www.youtube.com/embed/kptp-zZw634?start=53&amp;autoplay=1');">
-<span class="glyphicon glyphicon-play-circle"></span>
-</button>
-<iframe style="display:none;" height="315" width="560" src="" frameborder="0" allowfullscreen=""></iframe>
-</div>
-</div>
+<p>{% youtube kptp-zZw634?start=53 class=”center-block” poster=/img/thesis/posters/romeo_placard.jpg %}</p>
 
-<h4 id="saisie-derrire-une-porte">Saisie derrière une porte</h4>
+<h4 id="saisie-derrière-une-porte">Saisie derrière une porte</h4>
 
 <p>Dans cet exemple, le planificateur infère qu’il doit ouvrir la porte du placard pour attraper l’objet.
 L’équilibre du robot est géré en deux étapes.
 Tout d’abord, on calcule un chemin pour le robot glissant, comme sur la vidéo ci-dessous.
 Ensuite, le chemin peut être transformé en un chemin faisable dynamiquement en utilisant la <a href="https://youtu.be/X5bYGF1slcI">méthode détaillé ici</a>.</p>
 
-<div class="center-block" style="display: table;">
-<div class="play-button" style="height: 315px; width: 560px; background-image: url('/img/thesis/posters/romeo_fridge.jpg');">
-<button type="button" class="btn btn-default btn-play btn-lg" onclick="removePosterAndPlayVideo($(this), $(this).parent().children('iframe'), 'http://www.youtube.com/embed/kptp-zZw634?start=34&amp;end=50&amp;autoplay=1');">
-<span class="glyphicon glyphicon-play-circle"></span>
-</button>
-<iframe style="display:none;" height="315" width="560" src="" frameborder="0" allowfullscreen=""></iframe>
-</div>
-</div>
+<p>{% youtube kptp-zZw634?start=34&amp;end=50 class=”center-block” poster=/img/thesis/posters/romeo_fridge.jpg %}</p>
 
 <hr />
 
-<div class="footnotes">
+<div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:quaternion">
-      <p><script type="math/tex">SO(3)</script> est représenté par des quaternions, avec les opérateurs différence et addition comme définis dans le <a href="chap2.html#notations-et-dfinitions">chapitre 2</a>.
-           Les opérations de différence entre deux quaternions et d’addition d’une vitesse à un quaternion <a href="#fnref:quaternion" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:quaternion" role="doc-endnote">
+      <p>\(SO(3)\) est représenté par des quaternions, avec les opérateurs différence et addition comme définis dans le <a href="chap2.html#notations-et-dfinitions">chapitre 2</a>.
+           Les opérations de différence entre deux quaternions et d’addition d’une vitesse à un quaternion <a href="#fnref:quaternion" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
 </div>
@@ -592,7 +564,7 @@ Ensuite, le chemin peut être transformé en un chemin faisable dynamiquement en
 
     <div class="container text-center">
       <p>
-        Copyright &copy; Joseph Mirabel 2017.
+        Copyright &copy; Joseph Mirabel 2021.
         <a href="https://github.com/panossakkos/personal-jekyll-theme/"/>Fork this website</a>.
         Adapted from <a href="https://github.com/panossakkos/personal-jekyll-theme/" target="_blank">{ Personal }</a>
       </p>

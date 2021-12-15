@@ -228,38 +228,40 @@
             </h2>
 
             <ul id="markdown-toc">
-  <li><a href="#objets-documentes" id="markdown-toc-objets-documentes">Objets documentées</a>    <ul>
+  <li><a href="#objets-documentées" id="markdown-toc-objets-documentées">Objets documentées</a>    <ul>
       <li><a href="#contrainte-de-contact" id="markdown-toc-contrainte-de-contact">Contrainte de contact</a></li>
     </ul>
   </li>
-  <li><a href="#gnration-du-graphe-des-contraintes" id="markdown-toc-gnration-du-graphe-des-contraintes">Génération du graphe des contraintes</a>    <ul>
-      <li><a href="#gnration-des-tats" id="markdown-toc-gnration-des-tats">Génération des états</a></li>
-      <li><a href="#gnration-des-transitions" id="markdown-toc-gnration-des-transitions">Génération des transitions</a></li>
+  <li><a href="#génération-du-graphe-des-contraintes" id="markdown-toc-génération-du-graphe-des-contraintes">Génération du graphe des contraintes</a>    <ul>
+      <li><a href="#génération-des-états" id="markdown-toc-génération-des-états">Génération des états</a></li>
+      <li><a href="#génération-des-transitions" id="markdown-toc-génération-des-transitions">Génération des transitions</a></li>
     </ul>
   </li>
 </ul>
 
-<h3 id="objets-documentes">Objets documentées</h3>
+<h3 id="objets-documentées">Objets documentées</h3>
 
-<figure id="affordance_dor-gripper" style="float: left; margin-right: 1em;">
-  <img class="img-responsive" src="/img/thesis/affordance/gripper.png" alt="Documentation of a gripper" style="height: 200px" />
-  <figcaption>
-
+<p>{% include img/with_cap_b.html
+ id=”affordance_dor-gripper”
+ src=”/img/thesis/affordance/gripper.png”
+ alt=”Documentation of a gripper”
+ style=”float: left; margin-right: 1em;”
+ img-style=”height: 200px” %}
 Préhenseur du robot.
-  </figcaption>
-</figure>
+{% include img/with_cap_e.html %}</p>
 
 <p>L’affordance est un problème complexe.
 Une documentation basique pour les préhenseurs, poignées et surfaces de contacts
 permet de s’abstraire de ce problème.</p>
 
-<figure id="affordance_dor-handle" style="width: 150px; float: right; margin-left: 1em;">
-  <img class="img-responsive" src="/img/thesis/affordance/handle.png" alt="Documentation of a handle" style="height: 200px" />
-  <figcaption>
-
-Poignée et surface de l'objet.
-  </figcaption>
-</figure>
+<p>{% include img/with_cap_b.html
+ id=”affordance_dor-handle”
+ src=”/img/thesis/affordance/handle.png”
+ alt=”Documentation of a handle”
+ style=”width: 150px; float: right; margin-left: 1em;”
+ img-style=”height: 200px” %}
+Poignée et surface de l’objet.
+{% include img/with_cap_e.html %}</p>
 
 <p>Sur les trois images ci-contre, les repères représentent les positions de saisies.
 L’axe X, en rouge, est un axe d’approche.
@@ -267,13 +269,14 @@ L’axe Z, en bleu, est un axe possible de rotation.
 Il est utilisé pour les saisies autorisant un ou plusieurs degrés de liberté.
 Une saisie est valide si les deux repères se confondent.</p>
 
-<figure id="affordance_dor-kitchen" style="width: 200px; float: left; margin-right: 1em;">
-  <img class="img-responsive" src="/img/thesis/affordance/kitchen.png" alt="Documentation of an environment" style="height: 200px" />
-  <figcaption>
-
-Surfaces de contact sur l'environnement.
-  </figcaption>
-</figure>
+<p>{% include img/with_cap_b.html
+ id=”affordance_dor-kitchen”
+ src=”/img/thesis/affordance/kitchen.png”
+ alt=”Documentation of an environment”
+ style=”width: 200px; float: left; margin-right: 1em;”
+ img-style=”height: 200px” %}
+Surfaces de contact sur l’environnement.
+{% include img/with_cap_e.html %}</p>
 
 <p>Les surfaces vertes sur l’objet définissent les parties de l’objet pouvant être en contact avec l’environnement.
 Celles sur l’environnement définissent les surfaces sur lesquelles peut être posé un objet.
@@ -281,54 +284,53 @@ Une surface est définie par un polygone convexe et coplanaire.</p>
 
 <h4 id="contrainte-de-contact">Contrainte de contact</h4>
 
-<figure id="dist_between_polygons" style="width: 495px; float: right; margin-left: 1em;">
-  <img class="img-responsive" src="/img/thesis/affordance/dist_between_polygones.jpg" alt="Distance between polygons" style="height: 300px" />
-  <figcaption>
-
+<p>{% include img/with_cap_b.html
+ id=”dist_between_polygons”
+ src=”/img/thesis/affordance/dist_between_polygones.jpg”
+ alt=”Distance between polygons”
+ style=”width: 495px; float: right; margin-left: 1em;”
+ img-style=”height: 300px” %}
 Distance entre deux polygones convexes coplanaires.
-  </figcaption>
-</figure>
+{% include img/with_cap_e.html %}</p>
 
-<p>Un contact entre deux surfaces <script type="math/tex">M</script>, mobile, et <script type="math/tex">S</script>, support, est considéré valide si le centre
+<p>Un contact entre deux surfaces \(M\), mobile, et \(S\), support, est considéré valide si le centre
 de la surface mobile est inclu dans la surface support.</p>
 
-<p>Le polygone support, <script type="math/tex">S</script>, est inclu dans le plan <script type="math/tex">\Pi</script>.
-<script type="math/tex">C_M</script> est le barycentre du polygone mobile <script type="math/tex">M</script>.
-<script type="math/tex">Q_{M,S}</script> est la projection de <script type="math/tex">C_M</script> sur <script type="math/tex">\Pi</script>, orthogonalement à <script type="math/tex">\Pi</script>.
-<script type="math/tex">d_{\parallel} (M, S)</script> est la norme de <script type="math/tex">\vec{Q_{M,S}C_S}</script>.
+<p>Le polygone support, \(S\), est inclu dans le plan \(\Pi\).
+\(C_M\) est le barycentre du polygone mobile \(M\).
+\(Q_{M,S}\) est la projection de \(C_M\) sur \(\Pi\), orthogonalement à \(\Pi\).
+\(d_{\parallel} (M, S)\) est la norme de \(\vec{Q_{M,S}C_S}\).
 <!--  correspond à Eq.~\eqref{eqn:distancePolygon_parallel}  -->
-<script type="math/tex">d_{\bot} (M, S)</script> est la norme de <script type="math/tex">\vec{Q_{M,S}C_M}</script>.
+\(d_{\bot} (M, S)\) est la norme de \(\vec{Q_{M,S}C_M}\).
 <!--  corresponds to Eq.~\eqref{eqn:distancePolygon_ortho}  --></p>
 
 <p>La contrainte de validation de contact est :
-<script type="math/tex">% <![CDATA[
-\begin{align}
+\(\begin{align}
   \func_{place} (\conf) =
                             \left\{
                               \begin{array}{cl}
-                                \left[ v_x, 0  , 0  , \omega_y, \omega_z \right] & \text{if } Q_{M,S} \in S \\
-                                \left[ v_x, v_y, v_z, \omega_y, \omega_z \right] & \text{otherwise}
+                                \left[ v_x, 0  , 0  , \omega_y, \omega_z \right] &amp; \text{if } Q_{M,S} \in S \\
+                                \left[ v_x, v_y, v_z, \omega_y, \omega_z \right] &amp; \text{otherwise}
                             \end{array}
                             \right. = 0
   \label{eqn:place_valid_c}
-\end{align} %]]></script>
+\end{align}\)
 et la fonction de paramétrization est :
-<script type="math/tex">% <![CDATA[
-\begin{align}
+\(\begin{align}
   \bar\func_{place} (\conf) =
                             \left\{
                               \begin{array}{cl}
-                                \left[ v_y, v_z, \omega_x \right] & \text{if } Q_{M,S} \in S \\
-                                \left[ 0  , 0  , \omega_x \right] & \text{otherwise}
+                                \left[ v_y, v_z, \omega_x \right] &amp; \text{if } Q_{M,S} \in S \\
+                                \left[ 0  , 0  , \omega_x \right] &amp; \text{otherwise}
                             \end{array}
                             \right.
   \label{eqn:place_param_c}
-\end{align} %]]></script>
+\end{align}\)
 où $\vec{v} = (v_x, v_y, v_z) \in \real{3}$ et $\vec{\omega} = (\omega_x, \omega_y, \omega_z) \in \real{3}$
-sont tel que $(\cross{\vec{\omega}}, \vec{v})$ est le logarithme<sup id="fnref:logarithme"><a href="#fn:logarithme" class="footnote">1</a></sup> de la transformation de 
-<script type="math/tex">\mathcal{R}_M</script> par rapport à <script type="math/tex">\mathcal{R}_S</script>.</p>
+sont tel que $(\cross{\vec{\omega}}, \vec{v})$ est le logarithme<sup id="fnref:logarithme" role="doc-noteref"><a href="#fn:logarithme" class="footnote" rel="footnote">1</a></sup> de la transformation de 
+\(\mathcal{R}_M\) par rapport à \(\mathcal{R}_S\).</p>
 
-<h3 id="gnration-du-graphe-des-contraintes">Génération du graphe des contraintes</h3>
+<h3 id="génération-du-graphe-des-contraintes">Génération du graphe des contraintes</h3>
 
 <p>À partir de la documentation ci-dessus, il est possible de générer automatiquement un graphe des contraintes.
 Pour limiter la combinatoire, l’utilisateur spécifie des règles indiquant,
@@ -337,12 +339,12 @@ valides ou interdites.
 Cet algorithme permet notamment de rendre plus accessible un outil de planification de manipulation.
 Bien que cela n’est pas été nécessaire, il serait également possible de spécifier des règles sur les surfaces de contact.</p>
 
-<h4 id="gnration-des-tats">Génération des états</h4>
+<h4 id="génération-des-états">Génération des états</h4>
 
 <p>Les états sont générés simplement en itérant sur toutes les possibilités d’associations de préhenseurs
 et de poignées.</p>
 
-<h4 id="gnration-des-transitions">Génération des transitions</h4>
+<h4 id="génération-des-transitions">Génération des transitions</h4>
 
 <p>L’algorithme construit automatiquement des transitions avec points de passage.
 Il détecte également les espaces de saisie et de placement qui sont feuilletés
@@ -350,13 +352,13 @@ et intégre des “crossed foliation transition” si nécessaire.</p>
 
 <hr />
 
-<div class="footnotes">
+<div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:logarithme">
+    <li id="fn:logarithme" role="doc-endnote">
       <p>Le logarithme est l’inverse de la
            <a href="https://en.wikipedia.org/wiki/Exponential_map_(Lie_theory)">carte exponentielle</a>
-           de <script type="math/tex">\mathfrak{se}(3)</script> vers <script type="math/tex">SE(3)</script>.
-           Cet inverse est unique si l’on ne s’intéresse qu’à l’inverse de plus petite norme. <a href="#fnref:logarithme" class="reversefootnote">&#8617;</a></p>
+           de \(\mathfrak{se}(3)\) vers \(SE(3)\).
+           Cet inverse est unique si l’on ne s’intéresse qu’à l’inverse de plus petite norme. <a href="#fnref:logarithme" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
 </div>
@@ -412,7 +414,7 @@ et intégre des “crossed foliation transition” si nécessaire.</p>
 
     <div class="container text-center">
       <p>
-        Copyright &copy; Joseph Mirabel 2017.
+        Copyright &copy; Joseph Mirabel 2021.
         <a href="https://github.com/panossakkos/personal-jekyll-theme/"/>Fork this website</a>.
         Adapted from <a href="https://github.com/panossakkos/personal-jekyll-theme/" target="_blank">{ Personal }</a>
       </p>

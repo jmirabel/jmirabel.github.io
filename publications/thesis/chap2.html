@@ -234,13 +234,13 @@
             </h2>
 
             <ul id="markdown-toc">
-  <li><a href="#notations-et-dfinitions" id="markdown-toc-notations-et-dfinitions">Notations et définitions</a>    <ul>
+  <li><a href="#notations-et-définitions" id="markdown-toc-notations-et-définitions">Notations et définitions</a>    <ul>
       <li><a href="#contraintes" id="markdown-toc-contraintes">Contraintes</a></li>
       <li><a href="#chemin" id="markdown-toc-chemin">Chemin</a></li>
     </ul>
   </li>
-  <li><a href="#chemin-continue-sur-des-varits" id="markdown-toc-chemin-continue-sur-des-varits">Chemin continue sur des variétés</a>    <ul>
-      <li><a href="#continuit-de-lalgorithme-de-newton-raphson" id="markdown-toc-continuit-de-lalgorithme-de-newton-raphson">Continuité de l’algorithme de Newton-Raphson</a></li>
+  <li><a href="#chemin-continue-sur-des-variétés" id="markdown-toc-chemin-continue-sur-des-variétés">Chemin continue sur des variétés</a>    <ul>
+      <li><a href="#continuité-de-lalgorithme-de-newton-raphson" id="markdown-toc-continuité-de-lalgorithme-de-newton-raphson">Continuité de l’algorithme de Newton-Raphson</a></li>
       <li><a href="#algorithmes" id="markdown-toc-algorithmes">Algorithmes</a>        <ul>
           <li><a href="#projection-progressive" id="markdown-toc-projection-progressive">Projection progressive</a></li>
           <li><a href="#projection-globale" id="markdown-toc-projection-globale">Projection globale</a></li>
@@ -249,55 +249,54 @@
       <li><a href="#planification-de-mouvement-continue" id="markdown-toc-planification-de-mouvement-continue">Planification de mouvement continue</a></li>
     </ul>
   </li>
-  <li><a href="#quilibre-quasi-statique" id="markdown-toc-quilibre-quasi-statique">Équilibre quasi-statique</a></li>
+  <li><a href="#équilibre-quasi-statique" id="markdown-toc-équilibre-quasi-statique">Équilibre quasi-statique</a></li>
 </ul>
 
-<h3 id="notations-et-dfinitions">Notations et définitions</h3>
+<h3 id="notations-et-définitions">Notations et définitions</h3>
 
-<p>Ce chapitre rappelle la définition de l’espace des configurations <script type="math/tex">\mathcal{CS}</script>.
+<p>Ce chapitre rappelle la définition de l’espace des configurations \(\mathcal{CS}\).
 Cet espace est le produit cartésien des ensembles de définition de chacune des articulations.
 Un soin particulier est porté aux espaces qui ne sont pas des espaces vectoriels.
-Les rotations non bornées sont représentées par le groupe spécial orthogonal de 2, <script type="math/tex">SO(2)</script>.
-Les rotations 3D sont représentées par le groupe spécial orthogonal de 3, <script type="math/tex">SO(3)</script>.
+Les rotations non bornées sont représentées par le groupe spécial orthogonal de 2, \(SO(2)\).
+Les rotations 3D sont représentées par le groupe spécial orthogonal de 3, \(SO(3)\).
 Pour chacun des espaces de configurations mentionnés, l’espace des vitesses correspondants est rappelé.
 Sur ces espaces, sont définies deux opérations:</p>
 
-<figure id="quaternion_interpolation" style="width: 40%; float: left; margin-right: 2em;">
-  <img class="img-responsive" src="/img/thesis/chapter2/notations/quaternion_interpolation.jpg" alt="Quaternion interpolation" />
-  <figcaption>
-
-Représentation schématique de l'interpolation de quaternion.
+<p>{% include img/with_cap_b.html
+ id=”quaternion_interpolation”
+ src=”/img/thesis/chapter2/notations/quaternion_interpolation.jpg”
+ alt=”Quaternion interpolation”
+ style=”width: 40%; float: left; margin-right: 2em;”%}
+Représentation schématique de l’interpolation de quaternion.
 La sphère unité de $\real{3}$ est représentée.
 $q_1$ et $q_2$ sont deux éléments de celle-ci.
 $-q_2$ représente la même rotation que $q_2$.
 Quand $cos(\theta) \ge 0$, le chemin $q_1 \to q_2$ est plus court que $q_1 \to -q_2$.
 Quand $cos(\theta) \lt 0$, le chemin $q_1 \to -q_2$ est plus court.
-  </figcaption>
-</figure>
+{% include img/with_cap_e.html %}</p>
 
 <ul>
-  <li>L’addition d’une vitesse <script type="math/tex">v</script> à une configuration <script type="math/tex">q</script>,
+  <li>L’addition d’une vitesse \(v\) à une configuration \(q\),
 qui donne la configuration obtenue après intégration de la vitesse pendant un temps unitaire.</li>
-  <li>La différence entre deux configurations <script type="math/tex">q_1</script> et <script type="math/tex">q_2</script>,
-qui donne la vitesse de plus petite norme pour passer de <script type="math/tex">q_1</script> à <script type="math/tex">q_2</script>.
-Une attention particulière est portée à <script type="math/tex">SO(3)</script> afin d’éviter de faire “le grand tour”.
-Les éléments de <script type="math/tex">SO(3)</script> sont représentés par des quaternions.
+  <li>La différence entre deux configurations \(q_1\) et \(q_2\),
+qui donne la vitesse de plus petite norme pour passer de \(q_1\) à \(q_2\).
+Une attention particulière est portée à \(SO(3)\) afin d’éviter de faire “le grand tour”.
+Les éléments de \(SO(3)\) sont représentés par des quaternions.
 La <a href="#quaternion_interpolation">figure</a> ci-contre illustre le problème à prendre en compte.</li>
 </ul>
 
-<p>Ces deux opérations nous permettent de définir, entre deux configurations <script type="math/tex">\conf_1, \conf_2</script>, une fonction de distance
-<script type="math/tex">\distance[D]{\conf_0}{\conf_1} = (\conf_1 - \conf_0)^T D (\conf_1 - \conf_0)</script>
+<p>Ces deux opérations nous permettent de définir, entre deux configurations \(\conf_1, \conf_2\), une fonction de distance
+\(\distance[D]{\conf_0}{\conf_1} = (\conf_1 - \conf_0)^T D (\conf_1 - \conf_0)\)
 et une fonction d’interpolation linéaire</p>
 
-<script type="math/tex; mode=display">% <![CDATA[
-\begin{equation}
+\[\begin{equation}
 \label{eqn:straight_interpolation}
 \straight(\conf_0, \conf_1) :
 \begin{array}{cl}
-  [0, 1] & \to \mathcal{CS} \\
-    s    & \mapsto \conf_0 + s \, (\conf_1 - \conf_0)
+  [0, 1] &amp; \to \mathcal{CS} \\
+    s    &amp; \mapsto \conf_0 + s \, (\conf_1 - \conf_0)
 \end{array}
-\end{equation} %]]></script>
+\end{equation}\]
 
 <h4 id="contraintes">Contraintes</h4>
 
@@ -310,12 +309,12 @@ Ces règles peuvent êtres encodées par deux types de contraintes sont définie
 
 <dl>
   <dt>Contrainte de validation</dt>
-  <dd>Contrainte de la forme <script type="math/tex">\func(\conf) = 0</script> où <script type="math/tex">\func \in \funcSpace</script> et <script type="math/tex">\conf \in \mathcal{CS}</script>.
-<script type="math/tex">n</script> est la <em>dimension</em> de la contrainte.</dd>
+  <dd>Contrainte de la forme \(\func(\conf) = 0\) où \(\func \in \funcSpace\) et \(\conf \in \mathcal{CS}\).
+\(n\) est la <em>dimension</em> de la contrainte.</dd>
   <dt>Contrainte de paramétrisation</dt>
   <dd>Contrainte de la forme $ \func (\conf) =  \rhs $
 où $\func \in \funcSpace$, $\conf \in \mathcal{CS}$ et $\rhs \in \real{n}$.
-$\rhs$ est le <em>paramètre</em> et <script type="math/tex">n</script> est la <em>dimension</em>.</dd>
+$\rhs$ est le <em>paramètre</em> et \(n\) est la <em>dimension</em>.</dd>
 </dl>
 
 <p>Une <em>contrainte de validation</em> est une <em>contrainte de paramétrisation</em> avec un paramètre $\rhs$ nul.
@@ -326,9 +325,9 @@ et à l’objet statique par rapport à la main du robot.</p>
 
 <h4 id="chemin">Chemin</h4>
 
-<p>Un chemin <script type="math/tex">\cpath \in \pathSpace</script> est une fonction continue de <script type="math/tex">[ 0, 1]</script> vers <script type="math/tex">\mathcal{CS}</script>.
-Il possède un fonction d’interpolation <script type="math/tex">\mathbf{interpolate}</script> et un ensemble de contraintes auquel il est soumis.
-La configuration <script type="math/tex">\cpath (t)</script>, évaluée à l’instant <script type="math/tex">t</script>, correspond à la projection de <script type="math/tex">\mathbf{interpolate}(t)</script>
+<p>Un chemin \(\cpath \in \pathSpace\) est une fonction continue de \([ 0, 1]\) vers \(\mathcal{CS}\).
+Il possède un fonction d’interpolation \(\mathbf{interpolate}\) et un ensemble de contraintes auquel il est soumis.
+La configuration \(\cpath (t)\), évaluée à l’instant \(t\), correspond à la projection de \(\mathbf{interpolate}(t)\)
 sur l’ensemble satisfaisant les contraintes du chemin.
 La méthode d’interpolation utilisé dans le reste de ce manuscrit est une interpolation linéaire par morceaux.
 Il est cependant possible d’utiliser d’autres méthodes.</p>
@@ -337,60 +336,55 @@ Il est cependant possible d’utiliser d’autres méthodes.</p>
 L’évaluation des contraintes à posteriori permet d’assurer que toutes les configurations du chemin satisfont les contraintes.
 Cependant, l’étape de projection n’est pas toujours continue. Ce problème est traité dans la section suivante.</p>
 
-<h3 id="chemin-continue-sur-des-varits">Chemin continue sur des variétés</h3>
+<h3 id="chemin-continue-sur-des-variétés">Chemin continue sur des variétés</h3>
 
 <p>Cette section traite de la continuité des chemins contraints.
 Deux algorithmes basés sur l’algorithme de Newton-Raphson sont proposés.
 L’image ci-dessous montre un cas où l’algorithme de Newton-Raphson génère un chemin contraint discontinu.</p>
 
-<figure class="img-responsive center-block" id="projection_polynome" style="width: 90%;">
-  <img class="img-responsive" src="/img/thesis/pathprojection/easy_example.jpg" alt="2D illustration of discontinuous path projection" />
-  <figcaption>
-
+<p>{% include img/with_cap_b.html
+ id=”projection_polynome”
+ src=”/img/thesis/pathprojection/easy_example.jpg”
+ alt=”2D illustration of discontinuous path projection”
+ class=”img-responsive center-block”
+ style=”width: 90%;”%}
 Cet exemple en 2 dimensions, où $(x,y)$ sont les paramètres de configuration, montre le graphe de $\func\left( (x,y) \right) = y^2 - 1$.
 Les 2 lignes horizontales en pointillées sont les solutions de $\func\left( (x,y) \right) = 0$.
 Les 2 points rouges sont 2 configurations satisfaisant $\func(\conf) = 0$.
-À gauche, la ligne bleue est l'interpolation linéaire entre les points rouges.
+À gauche, la ligne bleue est l’interpolation linéaire entre les points rouges.
 À droite, les lignes noires sont sa projection point par point.
 La discontinuité est représentée par les points noirs et la ligne rouge en pointillée.
-  </figcaption>
-</figure>
+{% include img/with_cap_e.html %}</p>
 
-<h4 id="continuit-de-lalgorithme-de-newton-raphson">Continuité de l’algorithme de Newton-Raphson</h4>
+<h4 id="continuité-de-lalgorithme-de-newton-raphson">Continuité de l’algorithme de Newton-Raphson</h4>
 
-<p>Cet algorithme améliore itérativement la configuration courante afin de diminuer la norme de la valeur de la contrainte <script type="math/tex">\func(\conf)</script>.
-La fonction d’itération <script type="math/tex">P_{\alpha} \in \mathcal{F} \left( \mathcal{CS}, \mathcal{CS} \right)</script>, avec <script type="math/tex">\alpha \gt 0</script> est:</p>
+<p>Cet algorithme améliore itérativement la configuration courante afin de diminuer la norme de la valeur de la contrainte \(\func(\conf)\).
+La fonction d’itération \(P_{\alpha} \in \mathcal{F} \left( \mathcal{CS}, \mathcal{CS} \right)\), avec \(\alpha \gt 0\) est:</p>
 
-<script type="math/tex; mode=display">\begin{equation}
+\[\begin{equation}
   P_{\alpha}(\conf) = \conf - \alpha \, \pseudoInv{\Jac(\conf)} \, \func (\conf)
   \label{eqn:projection_iteration}
-\end{equation}</script>
+\end{equation}\]
 
 <p>où $\pseudoInv{A}$ est l’inverse généralisé de $A$
 et $\Jac(\conf)$ est la matrice Jacobienne de $\func$ en $\conf$.
 $P_\alpha(\conf)$ est la configuration obtenue après une itération, à partir de $\conf$.</p>
 
-<div class="theorem " id="continuity_nr_iteration_function">
-  <div class="theorem-heading">
-    <b class="theorem-number"> Théorème : </b>
-    <b class="theorem-title">Continuité de $P_{\alpha}$</b>
-    <!--<br/>-->
-  </div>
-  <div class="theorem-body">
+<p>{% include theorem/b.html
+  id=”continuity_nr_iteration_function”
+  title=”Continuité de $P_{\alpha}$” %}</p>
 
-
-Soit $\func \in \mathcal{C}^1 \left( \mathcal{CS}, \mathbb{R}^m \right)$, $\Jac(\conf)$ sa jacobienne
+<p>Soit $\func \in \mathcal{C}^1 \left( \mathcal{CS}, \mathbb{R}^m \right)$, $\Jac(\conf)$ sa jacobienne
 et $\sigma(\conf)$ la plus petite valeur singulière non nulle de $\Jac(\conf)$.
-Finalement, soit $r = \max\limits_{\conf \in \mathcal{CS}} \left( rank(\Jac(\conf)) \right)$.
+Finalement, soit $r = \max\limits_{\conf \in \mathcal{CS}} \left( rank(\Jac(\conf)) \right)$.</p>
 
-Si $\Jac$ est une fonction $K$-Lipschitzienne alors, $\forall \conf \in \mathcal{CS}$
+<p>Si $\Jac$ est une fonction $K$-Lipschitzienne alors, $\forall \conf \in \mathcal{CS}$</p>
 
-$$ rank(\Jac(\conf)) = r         \Rightarrow        P_\alpha \text{ est continue sur } \ballContinuityF        $$
+\[rank(\Jac(\conf)) = r         \Rightarrow        P_\alpha \text{ est continue sur } \ballContinuityF\]
 
-  </div>
-</div>
+<p>{% include theorem/e.html %}</p>
 
-<p>La démonstration se trouve dans le <a href="http://homepages.laas.fr/jmirabel/jmirabel-thesis.pdf#page=26">manuscrit</a>.</p>
+<p>La démonstration se trouve dans le <a href="{{ site.data.thesis.pdf }}#page=26">manuscrit</a>.</p>
 
 <h4 id="algorithmes">Algorithmes</h4>
 
@@ -407,13 +401,14 @@ en s’assurant que</p>
   <li>chaque configuration satisfait les contraintes.</li>
 </ul>
 
-<figure class="img-responsive center-block" id="pathprojection_progressive" style="width: 80%;">
-  <img class="img-responsive" src="/img/thesis/pathprojection/progressive.png" alt="Progressive path projection algorithm" />
-  <figcaption>
-
+<p>{% include img/with_cap_b.html
+ id=”pathprojection_progressive”
+ src=”/img/thesis/pathprojection/progressive.png”
+ alt=”Progressive path projection algorithm”
+ class=”img-responsive center-block”
+ style=”width: 80%;”%}
 Méthode de projection progressive.
-  </figcaption>
-</figure>
+{% include img/with_cap_e.html %}</p>
 
 <p>L’image ci-dessus schématise son fonctionnement.
 La surface verte est $\func(\conf) = 0$.
@@ -436,15 +431,15 @@ satisfassent la contrainte et qu’ils soient suffisamment proche.</p>
   <li>Diminution de l’erreur à chaque point d’interpolation.</li>
 </ul>
 
-<figure class="img-responsive center-block" id="pathprojection_global" style="width: 90%;">
-  <img class="img-responsive" src="/img/thesis/pathprojection/global.png" alt="Global path projection algorithm" />
-  <figcaption>
-
+<p>{% include img/with_cap_b.html
+ id=”pathprojection_global”
+ src=”/img/thesis/pathprojection/global.png”
+ alt=”Global path projection algorithm”
+ class=”img-responsive center-block”
+ style=”width: 90%;”%}
 Méthode de projection globale.
-  </figcaption>
-</figure>
-
-<p>L’image ci-dessus schématise son fonctionnement.
+{% include img/with_cap_e.html %}
+L’image ci-dessus schématise son fonctionnement.
 La surface verte est $\func(\conf) = 0$.
 (a) montre le chemin initial.
 (b) et (d) montrent l’étape de ré-interpolation.
@@ -458,69 +453,70 @@ Chaque point d’interpolation est déplacé afin de diminuer l’erreur.</p>
 et celle de validation des collisions.
 Par example, on peut simplement modifier la fonction d’extension de l’algorithm Constrained-RRT comme suit.</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">constrainedExtend</span><span class="p">(</span><span class="n">conf_near</span><span class="p">,</span> <span class="n">conf_proj</span><span class="p">,</span> <span class="n">tree</span><span class="p">,</span> <span class="n">constraint</span><span class="p">):</span>
-  <span class="n">p_1</span> <span class="o">=</span> <span class="n">interpolate</span><span class="p">(</span><span class="n">conf_near</span><span class="p">,</span> <span class="n">conf_proj</span><span class="p">)</span>
-  <span class="n">pathProj</span> <span class="o">=</span> <span class="n">projector</span><span class="p">(</span><span class="n">constraint</span><span class="p">)</span>
-  <span class="n">p_2</span>  <span class="o">=</span> <span class="n">pathProj</span><span class="o">.</span><span class="nb">apply</span> <span class="p">(</span><span class="n">p_1</span><span class="p">)</span>
-  <span class="n">p_3</span>  <span class="o">=</span> <span class="n">testCollision</span> <span class="p">(</span><span class="n">p_2</span><span class="p">)</span>
-  <span class="n">conf_new</span> <span class="o">=</span> <span class="n">finalConfiguration</span> <span class="p">(</span><span class="n">p_3</span><span class="p">)</span>
-  <span class="n">tree</span><span class="o">.</span><span class="n">insertConfAndPath</span> <span class="p">(</span><span class="n">conf_new</span><span class="p">,</span> <span class="n">p_3</span><span class="p">)</span></code></pre></figure>
+<p>{% highlight python %}
+def constrainedExtend(conf_near, conf_proj, tree, constraint):
+  p_1 = interpolate(conf_near, conf_proj)
+  pathProj = projector(constraint)
+  p_2  = pathProj.apply (p_1)
+  p_3  = testCollision (p_2)
+  conf_new = finalConfiguration (p_3)
+  tree.insertConfAndPath (conf_new, p_3)
+{% endhighlight %}</p>
 
-<h3 id="quilibre-quasi-statique">Équilibre quasi-statique</h3>
+<h3 id="équilibre-quasi-statique">Équilibre quasi-statique</h3>
 
 <p>Cette section expose un critère d’équilibre quasi-statique dérivable basé sur de l’optimisation.</p>
 
-<figure class="img-responsive" id="qp_formulation" style="width: 40%; float: left; margin-right: 1em;">
-  <img class="img-responsive" src="/img/thesis/constraints/qp_formulation.jpg" alt="Non-coplanar friction-less multi-contact criterion" />
-  <figcaption>
-
+<p>{% include img/with_cap_b.html
+ id=”qp_formulation”
+ src=”/img/thesis/constraints/qp_formulation.jpg”
+ alt=”Non-coplanar friction-less multi-contact criterion”
+ class=”img-responsive”
+ style=”width: 40%; float: left; margin-right: 1em;”%}
 Critère de stabilité sans frottements pour des contacts non-coplanaire.
-  </figcaption>
-</figure>
+{% include img/with_cap_e.html %}</p>
 
-<p>Soit un robot soumis à des efforts externes <script type="math/tex">f_i \, \vec{n}_i</script>
-appliqués en <script type="math/tex">P_i</script>.
-<script type="math/tex">G</script> denote le centre de gravité du robot.
+<p>Soit un robot soumis à des efforts externes \(f_i \, \vec{n}_i\)
+appliqués en \(P_i\).
+\(G\) denote le centre de gravité du robot.
 L’équilibre quasi-statique du robot s’écrit</p>
 
-<script type="math/tex; mode=display">\begin{equation}
+\[\begin{equation}
 \label{eqn:stability_criteria}
 \exists \mathbf{f} \in [0, +\infty[^n, \phi \mathbf{f} + m \mathbf{G} = 0_{\real{6}}
-\end{equation}</script>
+\end{equation}\]
 
-<p>où <script type="math/tex">\mathbf{f} = (f_1, \dots, f_n)^T \in \real{+n}</script>,
-<script type="math/tex">\mathbf{G} = (0, 0, -9.81, 0, 0, 0)^T \in \real{6}</script>
+<p>où \(\mathbf{f} = (f_1, \dots, f_n)^T \in \real{+n}\),
+\(\mathbf{G} = (0, 0, -9.81, 0, 0, 0)^T \in \real{6}\)
 et 
-<script type="math/tex">% <![CDATA[
-\phi = \left( \begin{array}{ccc}
-        \dots & \vec{n}_i & \dots\\
-        \dots & \vec{P_iG} \times \vec{n}_i & \dots
-        \end{array} \right) \in \matrices{6}{n} %]]></script>.</p>
+\(\phi = \left( \begin{array}{ccc}
+        \dots &amp; \vec{n}_i &amp; \dots\\
+        \dots &amp; \vec{P_iG} \times \vec{n}_i &amp; \dots
+        \end{array} \right) \in \matrices{6}{n}\).</p>
 
-<p>En notant <script type="math/tex">\mathbf{H} = \phi^T \phi \in \matrices{n}{n}</script>
-et <script type="math/tex">\mathbf{g} = m \phi^T \mathbf{G} \in \real{n}</script>,
+<p>En notant \(\mathbf{H} = \phi^T \phi \in \matrices{n}{n}\)
+et \(\mathbf{g} = m \phi^T \mathbf{G} \in \real{n}\),
 le problème \eqref{eqn:stability_criteria} est équivalent au <em>problème quadratique</em> suivant:</p>
 
-<script type="math/tex; mode=display">% <![CDATA[
-\begin{equation}
+\[\begin{equation}
 \label{eqn:static_stability_qp}
 \begin{array}{rl}
-\min & C(\mathbf{f}) = \frac{1}{2}\mathbf{f}^T \mathbf{H} \mathbf{f} + \mathbf{f}^T \mathbf{g} \\
-s.t.& \mathbf{f} \ge 0
+\min &amp; C(\mathbf{f}) = \frac{1}{2}\mathbf{f}^T \mathbf{H} \mathbf{f} + \mathbf{f}^T \mathbf{g} \\
+s.t.&amp; \mathbf{f} \ge 0
 \end{array}
-\end{equation} %]]></script>
+\end{equation}\]
 
-<p>En notant <script type="math/tex">\mathbf{f}^*</script> l’optimum de \eqref{eqn:static_stability_qp},
-le critère d’équilibre est alors le coût optimal <script type="math/tex">C(\mathbf{f}^*)</script>.
+<p>En notant \(\mathbf{f}^*\) l’optimum de \eqref{eqn:static_stability_qp},
+le critère d’équilibre est alors le coût optimal \(C(\mathbf{f}^*)\).
 Ce critère vaut zéro en cas d’équilibre quasi-statique.
 Quand les conditions de relâchement supplémentaires de \eqref{eqn:static_stability_qp} sont strictement vérifiés,
 la dérivé du critère d’équilibre est :</p>
 
-<script type="math/tex; mode=display">\newcommand{\derive}[2][\conf]{\pd{#2}{#1}}
+\[\newcommand{\derive}[2][\conf]{\pd{#2}{#1}}
 \begin{equation}
 \label{eqn:derivative_optimal_cost}
 \derive{C(\mathbf{f}^*)} = \frac{1}{2}\mathbf{f}^{*T} \derive{\mathbf{H}} \mathbf{f}^* + \mathbf{f}^{*T} \derive{\mathbf{g}}
-\end{equation}</script>
+\end{equation}\]
 
 <p>Ce critère peut être intégré comme une contrainte dans une planificateur de mouvement contraint.</p>
 
@@ -575,7 +571,7 @@ la dérivé du critère d’équilibre est :</p>
 
     <div class="container text-center">
       <p>
-        Copyright &copy; Joseph Mirabel 2017.
+        Copyright &copy; Joseph Mirabel 2021.
         <a href="https://github.com/panossakkos/personal-jekyll-theme/"/>Fork this website</a>.
         Adapted from <a href="https://github.com/panossakkos/personal-jekyll-theme/" target="_blank">{ Personal }</a>
       </p>
